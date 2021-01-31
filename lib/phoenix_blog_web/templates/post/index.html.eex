@@ -1,0 +1,5 @@
+<ul>
+  <%= Enum.map(@posts, fn(post) -> %>
+    <li><%= link post.title, to: Routes.post_path(@conn, :show, post.slug) %></li>
+  <% end) %>
+</ul>

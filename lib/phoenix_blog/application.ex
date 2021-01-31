@@ -12,9 +12,10 @@ defmodule PhoenixBlog.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: PhoenixBlog.PubSub},
       # Start the Endpoint (http/https)
-      PhoenixBlogWeb.Endpoint
+      PhoenixBlogWeb.Endpoint,
       # Start a worker by calling: PhoenixBlog.Worker.start_link(arg)
       # {PhoenixBlog.Worker, arg}
+      PhoenixBlog.Repo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

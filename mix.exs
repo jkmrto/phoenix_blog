@@ -41,7 +41,10 @@ defmodule PhoenixBlog.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:earmark, "~> 1.4.13"},
+      {:timex, "~> 3.6.3"},
+      {:yamerl, "~> 0.8.1"}
     ]
   end
 

@@ -50,4 +50,24 @@ defmodule PhoenixBlogWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
   plug PhoenixBlogWeb.Router
+
+  @doc """
+  Dynamically loads configuration from the system environment
+  on startup.
+
+  It receives the endpoint configuration from the config files
+  and must return the updated configuration.
+  https://github.com/Nebo15/confex#integrating-with-phoenix 
+  """
+  def init(_type, config) do
+    {:ok, config} = Confex.Resolver.resolve(config)
+
+    IO.inspect(config)
+
+    unless config[:secret_key_base] do
+      raise "Set SECRET_KEY environment variable!"
+    end
+
+    {:ok, config}
+  end
 end

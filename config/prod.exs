@@ -16,13 +16,12 @@ config :phoenix_blog, PhoenixBlogWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-secret_key_base = "dummy-secret"
-
-config :phoenix_blog, PhoenixBlogWeb.Endpoint,
-  http: [
-    port: String.to_integer(System.get_env("PORT") || "4000"),
-    transport_options: [socket_opts: [:inet6]]
-  ],
-  secret_key_base: secret_key_base
+secret_key_base =
+  config :phoenix_blog, PhoenixBlogWeb.Endpoint,
+    http: [
+      port: {:system, :integer, "PORT", 4000},
+      transport_options: [socket_opts: [:inet6]]
+    ],
+    secret_key_base: "dummy-secret"
 
 config :phoenix_blog, PhoenixBlogWeb.Endpoint, server: true

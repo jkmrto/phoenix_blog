@@ -62,8 +62,6 @@ defmodule PhoenixBlogWeb.Endpoint do
   def init(_type, config) do
     {:ok, config} = Confex.Resolver.resolve(config)
 
-    IO.inspect(config)
-
     unless config[:secret_key_base] do
       raise "Set SECRET_KEY environment variable!"
     end

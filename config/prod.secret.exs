@@ -18,12 +18,7 @@
 # remember to add this file to your .gitignore.
 use Mix.Config
 
-secret_key_base =
-  System.get_env("SECRET_KEY_BASE") ||
-    raise """
-    environment variable SECRET_KEY_BASE is missing.
-    You can generate one by calling: mix phx.gen.secret
-    """
+secret_key_base = "dummy-secret"
 
 config :phoenix_blog, PhoenixBlogWeb.Endpoint,
   http: [
@@ -32,12 +27,13 @@ config :phoenix_blog, PhoenixBlogWeb.Endpoint,
   ],
   secret_key_base: secret_key_base
 
+config :phoenix_blog, PhoenixBlogWeb.Endpoint, server: true
+
 # ## Using releases (Elixir v1.9+)
 #
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start each relevant endpoint:
 #
-#     config :phoenix_blog, PhoenixBlogWeb.Endpoint, server: true
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.

@@ -36,7 +36,7 @@ $ docker run -i -t --net=host elixir iex --sname node2 --cookie cookie
 
 Let's check if our two nodes are connected:
 
-```languague-elixir
+```lang-elixir
 # Node2
 > Node.list()
 []

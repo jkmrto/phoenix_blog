@@ -1,6 +1,6 @@
 defmodule PhoenixBlog.Post do
   alias PhoenixBlog.Post
-  defstruct slug: "", title: "", date: "", intro: "", content: ""
+  defstruct slug: "", title: "", date: Timex.now(), intro: "", content: ""
 
   def compile(file) do
     {props, content} =

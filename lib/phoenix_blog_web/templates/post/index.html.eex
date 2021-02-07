@@ -1,5 +1,8 @@
-<ul>
+<ul  >
   <%= Enum.map(@posts, fn(post) -> %>
-    <li><%= link post.title, to: Routes.post_path(@conn, :show, post.slug) %></li>
+    <li style="display: flex; justify-content: space-between">
+      <%= link post.title, to: Routes.post_path(@conn, :show, post.slug) %>
+      <span> <%=  post.date %> </span>
+    </li>
   <% end) %>
 </ul>

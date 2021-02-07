@@ -29,3 +29,12 @@
 .alert:empty {
   display: none;
 }
+
+.nav-link{
+	padding: 20px;
+}
+
+#nav-bar{
+	justify-content: right;
+	flex-direction: row-reverse;
+}

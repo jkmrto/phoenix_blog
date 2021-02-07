@@ -37,7 +37,6 @@
 #nav-bar{
 	justify-content: right;
 	flex-direction: row-reverse;
-	padding: 15px
 }
 
 .post-link{
@@ -51,4 +50,14 @@
 	flex-direction: column;
 	padding-bottom: 25px;
 	padding-top: 15px;
+}
+
+#index-container{
+	background-color: rgb(245, 245, 245);
+	padding: 50px;
+}
+
+body{
+	background-image: url("/images/wallpaper.jpg");
+	background-position: center;
 }

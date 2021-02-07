@@ -1,4 +1,4 @@
-<ul  >
+<ul id="index-container"  >
   <%= Enum.map(@posts, fn(post) -> %>
     <li id="index-post-list">
       <div style="display: flex; justify-content: space-between">

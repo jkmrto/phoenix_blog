@@ -1,17 +1,18 @@
 ---
 author: "Juan Carlos Martinez de la Torre"
 date: 2019-03-23
-linktitle: elixir-transient-supervisor 
-menu:
-  main:
-    parent: tutorials
+linktitle: elixir-transient-supervisor
 title: Elixir Transient Supervisor
-weight: 10
+intro: Some weeks ago I was visiting the elixir forum when I found this question [Stop supervisor when no children are running anymore](https://elixirforum.com/t/stop-supervisor-when-no-children-are-running-anymore/20641). I tried to figure out a simple approach to get this done so I visited the documentation of the [Supervisor](  https://hexdocs.pm/elixir/Supervisor.html#summary) module.
+
+
 ---
 
-Some weeks ago I was visiting the elixir forum when I found this question: [Stop supervisor when no children are running anymore](https://elixirforum.com/t/stop-supervisor-when-no-children-are-running-anymore/20641). I tried to figure out a simple approach to get this done so I visited the documentation of the [Supervisor](  https://hexdocs.pm/elixir/Supervisor.html#summary) module. 
 
-Apparently there is no way to kill a Supervisor when all his children die just using some predefined option, so we need to get some workaround for this. At the question it is specified that the childs will implement the GenServer behaviour, so this opens for us a simple approach to detect when a child has died. 
+
+Some weeks ago I was visiting the elixir forum when I found this question: [Stop supervisor when no children are running anymore](https://elixirforum.com/t/stop-supervisor-when-no-children-are-running-anymore/20641). I tried to figure out a simple approach to get this done so I visited the documentation of the [Supervisor](  https://hexdocs.pm/elixir/Supervisor.html#summary) module.
+
+Apparently there is no way to kill a Supervisor when all his children die just using some predefined option, so we need to get some workaround for this. At the question it is specified that the childs will implement the GenServer behaviour, so this opens for us a simple approach to detect when a child has died.
 
 GenServer give us the possibility to track when the process is going to exit and do some action, that is using the [terminate](https://hexdocs.pm/elixir/GenServer.html#c:terminate/2) callback. We can use this to evaluate the number of processes associated to the supervisor and decide to kill it if there is no more children running under it.
 
@@ -103,7 +104,7 @@ end
 
 This module has the most interesting part of the code. When starting the GenServer, it receives as argument the seconds to sleep before exiting,  that is to simulate a real worker that will end at some point.
 
-This number of seconds is sent at the `init(..)` using `Process.send_after(..)`, sending a message to the own process in order to sleep for that seconds and then stops the GenServer. 
+This number of seconds is sent at the `init(..)` using `Process.send_after(..)`, sending a message to the own process in order to sleep for that seconds and then stops the GenServer.
 
 This stop is trapped at the `terminate()` function. This function launches an external process that will execute the function  `stop_transient_supervisor()` defined at the transient supervisor module. It is important to note that we should avoid executing the function inside the GenServer process since this will block the GenServer, so it wont exit succesfully.
 
@@ -150,7 +151,3 @@ end
 Although this seems like a valid approach that can fulfill the initial question, we should reconsider if it is good pattern to start a supervisor and later kill it, maybe we are doing some kind of OTP antipattern. Ideally a Supervisor should be something stable at the supervision tree.
 
 Indead there is a [discussion](https://elixirforum.com/t/supervisor-dies-with-its-child/466/9?u=jkmrto) at Elixir forum where something related to this has been already posted. There other approaches that although can be quite more complex that the one posted here, they seems like a better appraoch at the OTP world.
-
-
-
-

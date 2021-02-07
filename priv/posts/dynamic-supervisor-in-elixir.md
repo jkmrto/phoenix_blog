@@ -2,14 +2,9 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2019-02-03
 linktitle: dynamic-supervisor
-menu:
-  main:
-    parent: tutorials
-next: /tutorials/github-pages-blog
-prev: /tutorials/automated-deployments
 title: Dynamic Supervisor With Registry
-description: This post will expose how to build a basic dynamic supervisor in Elixir.
-weight: 10
+intro: One of the main feature of [Elixir](https://elixir-lang.org/ ) is the ability to guarantee that if a supervised process fails or get crashed for any reason, other process with the same functinality will be started as soon as the supervisor process realizes the problem. This is related to the fault-tolerance capability.
+
 ---
 
 One of the main feature of [Elixir](https://elixir-lang.org/ ) is the ability to guarantee that if a supervised process fails or get crashed for any reason, other process with the same functinality will be started as soon as the supervisor process realizes the problem. This is related to the fault-tolerance capability.
@@ -60,7 +55,7 @@ defmodule DynamicSupervisorWithRegistry do
     ]
 
     # :one_to_one strategy indicates only the crashed child will be restarted, without affecting the rest of children.
-    opts = [strategy: :one_for_one, name: __MODULE__] 
+    opts = [strategy: :one_for_one, name: __MODULE__]
     Supervisor.start_link(children, opts)
   end
 end
@@ -101,7 +96,7 @@ end
 ```
 At the code above it is important to note:
 * When starting a new child it is settled ```restart: :transient ```, what indicates that workers will be restarted only if they terminate due to an error not if it was a ```:normal``` termination. This configuration could be modified per each child.
-* When ```init``` the process the restarting strategy selected is ```strategy: :one_for_one``` so only the crashed process will be restarted without affecting othersprocesses. 
+* When ```init``` the process the restarting strategy selected is ```strategy: :one_for_one``` so only the crashed process will be restarted without affecting othersprocesses.
 
 
 ## Worker
@@ -160,7 +155,7 @@ end
 
 ## Creating three workers
 Let's use the interactive shell of elixir (```iex -S mix```) to run the code. To create three new workers:
- 
+
 ```
 iex(1)> alias DynamicSupervisorWithRegistry.WorkersSupervisor
 DynamicSupervisorWithRegistry.WorkersSupervisor
@@ -211,7 +206,7 @@ iex(11)> Worker.crash("worker_2")
 
 16:39:24.410 [error] GenServer {:workers_registry, "worker_2"} terminating
 
-iex(12)> 
+iex(12)>
 ** (RuntimeError) Error, Server worker_2 has crashed
     (dynamic_supervisor_example) lib/dynamic_supervisor_with_registry/worker.ex:28: DynamicSupervisorWithRegistry.Worker.handle_cast/2
     (stdlib) gen_server.erl:637: :gen_server.try_dispatch/4
@@ -219,13 +214,13 @@ iex(12)>
     (stdlib) proc_lib.erl:249: :proc_lib.init_p_do_apply/3
 Last message: {:"$gen_cast", :raise}
 State: "worker_2"
- 
+
 16:39:24.411 [info]  Starting "worker_2"
 ```
 
 Again we can identified the ```terminate``` message but in this case the reason of error is not ```:normal``` so it displays all the traces related to the error.
 
-It also appears the error message that logs the error when the process crash. 
+It also appears the error message that logs the error when the process crash.
 
 At last the ```Starting "worker_2"``` can be seen since the GenServer was restarted by the supervisor.
 

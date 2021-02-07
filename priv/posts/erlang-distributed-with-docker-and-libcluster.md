@@ -2,14 +2,10 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2019-09-11
 linktitle: erlang-distributed-with-docker-and-libcluster
-menu:
-  main:
-    parent: tutorials
-next: /tutorials/github-pages-blog
-prev: /tutorials/automated-deployments
 title: Erlang distributed with docker and libcluster.
-description: Docker, Erlang, Libcluster.
 weight: 10
+intro: Last days I have been diving a little into the wonderful world of Erlang distributed. Elixir, has some built-in constructs for distributed systems which makes easier to distribute systems in comparison with other programming paradigms.
+
 ---
 
 # Motivation

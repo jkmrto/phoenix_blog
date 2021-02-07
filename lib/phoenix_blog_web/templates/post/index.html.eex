@@ -1,8 +1,11 @@
 <ul  >
   <%= Enum.map(@posts, fn(post) -> %>
-    <li style="display: flex; justify-content: space-between">
-      <%= link post.title, to: Routes.post_path(@conn, :show, post.slug) %>
-      <span> <%=  Timex.format!(post.date, "{YYYY}-{0M}-{0D}") %> </span>
+    <li id="index-post-list">
+      <div style="display: flex; justify-content: space-between">
+         <%= link post.title, to: Routes.post_path(@conn, :show, post.slug), class: "post-link" %>
+        <span> <%=  Timex.format!(post.date, "{YYYY}-{0M}-{0D}") %> </span>
+      </div>
+      <span> <%=  post.intro %> </span>
     </li>
   <% end) %>
 </ul>

@@ -2,11 +2,9 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2020-02-20
 linktitle: some-thoughts-about-my-first-steps-with-vim
-next: /tutorials/github-pages-blog
-prev: /tutorials/automated-deployments
 title: Some thougths about my firsts steps with VIM
-description: Vim, first-steps
-weight: 10
+intro: One of the unexpected things I found when I started to work at Derivco was that almost everyone in my team was using Vim. How can they do that? Edit all the projects just using the terminal. It seems like black magic to me.
+
 ---
 
 One of the unexpected things I found when I started to work at Derivco was that almost everyone in my team was using Vim. How can they do that? Edit all the projects just using the terminal. It seems like black magic to me.

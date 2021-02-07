@@ -37,4 +37,18 @@
 #nav-bar{
 	justify-content: right;
 	flex-direction: row-reverse;
+	padding: 15px
+}
+
+.post-link{
+	color: black;
+	font-weight: bold;
+}
+
+#index-post-list{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding-bottom: 25px;
+	padding-top: 15px;
 }

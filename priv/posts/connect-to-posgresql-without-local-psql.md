@@ -2,14 +2,8 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2019-11-26
 linktitle: connect-to-remote-postgresql-without-local-psql
-menu:
-  main:
-    parent: tutorials
-next: /tutorials/github-pages-blog
-prev: /tutorials/automated-deployments
 title:  "[TIL] How to connect to a remote postgresql without local psql"
-description: This tutorial will show you how to create a simple theme in Hugo.
-weight: 10
+intro: A simple way to connect to a postgresql database without having to use local psql client.
 ---
 
 
@@ -27,7 +21,7 @@ Using a docker can be useful for:
 
 2. Ensuring the posgresql-client is in the same version as the database where we pretend to get connected.
 
-We can indicate a command to be exeucted with `-c` option: 
+We can indicate a command to be exeucted with `-c` option:
 
 
 ```Bash

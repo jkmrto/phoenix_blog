@@ -2,14 +2,9 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2019-12-09
 linktitle: check-a-list-is-increasing-in-elixir
-menu:
-  main:
-    parent: tutorials
-next: /tutorials/github-pages-blog
-prev: /tutorials/automated-deployments
 title:  "[TIL] How to check that a list has increasing values in Elixir"
-description: This tutorial will show you how to create a simple theme in Hugo.
-weight: 10
+intro: I have been these days solving some of the problems of [advent of code](https://adventofcode.com/). These problems are a really nice way to sharp your skills with any programming language.  Although  my preferred language is still Elixir, I am trying to improve a little of my [Go](https://golang.org/) knowledge so I decided to give a try solving these problems. [Here](https://github.com/jkmrto/advent_of_code_2019) there are the solutions that I wrote.
+
 ---
 
 I have been these days solving some of the problems of [advent of code](https://adventofcode.com/). These problems are a really nice way to sharp your skills with any programming language.  Although  my preferred language is still Elixir, I am trying to improve a little of my [Go](https://golang.org/) knowledge so I decided to give a try solving these problems. [Here](https://github.com/jkmrto/advent_of_code_2019) there are the solutions that I wrote.

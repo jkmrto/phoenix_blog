@@ -5,7 +5,7 @@
          <%= link post.title, to: Routes.post_path(@conn, :show, post.slug), class: "post-link" %>
         <span> <%=  Timex.format!(post.date, "{YYYY}-{0M}-{0D}") %> </span>
       </div>
-      <span> <%=  post.intro %> </span>
+      <span class:"index-intro" > <%=  post.intro %> </span>
     </li>
   <% end) %>
 </ul>

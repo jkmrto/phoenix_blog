@@ -1,0 +1,41 @@
+<div class="col-md-3"></div>
+<div class="col-md-7" style="margin: 15px">
+    <div id="resume-summary" class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img id="index-photo" src="/images/perfil.jpeg" />
+        </div>
+        <div class="col-7">
+            <h2 id="resume-name">
+                Juan Carlos Martinez de la Torre
+            </h2>
+            <h3> Software Engineer </h3>
+            <address class="address">Barcelona</address>
+            <ul id="resume-social-links">
+                <li>
+                    <a href="mailto:jkmrto@gmail.com">
+                        <i class="fa fa-envelope resume-icon"></i>
+                        <span>jkmrto@gmail.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.github.com/jkmrto" />
+                    <i class="fab fa-github resume-icon"></i>
+                    <span>github.com/jkmrto/</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h2>
+        Experience
+    </h2>
+
+    <%= render "palmtree.html" %>
+    <%= render "derivco.html" %>
+    <%= render "paack.html" %>
+
+    <h2>
+        Education
+    </h2>
+</div>

@@ -1,0 +1,43 @@
+<div class="experience-all-container">
+    <div class="experience-intro-container">
+        <img class="resume-company-img" src="/images/paack.png" />
+
+        <div class="experience-header-container">
+            <h3>
+                Paack - <em class="role">Backend Developer</em>
+            </h3>
+
+            <div class="entry-header">
+                <p class="date" style="margin-bottom:5px">
+                    March 2020 - Currently
+                </p>
+
+                <div>
+                    <p style="margin-bottom:5px">
+                        <%= render "badges/go.html" %>
+                        <%= render "badges/docker.html" %>
+                        <%= render "badges/rabbitmq.html" %>
+                        <%= render "badges/postgresql.html" %>
+                        <%= render "badges/kubernetes.html" %>
+                        <%= render "badges/python.html" %>
+                        <%= render "badges/helm.html" %>
+                        <%= render "badges/graphql.html" %>
+                        <%= render "badges/google-cloud.html" %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="exp-desc">
+
+        <p>
+            Almost all my career I had been working mainly with Elixir and his ecosystem. I felt I needed to try some other technologies, that is why I decided to make a move to Golang. Paack is an startup focused in logistics. When I entered the compay they were trying to expand their backend using Golang. This new experience allows me to get a deeper knowledge of SOLID principles, hexagonal architecture and how to approach 24/7 systems without OTP.
+
+        </p>
+    </div>
+
+</div>

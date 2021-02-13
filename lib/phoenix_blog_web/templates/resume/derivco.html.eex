@@ -1,0 +1,40 @@
+<div class="experience-all-container">
+    <div class="experience-intro-container">
+        <img class="resume-company-img" src="/images/derivco.png" />
+
+
+        <div class="experience-header-container">
+            <h3>
+                Derivco - <em class="role">Software Developer</em>
+            </h3>
+
+            <div class="entry-header">
+                <p class="date" style="margin-bottom:5px">
+                    May 2019 - February 2020
+                </p>
+
+                <p style="margin-bottom:5px">
+                    <%= render "badges/elixir.html" %>
+                    <%= render "badges/ruby.html" %>
+                    <%= render "badges/go.html" %>
+                    <%= render "badges/rabbitmq.html" %>
+                    <%= render "badges/postgresql.html" %>
+                    <%= render "badges/docker.html" %>
+                    <%= render "badges/ansible.html" %>
+                    <%= render "badges/azure.html" %>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="exp-desc">
+        <p>
+            After being working for a tiny startup for almost three years I wanted to try some kind of bigger company and continue working with Elixir. That's why I decided to join Derivco which is the company that with more that 4.000 workers around the world is Software provider for Betway, one of the bigger sportbook around the world.
+        </p>
+        <p>
+            At Derivco I was part of the Core team in charge of develop and mantain serveral service in Ruby, Elixir and Golang.
+        </p>
+    </div>
+
+</div>

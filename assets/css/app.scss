@@ -1,112 +1,156 @@
 /* This file is for your main application css. */
+
+@import "custom";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+//@import '~@fortawesome/fontawesome-free-brands';
 @import "./phoenix.css";
-@import '~font-awesome/css/font-awesome.css';
 
 /* Alerts and form errors */
+
 .alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
+
 .alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
 }
+
 .alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
 }
+
 .alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
+
 .alert p {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
+
 .alert:empty {
-  display: none;
+    display: none;
 }
 
 // layout
-#header{
-	width: 80.0rem;
-	margin: auto;
-	margin-bottom: 20px;
-	border-radius: 10px;
+#header {
+    width: 90.0rem;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
-#main-container{
-	background-color: rgb(250, 250, 250);
-	border-radius: 30px;
+#main-container {
+    background-color: rgb(250, 250, 250);
+    border-radius: 30px;
+    max-width: 90.0rem;
 }
 
-.nav-link{
-	padding: 20px;
+.nav-link {
+    padding: 20px;
 }
 
-#nav-bar{
-	justify-content: right;
-	flex-direction: row-reverse;
+#nav-bar {
+    justify-content: right;
+    flex-direction: row-reverse;
 }
 
-.post-link{
-	color: black;
-	font-weight: bold;
-	font-size: 20px;
+.post-link {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
 }
-
 
 // index
-#index-post-list{
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
-	padding-bottom: 25px;
-	padding-top: 15px;
+#index-post-list {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 25px;
+    padding-top: 15px;
 }
 
-#index-container{
-	padding: 50px;
+#index-container {
+    padding: 50px;
 }
 
-#index-container{
-	color: rgb(70, 70, 70);
+#index-container {
+    color: rgb(70, 70, 70);
 }
 
-body{
-	background-image: url("/images/wallpaper.jpg");
-	background-position: center;
+body {
+    background-image: url("/images/wallpaper.jpg");
+    background-position: center;
 }
 
 #index-photo {
- width:100%;
- max-width:256px;
- border-radius:25%;
- padding: 20%;
+    width: 100%;
+    max-width: 256px;
+    border-radius: 20%;
+    padding: 5%;
+    padding-left: 0%;
 }
 
 // Resume styles
-
-.resume-icon{
-	font-size: 30px;
+.resume-icon {
+    font-size: 30px;
 }
 
-#resume-social-links{
-	margin-top: 30px
+#resume-social-links {
+    margin-top: 30px
+}
 
+#resume-name{
+   padding-top: 20px;
+    font-size: 30px;
+}
+
+#resume-summary{
+   padding: 20px;
 }
 
 .badge {
- 	background-color:#0091ff;
- 	border-radius:.75em;
- 	color:#fff;
- 	display:inline-block;
- 	font-size:10.25pt;
- 	font-weight:700;
- 	padding:.3em .65em;
- 	text-decoration:none
+    background-color: #0091ff;
+    border-radius: .75em;
+    color: #fff;
+    display: inline-block;
+    font-size: 10.25pt;
+    font-weight: 700;
+    padding: .3em .65em;
+    text-decoration: none;
+
+  border: 5px solid;
+}
+
+.experience-header-container{
+	display: flex;
+ 	flex-direction: column;
+}
+
+.experience-intro-container{
+	display: flex;
+	margin-top: 30px;
+}
+
+.resume-company-img{
+    flex-basis: auto;
+    margin-right: 20px;
+    width: 140px;
+    width: 140px;
+}
+
+.experience-all-container{
+	border-bottom: solid 1px rgba(0, 0, 0, 0.4);
+	padding-bottom: 20px;
 }

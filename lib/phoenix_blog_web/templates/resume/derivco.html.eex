@@ -9,11 +9,11 @@
             </h3>
 
             <div class="entry-header">
-                <p class="date" style="margin-bottom:5px">
+                <p class="resume-date">
                     May 2019 - February 2020
                 </p>
 
-                <p style="margin-bottom:5px">
+                <p class="resume-badges-container">
                     <%= render "badges/elixir.html" %>
                     <%= render "badges/ruby.html" %>
                     <%= render "badges/go.html" %>

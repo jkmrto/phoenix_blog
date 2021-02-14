@@ -13,7 +13,7 @@
                 </p>
 
                 <div>
-                    <p style="margin-bottom:5px">
+                    <p class="resume-badges-container">
                         <%= render "badges/go.html" %>
                         <%= render "badges/docker.html" %>
                         <%= render "badges/rabbitmq.html" %>

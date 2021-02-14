@@ -38,4 +38,8 @@
     <h2>
         Education
     </h2>
+
+    <%= render "grado-teleco.html" %>
+    <%= render "master-teleco.html" %>
+
 </div>

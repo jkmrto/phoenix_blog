@@ -7,10 +7,10 @@
                 Palmtree Statistics - <em class="role">Software Developer</em>
             </h3>
             <div class="entry-header">
-                <p class="date" style="margin-bottom:5px">
+                <p class="resume-date">
                     Septembre 2016 - April 2019
                 </p>
-                <div>
+                <div class=" resume-badges-container">
                     <%= render "badges/elixir.html" %>
                     <%= render "badges/python.html" %>
                     <%= render "badges/rabbitmq.html" %>

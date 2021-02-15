@@ -18,6 +18,12 @@ defmodule PhoenixBlog.Repo do
   end
 
   def handle_call(:list, _from, posts) do
-    {:reply, {:ok, posts}, posts}
+    ordered_posts =
+      Enum.reduce(posts, %{}, fn post, acc ->
+        current = Map.get(acc, post.date.year, [])
+        Map.put(acc, post.date.year, [post | current])
+      end)
+
+    {:reply, {:ok, ordered_posts}, posts}
   end
 end

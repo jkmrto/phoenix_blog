@@ -11,23 +11,23 @@
             </h2>
             <h3> Software Engineer </h3>
             <address class="address">Barcelona</address>
-            <ul id="resume-social-links">
-                <li>
-                    <a href="mailto:jkmrto@gmail.com">
-                        <i class="fa fa-envelope resume-icon"></i>
-                        <span>jkmrto@gmail.com</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.github.com/jkmrto" />
+
+
+            <div id="resume-summary-contact">
+                <a href="mailto:jkmrto@gmail.com">
+                    <i class="fa fa-envelope resume-icon"></i>
+                </a>
+                <a href="https://www.github.com/jkmrto">
                     <i class="fab fa-github resume-icon"></i>
-                    <span>github.com/jkmrto/</span>
-                    </a>
-                </li>
-            </ul>
+                </a>
+                <a href="https://www.linkedin.com/in/jkmrto">
+                    <i class="fab fa-linkedin resume-icon"></i>
+                </a>
+
+            </div>
         </div>
     </div>
-    <h2>
+    <h2 id="resume-section-title">
         Experience
     </h2>
 
@@ -35,7 +35,7 @@
     <%= render "derivco.html" %>
     <%= render "paack.html" %>
 
-    <h2>
+    <h2 id="resume-section-title">
         Education
     </h2>
 

@@ -19,10 +19,13 @@ defmodule PhoenixBlog.Repo do
 
   def handle_call(:list, _from, posts) do
     ordered_posts =
-      Enum.reduce(posts, %{}, fn post, acc ->
+      posts
+      |> Enum.reduce(%{}, fn post, acc ->
         current = Map.get(acc, post.date.year, [])
         Map.put(acc, post.date.year, [post | current])
       end)
+      |> Enum.sort(fn {date1, _}, {date2, _} -> date1 > date2 end)
+      |> Enum.map(fn {year, posts} -> {year, Enum.sort(posts, &(&1.date > &2.date))} end)
 
     {:reply, {:ok, ordered_posts}, posts}
   end

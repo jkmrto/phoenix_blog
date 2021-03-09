@@ -17,6 +17,9 @@ defmodule PhoenixBlogWeb.Router do
     pipe_through :browser
 
     get "/resume", ResumeController, :index
+
+    get "/contact", ContactController, :index
+
     get "/:slug", PostController, :show
     get "/", PostController, :index
   end

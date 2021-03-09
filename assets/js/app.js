@@ -2,6 +2,8 @@
 // The MiniCssExtractPlugin is used to separate it out into
 // its own CSS file.
 import "../css/app.scss";
+import "../css/contact-main.css";
+import "../css/contact-util.css";
 import Prism from "prismjs";
 
 // webpack automatically bundles all modules in your

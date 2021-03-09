@@ -9,10 +9,11 @@
             <h2 id="resume-name">
                 Juan Carlos Martinez de la Torre
             </h2>
+
+            Just another telecommunications enginner who enjoys coding.
+
             <h3> Software Engineer </h3>
             <address class="address">Barcelona</address>
-
-
             <div id="resume-summary-contact">
                 <a href="mailto:jkmrto@gmail.com">
                     <i class="fa fa-envelope resume-icon"></i>

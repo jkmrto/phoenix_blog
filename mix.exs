@@ -45,7 +45,8 @@ defmodule PhoenixBlog.MixProject do
       {:earmark, "~> 1.4.13"},
       {:timex, "~> 3.6.3"},
       {:yamerl, "~> 0.8.1"},
-      {:confex, "~> 3.5.0"}
+      {:confex, "~> 3.5.0"},
+      {:bamboo_smtp, "~> 4.0.0"}
     ]
   end
 

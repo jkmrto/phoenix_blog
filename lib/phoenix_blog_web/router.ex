@@ -19,6 +19,7 @@ defmodule PhoenixBlogWeb.Router do
     get "/resume", ResumeController, :index
 
     get "/contact", ContactController, :index
+    post "/contact", ContactController, :create
 
     get "/:slug", PostController, :show
     get "/", PostController, :index

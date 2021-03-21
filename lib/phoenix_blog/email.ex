@@ -15,6 +15,7 @@ defmodule PhoenixBlog.Email do
         text_body: "[" <> email <> "] " <> name <> "\n\n" <> message
       )
 
+    IO.inspect(config)
     PhoenixBlog.Mailer.deliver_now!(mail, config: config)
   end
 end

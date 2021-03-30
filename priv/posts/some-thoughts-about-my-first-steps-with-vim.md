@@ -43,7 +43,7 @@ This plugin allows searching files blazingly fast. Got used to VSCode and the `C
 
 The best part of the meeting this plugin was discovering that FZF can be used in the command line to find files. Another nice utility is the possibility to overwrite the `Ctrl + r`, In my case adding to the `~/.zshrc` file:
 
-```
+```sh
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == */opt/fzf/bin* ]]; then

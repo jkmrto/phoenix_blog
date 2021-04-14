@@ -2,7 +2,7 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2021-04-14
 title: Fancy navigation through git branches
-intro: An easy way to make easier the easier the navigation through git brances is use `fzf` on it.
+intro: An easy way to navigate through git branches using fzf.
 
 weight: 10
 ---

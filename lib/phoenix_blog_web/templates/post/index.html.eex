@@ -3,7 +3,7 @@
     <div class="posts-year-sectioner"> <%=  year %> </div>
     <%= Enum.map(posts, fn(post) -> %>
     <li id="index-post-list">
-        <div style="display: flex; justify-content: space-between">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
             <%= link post.title, to: Routes.post_path(@conn, :show, post.slug), class: "post-link" %>
             <span> <%=  Timex.format!(post.date, "{YYYY}-{Mshort}") %> </span>
         </div>

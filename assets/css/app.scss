@@ -14,21 +14,54 @@ code{
      background: #c1c1c1
 }
 
+.toc{
+    font-family: roboto;
+    font-size: 18px;
+}
+
+.toc:hover, .toc:focus {
+    background-size: 100% 2px;
+	color: black;
+}
+
+.toc-h3{
+    padding-left: 50px;
+}
+
 p {
     font-family: roboto;
-    font-size: 17px;
+    font-size: 18px;
     margin-bottom: 10px;
     margin-top: 10px;
+    text-align: justify;
+}
+
+li {
+    font-family: roboto;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+h1 {
+    margin-top: 50px;
+    color: #193b0a;
+    font-weight: bold;
 }
 
 h2 {
-    margin-bottom: 10px;
-    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    color: #193b0a;
+    font-weight: bold;
 }
 
 h3 {
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
+    color: #193b0a;
+    font-weight: bold;
 }
 
 .alert {
@@ -196,7 +229,7 @@ body {
 }
 
 .education-title{
-    font-size: 25px;
+    font-size: 23px;
     font-variant: petite-caps ;
     margin-bottom: 10px;
     margin-top: 10px;

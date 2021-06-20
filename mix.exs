@@ -44,7 +44,6 @@ defmodule PhoenixBlog.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:earmark, "~> 1.4.13"},
       {:timex, "~> 3.6.3"},
-      {:yamerl, "~> 0.8.1"},
       {:confex, "~> 3.5.0"},
       {:bamboo_smtp, "~> 4.0.0"}
     ]

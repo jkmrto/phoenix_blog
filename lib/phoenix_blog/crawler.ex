@@ -1,11 +1,15 @@
 defmodule PhoenixBlog.Crawler do
-  def crawl do
-    File.ls!("priv/posts")
-    |> Enum.map(&PhoenixBlog.Post.compile/1)
-    |> Enum.sort(&sort/2)
-  end
+  posts_paths = "priv/posts/*.md" |> Path.wildcard()
 
-  def sort(a, b) do
-    Timex.compare(a.date, b.date) > 0
+  posts =
+    for post_path <- posts_paths do
+      @external_resource Path.relative_to_cwd(post_path)
+      PhoenixBlog.Post.parse(post_path)
+    end
+
+  @posts Enum.sort_by(posts, & &1.date, {:desc, Date})
+
+  def list_posts() do
+    @posts
   end
 end

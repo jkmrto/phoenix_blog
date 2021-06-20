@@ -52,7 +52,8 @@ config :phoenix_blog, PhoenixBlogWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/phoenix_blog_web/(live|views)/.*(ex)$",
-      ~r"lib/phoenix_blog_web/templates/.*(eex)$"
+      ~r"lib/phoenix_blog_web/templates/.*(eex)$",
+      ~r"priv/posts/.*(md)$"
     ]
   ]
 

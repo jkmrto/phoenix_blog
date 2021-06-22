@@ -18,10 +18,10 @@
 
     <div>
         <p>
-            The telecommunications engineering degree is one the most prestigious engineering degrees in Spain. With a solid base on physics and mathematics, this degree covers from electronics to networking design. Througn my stage as student I learned a solid knowledge about how electronics systmes works, from the basics to how to transmit information through air or wire interfaces.
+            The telecommunications engineering degree is one the most prestigious engineering degrees in Spain. With a solid base in physics and mathematics, this degree covers electronics to networking design. Through my stage as a student, I learned a solid knowledge about how electronics systmes works, from the basics to how to transmit information through air or wire interfaces.
         </p>
         <p>
-            As <strong>final degree project</strong>, I contributed to an investigation platform called TIE (Traffic indentifications engine) . The objective of this platform is compare different algorithms for network traffic classification. In my case, I built an algorithm that classifies the traffic based on the size of the packages. A clustering algorithm called K-means was applied built in C.
+            As <strong>final degree project</strong>, I contributed to an investigation platform called TIE (Traffic indentifications engine) . The objective of this platform is to compare different algorithms for network traffic classification. In my case, I built an algorithm that classifies the traffic based on the size of the packages. A clustering algorithm called K-means was applied built in C.
         </p>
     </div>
 

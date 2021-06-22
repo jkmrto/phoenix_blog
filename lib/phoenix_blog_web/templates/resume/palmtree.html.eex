@@ -8,7 +8,7 @@
             </h3>
             <div class="entry-header">
                 <p class="resume-date">
-                    Septembre 2016 - April 2019
+                    September 2016 - April 2019
                 </p>
                 <div class=" resume-badges-container">
                     <%= render "badges/elixir.html" %>
@@ -28,10 +28,10 @@
 
     <div class="exp-desc">
         <p>
-            This was my first working experience and a really relevant personal step that had allowed me to me to discover a enyojable professional path. Palmtree Statistics is a tiny startup focused on the development of tools for analysis real-time-data.
+            This was my first working experience and a relevant personal step that had allowed me to discover an enyojable professional path. Palmtree Statistics was a tiny startup focused on the development of tools for analysis realtime sports data.
         </p>
         <p>
-            I started at Palmtree as Intern getting contracted at the end of my Intern period. As intern, I learned about the principles of clean code and professional software development. I worked on the development on a testing enviroment with Python and Docker.
+            I started at Palmtree as an Intern getting contracted at the end the training period. As intern, I learned about the principles of clean code and professional software development. I worked on the development of a testing environment with Python and Docker.
         </p>
     </div>
 

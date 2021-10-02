@@ -2,15 +2,13 @@
     <div class="contact1">
         <div class="container-contact1">
             <div class="contact1-pic js-tilt" data-tilt>
-                <img src="../images/mail.png" alt="IMG" style="padding-bottom: 20px">
+                <img src="../images/mail.png" alt="IMG" style="padding-bottom: 20px;" />
             </div>
 
-
-            <%= form_for @conn, Routes.contact_path(@conn, :create),  [class: "contact1-form validate-form"],  fn f -> %>
+            <%= form_for @conn, Routes.contact_path(@conn, :create), [class: "contact1-form validate-form"], fn f -> %>
             <div class="wrap-input1 validate-input" data-validate="Name is required">
                 <%= text_input f, :name, class: "input1", placeholder: "Name" %>
             </div>
-
 
             <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                 <%= text_input f, :email, class: "input1", placeholder: "Email" %>
@@ -27,15 +25,14 @@
             </div>
 
 
-            <div class="container-contact1-form-btn">
-                <%= submit "Send", [class: "contact1-form-btn"] %>
+            <div style="display: flex; justify-content: center; margin-bottom: 1em">
+              <%= raw Recaptcha.Template.display() %>
             </div>
 
-
-
+            <div class="container-contact1-form-btn">
+              <%= submit "Send", [class: "contact1-form-btn"] %>
+            </div>
             <% end %>
-
-
         </div>
     </div>
 </div>

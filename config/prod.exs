@@ -24,3 +24,7 @@ config :phoenix_blog, PhoenixBlogWeb.Endpoint,
   secret_key_base: "UF2mY/FssOeWGtS9zpWUHbA4Tdt9M/7QtFf3V+pBKl+fG2uF//k2qupvw0LFkgnq"
 
 config :phoenix_blog, PhoenixBlogWeb.Endpoint, server: true
+
+config :recaptcha,
+  public_key: {:system, "RECAPTCHA_PUBLIC_KEY"},
+  secret: {:system, "RECAPTCHA_PRIVATE_KEY"}

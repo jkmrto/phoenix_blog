@@ -37,6 +37,14 @@ config :phoenix_blog, PhoenixBlog.Mailer,
   no_mx_lookups: false,
   auth: :if_available
 
+config :recaptcha, :json_library, Jason
+
+config :recaptcha,
+  public_key: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+  secret:  "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+
+# {:system, "RECPATCHA_PRIVATE_KEY"} ||
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

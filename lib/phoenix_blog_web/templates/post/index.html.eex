@@ -1,14 +1,51 @@
-<ul id="index-container">
-    <%= Enum.map(@posts, fn({year, posts}) -> %>
-    <div class="posts-year-sectioner"> <%=  year %> </div>
-    <%= Enum.map(posts, fn(post) -> %>
-    <li id="index-post-list">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
-            <%= link post.title, to: Routes.post_path(@conn, :show, post.slug), class: "post-link" %>
-            <span> <%=  Timex.format!(post.date, "{YYYY}-{Mshort}") %> </span>
+<div class="index-page d-flex flex-column">
+  <div class="d-flex flex-column m-auto" style="max-width: 500px">
+    <h1>Welcome to my website !!</h1>
+
+    <p>
+      Here Juan Carlos, a Sotware developer with more than 5 years of
+      experience. Although I have worked as a full stack developer, my expertise
+      area is mainly the backend side, being Elixir and Go my languges of
+      election.
+    </p>
+
+    <p>
+      At this website you will find different topics that at some point took my
+      attention. Hope you can found them useful
+    </p>
+
+    <div class="d-flex justify-content-center my-5">
+      <img
+        src="images/wtf.jpeg"
+        width="400"
+        height="400"
+        style="border-radius: 50%"
+      />
+    </div>
+  </div>
+
+  <div
+    id="index-container"
+    class="mt-5 pt-5 d-flex flex-column align-items-center"
+  >
+    <h1>Posts</h1>
+    <ul>
+      <%= for {year, posts} <- @posts  do %>
+        <div class="posts-year-sectioner">
+          <%= year %>
         </div>
-        <span class="index-intro"> <%=  post.intro %> </span>
-    </li>
-    <% end) %>
-    <% end) %>
-</ul>
+        <%= for post <- posts do %>
+          <li id="index-post-list">
+            <div
+              style="display: flex; flex-wrap: wrap; justify-content: space-between"
+            >
+              <%= link post.title, to: Routes.post_path(@conn, :show, post.slug), class: "post-link" %>
+              <span> <%= Timex.format!(post.date, "{YYYY}-{Mshort}") %> </span>
+            </div>
+            <span class="index-intro"> <%= post.intro %> </span>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

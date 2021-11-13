@@ -5,6 +5,7 @@ import "../css/app.scss";
 import "../css/contact-main.css";
 import "../css/contact-util.css";
 import Prism from "prismjs";
+import "bootstrap.native";
 
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured

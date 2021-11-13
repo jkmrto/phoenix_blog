@@ -1,0 +1,19 @@
+<div class="index-page d-flex flex-column">
+  <div class="d-flex flex-column m-auto" style="max-width: 500px">
+    <h1>Welcome to my website !!</h1>
+
+    <p>
+      Here Juan Carlos, a Sotware developer with more than 5 years of experience. Although I have worked as a full stack
+      developer, my expertise area is mainly the backend side, being Elixir and Go my languges of election.
+    </p>
+
+    <p>
+      At this website you will find different topics that at some point took my attention. Hope you can found them
+      useful
+    </p>
+
+    <div class="d-flex justify-content-center my-5">
+      <img src="images/wtf.jpeg" width="400" height="400" style="border-radius: 50%" />
+    </div>
+  </div>
+</div>

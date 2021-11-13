@@ -24,10 +24,11 @@
   <body>
     <header id="header">
       <section class="container">
-        <div id="nav-bar" class="d-flex flex-row-reverse w-100 px-5">
-          <div class="nav-link"><%= link "Index", to: Routes.post_path(@conn, :index) %></div>
-          <div class="nav-link"><%= link "Contact", to: Routes.contact_path(@conn, :index) %></div>
+        <div id="nav-bar" class="d-flex flex-row justify-content-end w-100 px-5">
+          <div class="nav-link"><%= link "Landing", to: Routes.landing_path(@conn, :index) %></div>
+          <div class="nav-link"><%= link "Posts", to: Routes.post_path(@conn, :index) %></div>
           <div class="nav-link"><%= link "Resume", to: Routes.resume_path(@conn, :index) %></div>
+          <div class="nav-link"><%= link "Contact", to: Routes.contact_path(@conn, :index) %></div>
         </div>
       </section>
     </header>

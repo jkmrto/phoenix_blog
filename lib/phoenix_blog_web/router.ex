@@ -22,7 +22,8 @@ defmodule PhoenixBlogWeb.Router do
     post "/contact", ContactController, :create
 
     get "/posts/:slug", PostController, :show
-    get "/", PostController, :index
+    get "/posts", PostController, :index
+    get "/", LandingController, :index
   end
 
   # Other scopes may use custom stacks.

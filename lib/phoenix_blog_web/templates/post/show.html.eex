@@ -2,4 +2,4 @@
   <h1><%= @post.title %></h1>
   <p><%= Timex.format!(@post.date, "{Mshort} {D} {YYYY}") %></p>
   <%= raw(@post.content) %>
-</article
+</article>

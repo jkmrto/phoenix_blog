@@ -3,7 +3,11 @@ defmodule PhoenixBlogWeb.ContactController do
 
   alias Recaptcha
 
-  def index(conn, _), do: render(conn, "index.html")
+  def index(conn, _) do
+    conn
+    |> assign(:title, "Contact")
+    |> render("index.html")
+  end
 
   require Logger
 

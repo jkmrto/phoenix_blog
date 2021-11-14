@@ -1,5 +1,9 @@
 defmodule PhoenixBlogWeb.LandingController do
   use PhoenixBlogWeb, :controller
 
-  def index(conn, _), do: render(conn, "index.html")
+  def index(conn, _) do
+    conn
+    |> assign(:title, "Landing")
+    |> render("index.html")
+  end
 end

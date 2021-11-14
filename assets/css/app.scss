@@ -11,6 +11,10 @@
 
 /* Alerts and form errors */
 
+* {
+    box-sizing: border-box;
+}
+
 code {
     background: #c1c1c1;
 }
@@ -139,6 +143,7 @@ h3 {
 }
 
 .nav-link {
+    order: unset;
     padding: 20px;
     font-size: 2rem;
 }
@@ -178,16 +183,6 @@ h3 {
 body {
     background-image: url("/images/wallpaper.jpg");
     background-position: center;
-}
-
-#index-photo {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 20%;
-    padding: 5% 10% 0% 0%;
-    padding-left: 0%;
-    margin-right: 15%;
-    margin-top: 35%;
 }
 
 // Resume styles
@@ -283,5 +278,21 @@ body {
 .index-page {
     p {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    img {
+        margin: 10px;
+        width: 150px;
+        height: auto;
+    }
+    div {
+        max-width: 550px;
     }
 }

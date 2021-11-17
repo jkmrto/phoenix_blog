@@ -1,6 +1,6 @@
 <div>
   <div class="main-container">
-    <img src="/images/perfil.jpeg" />
+    <img id="resume-profile-img" src="/images/perfil.jpeg" />
     <div>
       <h2 id="resume-name">Juan Carlos Martinez de la Torre</h2>
       <h3>Software Engineer | Backend Developer | Elixir | Go</h3>

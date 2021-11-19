@@ -1,38 +1,36 @@
 <div class="experience-all-container">
-    <div class="experience-intro-container">
-        <img class="resume-company-img" src="/images/palmtree.png" />
+  <div class="experience-intro-container">
+    <img class="resume-company-img" src="/images/palmtree.png" />
 
-        <div class="experience-header-container">
-            <h3>
-                Palmtree Statistics - <em class="role">Software Developer</em>
-            </h3>
-            <div class="entry-header">
-                <p class="resume-date">
-                    September 2016 - April 2019
-                </p>
-                <div class=" resume-badges-container">
-                    <%= render "badges/elixir.html" %>
-                    <%= render "badges/python.html" %>
-                    <%= render "badges/rabbitmq.html" %>
-                    <%= render "badges/postgresql.html" %>
-                    <%= render "badges/mongo.html" %>
-                    <%= render "badges/docker.html" %>
-                    <%= render "badges/kubernetes.html" %>
-                    <%= render "badges/javascript.html" %>
-                    <%= render "badges/elm.html" %>
-                </div>
-            </div>
+    <div class="experience-header-container">
+      <h2>Palmtree Statistics - <em class="role">Software Developer</em></h2>
+      <div class="entry-header">
+        <p class="resume-date">September 2016 - April 2019</p>
+        <div class=" resume-badges-container">
+          <%= render "badges/elixir.html" %>
+          <%= render "badges/python.html" %>
+          <%= render "badges/rabbitmq.html" %>
+          <%= render "badges/postgresql.html" %>
+          <%= render "badges/mongo.html" %>
+          <%= render "badges/docker.html" %>
+          <%= render "badges/kubernetes.html" %>
+          <%= render "badges/javascript.html" %>
+          <%= render "badges/elm.html" %>
         </div>
-
+      </div>
     </div>
+  </div>
 
-    <div class="exp-desc">
-        <p>
-            This was my first working experience and a relevant personal step that had allowed me to discover an enyojable professional path. Palmtree Statistics was a tiny startup focused on the development of tools for analysis realtime sports data.
-        </p>
-        <p>
-            I started at Palmtree as an Intern getting contracted at the end the training period. As intern, I learned about the principles of clean code and professional software development. I worked on the development of a testing environment with Python and Docker.
-        </p>
-    </div>
-
+  <div class="exp-desc">
+    <p>
+      This was my first working experience and a relevant personal step that had allowed me to discover an enyojable
+      professional path. Palmtree Statistics was a tiny startup focused on the development of tools for analysis
+      realtime sports data.
+    </p>
+    <p>
+      I started at Palmtree as an Intern getting contracted at the end the training period. As intern, I learned about
+      the principles of clean code and professional software development. I worked on the development of a testing
+      environment with Python and Docker.
+    </p>
+  </div>
 </div>

@@ -237,17 +237,12 @@ body {
 
 .education-title {
   font-size: 23px;
-  font-variant: petite-caps;
-  margin-bottom: 10px;
-  margin-top: 10px;
   color: black;
 }
 
 #resume-section-title {
   font-size: 40px;
   font-family: roboto;
-  padding-top: 3%;
-  padding-bottom: 3%;
   padding-left: 8%;
   font-weight: bold;
 }
@@ -257,12 +252,10 @@ body {
 }
 
 .education-location {
-  font-variant: petite-caps;
   margin-bottom: 10px;
 }
 
 .resume-date {
-  font-variant: petite-caps;
   margin-bottom: 10px;
 }
 
@@ -285,7 +278,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   img {
     margin: 10px;
@@ -293,7 +286,7 @@ body {
     height: auto;
   }
   div {
-    max-width: 550px;
+    max-width: 480px;
   }
 }
 

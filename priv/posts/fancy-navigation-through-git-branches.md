@@ -3,6 +3,7 @@ author: "Juan Carlos Martinez de la Torre"
 date: 2021-04-14
 title: Fancy navigation through git branches
 intro: An easy way to navigate through git branches using fzf.
+toc: false
 
 weight: 10
 ---

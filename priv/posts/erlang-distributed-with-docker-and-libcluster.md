@@ -8,7 +8,7 @@ intro: Last days I have been diving a little into the wonderful world of Erlang 
 
 ---
 
-# Motivation
+## Motivation
 
 Last days I have been diving a little into the wonderful world of Erlang distributed. Elixir, has some built-in constructs for distributed systems which makes easier to distribute systems in comparison with other programming paradigms.
 
@@ -16,7 +16,7 @@ Since Erlang is based on the actor model (where each actor is a process) it is t
 
 Another tool I love to user is Docker, so I started to dive into how to connect two Elixir instances dockerized, it has some tricks that we will discover along this posts.
 
-# Connecting dockers with --net=host
+## Connecting dockers with --net=host
 
 In this first attempt we are going to launch two dockers using the latest elixir image, we will have opened two `iex` terminals where we can play with the nodes.
 
@@ -32,7 +32,7 @@ $ docker run -i -t --net=host elixir iex --sname node2 --cookie cookie
 
 Let's check if our two nodes are connected:
 
-```lang-elixir
+```elixir
 # Node2
 > Node.list()
 []
@@ -63,13 +63,13 @@ Pong
 [:"node1@jkmrto-XPS-15-9570"]
 ```
 
-# Connecting nodes with Libcluster
+## Connecting nodes with Libcluster
 
 One useful library when trying to get connected our nodes is [libcluster](https://github.com/bitwalker/libcluster). As his own documentation exposes:
 
 > `This library provides a mechanism for automatically forming clusters of Erlang nodes`.
 
-## Libcluster POC
+### Libcluster POC
 
 Let's build a simple proof of concept with libcluster to run some test over it.
 
@@ -141,7 +141,7 @@ It is important to note this:
 	- The strategic used by Libcluster is `Cluster.Strategy.Epmd` which relies on Epmd to get connected the different hosts.
 	- They have been specified three nodes to get connected.
 
-## Executing three instances locally
+### Executing three instances locally
 
 Let's launch the three instances in local and to check how the nodes are automatically connected.
 
@@ -172,7 +172,7 @@ jkmrto:libcluster_poc/ $ iex --sname node3 --cookie cookie -S mix
 Amazing! We can see how after running the third node the logs of this node indicates us that they have been correctly connected. So in the end, all we have to care about to get connected the nodes is to indicates the list of nodes when starting the application.
 
 
-## Checking the Epmd
+### Checking the Epmd
 
 One interesting system of the Erlang ecosystem is the Erlang Port Mapper Daemon, also know as [Epmd](http://Erlang.org/doc/man/epmd.html). This service is in charge to map each Erlang node to the port where it is listening for connections.
 
@@ -192,9 +192,9 @@ name node1 at port 45015
 ```
 
 
-# Connecting three instances dockerized
+## Connecting three instances dockerized
 
-## Dockerizing the application
+### Dockerizing the application
 
 Let's use this simple dockerfile:
 
@@ -239,7 +239,7 @@ Interactive Elixir (1.9.4) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)>
 ```
 
-## Using docker network
+### Using docker network
 
 Once we have our docker defined, we need to start think about how to have some of them connected. Let's now use an internal docker net, avoiding using the `--net=host` trick.
 
@@ -249,7 +249,7 @@ Let's create the network, calling it `net_poc`:
 docker network create net_poc
 ```
 
-## Custom docker run
+### Custom docker run
 
 Let's run our docker instances. We are going to need some options in order to get the expected behavior.
 
@@ -297,7 +297,7 @@ Great! We have are two docker fully connected.
 
 It is important to note that the nodes are not connected when starting them and they get connected when doing `Node.ping/1`. The next step is getting them connected at startup.
 
-## Automatic connection with Libcluster
+### Automatic connection with Libcluster
 
 We just need to redefine the nodes at Libcluster topologies to get nodes automatically connected at start.
 
@@ -340,7 +340,7 @@ Let's run our dockers:
 
 Wonderful! Now our two nodes are connected at start up thanks to Libcluster.
 
-# Connecting Dockers using DNS autodiscovery
+## Connecting Dockers using DNS autodiscovery
 
 Until now we have been forced to explicitly indicate which are the nodes that are going to be connected in the configuration of libcluster.
 
@@ -350,7 +350,7 @@ When working with docker and custom networks one useful command is this scenario
 
 This shared alias can be used to autodiscover all the available dockers that have been labeled with the alias.
 
-## Checking DNS autodiscovery.
+### Checking DNS autodiscovery.
 
 Let's launch two nodes with the same `--net-alias`, that would be `web`. We should be able to get the addresses for these nodes asking to the docker DNS.
 
@@ -392,7 +392,7 @@ jkmrto:~ $ docker run -it --net net_poc elixir
 
 As we expected for the 'web' hostname the DNS provides us with two different IPs 172.26.0.3 and 172.26.0.2, related to the two nodes we have previously launched.
 
-## Autodiscovery nodes at startup
+### Autodiscovery nodes at startup
 
 Some steps are needed to be able to autodiscover the nodes based on the alias. Firstly we need to adapt the code of the application in order to:
 
@@ -446,7 +446,8 @@ The important piece of code is the function `get_cluster_hosts()`, which is in c
 
 Another auxiliary function has been added `normalize_hostname` because when retrieving the hostname of some dockers this hostname contains the `--net-alias` as part of it. This can cause confusion on Libcluster so it was needed to remove it.
 
-``` Elixir
+```lang-elixir
+# Node2
   def normalize_hostname(hostname) do
     hostname
     |> to_string()
@@ -465,14 +466,14 @@ docker build -t libcluster .
 
 
 Let's launch the first node:
-``` Elixir
+```lang-elixir
 $ NODE=node1; docker run -it --net net_poc --hostname $NODE --net-alias web --name $NODE --entrypoint=iex libcluster_poc --cookie cookie --sname node@$NODE -S mix
 iex(node@node1)1> Node.list)()
 []
 ```
 
+```lang-elixir
 Let's launch the second one:
-```Elixir
 $ NODE=node2; docker run -it --net net_poc --hostname $NODE --net-alias web --name $NODE --entrypoint=iex libcluster_poc --cookie cookie --sname node@$NODE -S mix
 Interactive Elixir (1.9.4) - press Ctrl+C to exit (type h() ENTER for help)
 

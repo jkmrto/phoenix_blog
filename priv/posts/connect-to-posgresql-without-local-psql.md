@@ -4,6 +4,8 @@ date: 2019-11-26
 linktitle: connect-to-remote-postgresql-without-local-psql
 title:  "[TIL] How to connect to a remote postgresql without local psql"
 intro: A simple way to connect to a postgresql database without having to use local psql client.
+toc: false
+
 ---
 
 

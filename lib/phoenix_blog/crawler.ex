@@ -1,5 +1,5 @@
 defmodule PhoenixBlog.Crawler do
-  posts_paths = "priv/posts/*.md" |> Path.wildcard()
+  posts_paths = Path.wildcard("priv/posts/*.md")
 
   posts =
     for post_path <- posts_paths do

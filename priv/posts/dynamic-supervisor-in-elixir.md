@@ -7,22 +7,24 @@ intro: One of the main feature of [Elixir](https://elixir-lang.org/ ) is the abi
 
 ---
 
+## Motivation
+
 One of the main feature of [Elixir](https://elixir-lang.org/ ) is the ability to guarantee that if a supervised process fails or get crashed for any reason, other process with the same functinality will be started as soon as the supervisor process realizes the problem. This is related to the fault-tolerance capability.
 
 Let's say that we have an application in which at start we dont know how many processes we will have, because they will be generated dinamically during the running of the application. For example if we have a game application which allows several games at the same time and we want to get associated to each game one process, then we will need to dinamically launch a process per each game.
 
 Since Elixir 1.6, [Dynamic Supervisor](https://hexdocs.pm/elixir/DynamicSupervisor.html)  is the module that makes simpler this task. In this post it will be exposed how to build a basic dynamic supervisor, using Elixir [Registry](https://hexdocs.pm/elixir/master/Registry.html) to keep reachable all the launched processes.
 
-# Setup
+## Setup
 
 Let's create a new project using ```mix``` through the command line with:
-```Bash
+```language-bash
 mix new dynamic_supervisor_with_registry
 ```
 
 We need to modify our file ```mix.exs``` to indicate the new application entrypoint:
 
-```Elixir
+```elixir
 ............
 #mix.exs
   def application do
@@ -35,9 +37,9 @@ We need to modify our file ```mix.exs``` to indicate the new application entrypo
 ```
 
 
-# Components
+## Components
 
-## Application entrypoint
+### Application entrypoint
 
 We need to use an application entrypoint where starts the supervision tree, the file. This module will be on charge of supervise the `Registry` and the `DynamicSupervisorWithRegistry.WorkerSupervisor`.
 
@@ -67,11 +69,11 @@ As children of this module we have:
 
   * **DynamicSupervisorWithRegistry.WorkerSupervisor**.
 
-## Registry
+### Registry
 
 The registry allows us to register the workers by a custom name (in our case *:workers_registry*), that will allow to acess the workers easily, without needing to know its *pid*, just by a custom name. It is launched at the same supervisor level that the **WorkersSupervisor** add will be referenced by workers at starting them.
 
-## Workers Supervisor
+### Workers Supervisor
 This module should just supervise the workers and allow to launch new workers.
 
 ``` Elixir
@@ -99,7 +101,7 @@ At the code above it is important to note:
 * When ```init``` the process the restarting strategy selected is ```strategy: :one_for_one``` so only the crashed process will be restarted without affecting othersprocesses.
 
 
-## Worker
+### Worker
 
 The worker module is a simple *GenServer*, in which we have just implemented some API functions and callbacks to handle a regular stop and a error crash. The idea is to test lately the different behaviour at the supervisor level when this action happens.
 
@@ -151,12 +153,12 @@ end
 
 
 
-# Running it
+## Running it
 
-## Creating three workers
+### Creating three workers
 Let's use the interactive shell of elixir (```iex -S mix```) to run the code. To create three new workers:
 
-```
+```elixir
 iex(1)> alias DynamicSupervisorWithRegistry.WorkersSupervisor
 DynamicSupervisorWithRegistry.WorkersSupervisor
 
@@ -173,18 +175,18 @@ iex(4)> WorkersSupervisor.start_child("worker_3")
 {:ok, #PID<0.142.0>}
 
 iex(5)> :observer.start()
-```
+```elixir
 At last command (```:observer.start()```) it has been launched the erlang observer that allows us to see the supervisor tree of the application.
 
 ![Example image](/images/dynamic_supervisor_with_registry/first.png)
 
 We can see how the three pids (*#PID<0.138.0>, #PID<0.140.0>, #PID<0.142.0>*) of the workers created are now pendig from our workers supervisor.
 
-## Stop one worker
+### Stop one worker
 
 Let's stop one of the workers to see how it is not restarted by the supervisor.
 
-```
+```elixir
 iex(7)> alias DynamicSupervisorWithRegistry.Worker
 DynamicSupervisorWithRegistry.Worker
 
@@ -195,10 +197,10 @@ iex(8)> Worker.stop("worker_1")
 
 The last message is printed by the logger at ```terminate(...)``` function. The process is not restarted since it has not been crashed.
 
-## Crash one worker
+### Crash one worker
 
 Let's crash one of the workers to see how it is restarted by the supervisor
-```
+```elixir
 iex(11)> Worker.crash("worker_2")
 :ok
 

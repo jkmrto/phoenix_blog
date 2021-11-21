@@ -7,9 +7,11 @@ intro: One of the unexpected things I found when I started to work at Derivco wa
 
 ---
 
+## Motivation
+
 One of the unexpected things I found when I started to work at Derivco was that almost everyone in my team was using Vim. How can they do that? Edit all the projects just using the terminal. It seems like black magic to me.
 
-Along this year I avoided to giving a try to Vim, mainly because I felt I needed to improve other skills like Elixir, Ecto or, lately, Golang and having to use VIM in a daily routine will make even harder get used to my new role.
+Along this year I avoided to giving a try to Vim, mainly because I felt I needed to improve other skills like Elixir, Ecto or, lately, Go and having to use VIM in a daily routine will make even harder get used to my new role.
 
 After knowing I was definitely going to leave Derivco, I decided to give a chance to Vim, since I was going to have a less stressful month.
 

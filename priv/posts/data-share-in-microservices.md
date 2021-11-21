@@ -14,31 +14,7 @@ weight: 10
 *This post is an attempt to expose some concepts about microservices and data sharing that I have been learning recently. The main aim is to keep them as a summary but not to go deep into the details*.
 
 
-## Table of contents
-
-<div>
-	<a class="toc" href="#intro">Sharing data is a key concept in microservices</a>
-	</br>
-	<a class="toc" href="#synchronous-request"> Sharing data: Synchronous requests</a>
-	</br>
-	<a class="toc" href="#event-driven"> Sharing data: Event driven</a>
-	</br>
-	<a class="toc toc-h3" href="#event-log">Events log</a>
-	</br>
-	<a class="toc toc-h3" href="#events-log-vs-message-broker">Events log vs messages broker</a>
-	</br>
-	<a class="toc toc-h3" href="#event-driven-architecture-side-effects">Event driven architecture side effects</a>
-	</br>
-	<a class="toc toc-h3" href="#event-driven-architecture-and-domanin-driven-design">Event driven and DDD</a>
-	</br>
-	<a class="toc" href="#references">References</a>
-	</br>
-
-</div>
-
-<div>
-<h2 id="intro"> Sharing data is a key concept in microservices </h2>
-</div>
+## Sharing data is a key concept in microservices
 
 Microservices are designed for independence and autonomy. This involves each service being able to be developed and deployed separately, with the idea of parallelizing each stage as much as possible.
 
@@ -47,9 +23,7 @@ Each service is in charge of some business functionalities. These responsibiliti
 To provide as much independence as possible, each microservice should have its own data storage, which usually means having a different database. But microservices are not data silos, they need to share information to complete those functionalities. This is why the approach of how to share data is so important.
 
 
-<div>
-<h2> Sharing data: Synchronous requests </h2>
-</div>
+## Sharing data: Synchronous requests
 
 Since all microservices will need to share information at some point, we need to think about the best approach. The simplest one is using synchronous request between services, so whenever a service need information that is stored in other systems, it must be able to fetch it using, for example, an API REST.
 
@@ -67,10 +41,7 @@ It sounds simple, but there some concerns to take into account:
 
 The level of resilience of each microservice is determined by its level of autonomy, which is drastically reduced if it has to ask for any information from other services at any time.
 
-
-<div>
-<h2 id="event-driven"> Sharing data: Event driven approach </h2>
-</div>
+## Sharing data: Event driven approach
 
 **What if instead of having to ask other microservice, the client service already had stored the required information in his database?**
 
@@ -78,7 +49,7 @@ At this approach, each service publishes a message whenever something is modifie
 
 <br>
 <img class="center" class="blog-img" src="/images/simple-pub-sub.png" />
-</br>
+<br>
 
 Normally those messages are known as events. We can reason about an event as an immutable record that is self-contained and that represents an action that has been done at some point in the past.
 
@@ -94,9 +65,7 @@ We can summarize this approach as:
 
 **5** - Normally, not all the published information is required by the consumers, so they process it and build some new objects/entities part of the consumer context with just the information required by them.
 
-<div>
-<h3 id="events-log"> Event log</h3>
-</div>
+### Event log
 
 It is possible to directly send messages from one service to another but normally an event log is used as an intermediate system. The event log is in charge of listening to the events from the producers and push the messages to the interested consumers. The main benefits are:
 
@@ -117,9 +86,7 @@ In the case of a consumer that has finished consuming an event, but that falls j
 Idempotency is a critical feature in cloud native applications since there are lots of network communications among services, and, usually, a service cannot *ack* an action but it has already effectively applied it.
 
 
-<div>
-<h3 id="events-log-vs-message-broker"> Event log vs  Messages broker</h3>
-</div>
+### Event log vs  Messages broker
 
 Kafka is the most known event log, it allows broadcasting events to various consumers, it persists the events sometime after being delivered to the interested consumers and it allows new consumers to replay the old stored events.
 
@@ -128,9 +95,7 @@ There are other possible approaches like using a messages broker. RabbitMQ is an
 The main advantage of having persistence of the events after being consumed is that it enables to replay past events, allowing to replicate any state in time of any service. This is an ideal case since we have to take into account that the capacity to store events in an event log is not infinite, so at some point, it must start deleting old events.
 
 
-<div>
-<h3 id="event-driven-architecture-and-domanin-driven-design"> Event driven architecture and domain driven design</h3>
-</div>
+### Event driven architecture and domain driven design
 
 The technique called **Event Sourcing**, part of domain-driven design (DDD), applies this idea of communicating services using events. Similarly, it involves saving all the events in a events log/store where the rest of the services can consume them.
 
@@ -138,9 +103,7 @@ Each event is an immutable fact already validated by the producer, this means th
 
 In DDD, the scope of each service is known as the bounded context that matches the idea of each service being the owner of a part of the data domain.
 
-<div>
-<h3 id="events-driven-architecture-side-effects"> Events driven architecture side effects</h3>
-</div>
+### Events driven architecture side effects
 
 At first sight, the use of events to share data around different services looks like an ideal approach since it fits good with a microservice architecture since it provides scalability, temporal decoupling and independence. However, we should take into account some complex about it:
 
@@ -164,9 +127,7 @@ At some point, we may need to scale this approach since a single node could not 
 
 Delivery order inside the same partition is guaranteed but not across them. It is required to send events to the same one to keep the casualty relations between them.
 
-<div>
-<h2 id="references"> References </h2>
-</div>
+## References
 
 **-** [Designing Data-Intensive Applications, by Martin Kleppmann](https://www.amazon.es/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
 

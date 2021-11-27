@@ -1,7 +1,7 @@
 defmodule PhoenixBlog.Post.TableOfContents do
   @toc_title {"h2", [], ["Table Of Contents"], %{}}
 
-  def process_md_with_links(ast) do
+  def setup_toc(ast) do
     [@toc_title] ++ build_ast_toc(ast) ++ add_id_to_titles(ast)
   end
 

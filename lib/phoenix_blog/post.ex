@@ -29,11 +29,15 @@ defmodule PhoenixBlog.Post do
   defp build_content(markdown, props) do
     {:ok, ast, []} = EarmarkParser.as_ast(markdown)
 
-    ast = Enum.map(ast, &apply_code_language_preffix(&1))
-    ast = if props["add_toc"], do: TableOfContents.process_md_with_links(ast), else: ast
-
-    Earmark.Transform.transform(ast)
+    ast
+    |> Enum.map(&apply_code_language_preffix(&1))
+    |> add_toc(props)
+    |> Earmark.Transform.transform()
   end
+
+  defp add_toc(ast, props)
+  defp add_toc(ast, %{"add_toc" => true}), do: TableOfContents.setup_toc(ast)
+  defp add_toc(ast, _props), do: ast
 
   defp file_to_slug(file) do
     file

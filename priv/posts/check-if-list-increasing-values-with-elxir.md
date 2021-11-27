@@ -2,13 +2,13 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2019-12-09
 linktitle: check-a-list-is-increasing-in-elixir
-title:  "[TIL] How to check that a list has increasing values in Elixir"
+title:  [TIL] How to check that a list has increasing values in Elixir
 intro: I have been these days solving some of the problems of [advent of code](https://adventofcode.com/). These problems are a really nice way to sharp your skills with any programming language.  Although  my preferred language is still Elixir, I am trying to improve a little of my [Go](https://golang.org/) knowledge so I decided to give a try solving these problems. [Here](https://github.com/jkmrto/advent_of_code_2019) there are the solutions that I wrote.
 toc: false
 
 ---
 
-I have been these days solving some of the problems of [advent of code](https://adventofcode.com/). These problems are a really nice way to sharp your skills with any programming language.  Although  my preferred language is still Elixir, I am trying to improve a little of my [Go](https://golang.org/) knowledge so I decided to give a try solving these problems. [Here](https://github.com/jkmrto/advent_of_code_2019) there are the solutions that I wrote.
+I have been these days solving some of the problems of [advent of code](https://adventofcode.com/). These problems are a great way to sharpen your skills with any programming language. Although  my preferred language is still Elixir, I am trying to improve a little of my [Go](https://golang.org/) knowledge so I decided to give a try solving these problems. [Here](https://github.com/jkmrto/advent_of_code_2019) there are the solutions that I wrote.
 
 By the way, I have been reading some of the solutions in Elixir and some of them have impressed since they have shown new ways to face the problems. I will write down some of these techniques (New at least for me)
 
@@ -16,7 +16,7 @@ By the way, I have been reading some of the solutions in Elixir and some of them
 
 In a traditional imperative C-type language like is Go we can solve this with a simple loop like this (the snippet can be executed [here](https://play.golang.org/p/f0e9lJIvti9)):
 
-```Go
+```go
 package main
 
 import "fmt"
@@ -40,7 +40,7 @@ func main() {
 
 In a functional language like Elixir this check can be quite more complicated. At first glance for me, one idea that comes into me mind was to build a list of tuples where each tuple contains one element and the his adjunt like `[{i}, {i+1}]`. For example:
 
-```Elixir
+```elixir
 # Having this list:
 list = [1,2,3,4,5]
 # The objective list would be this:
@@ -49,7 +49,7 @@ objective_list = [{1,2}, {2,3}, {3,4}, {4,5}]
 
 We can get the `objective_list` doing [this](https://repl.it/repls/MoralLateTab):
 
-```Elixir
+```elixir
 list = [1,2,3,4,5]
 list1 = List.delete_at(list, length(list)-1)
 list2 = List.delete_at(list, 0)
@@ -59,7 +59,7 @@ objective_list = Enum.zip(list1, list2)
 
 Once we have that list we can use [Enum.all/2()](https://hexdocs.pm/elixir/Enum.html#all?/2), to evaluate if any of the tuples doesn't fullfil the requirement:
 
-```Elixir
+```elixir
 list = [1,2,3,4,5]
 List.delete_at(list, length(list)-1)
 |> Enum.zip(List.delete_at(list, 0))
@@ -68,14 +68,14 @@ List.delete_at(list, length(list)-1)
 
 This could seem like an easy way to get the problem done. But it could be even simpler there is an utility called [Enum.chunk_every/4](https://hexdocs.pm/elixir/Enum.html#chunk_every/4) that can help us in the process on separate in slices our list
 
-```Elixir
+```elixir
 Enum.chunk_every([1,2,3,4,5], 2, 1, :discard)
-> [[1, 2], [2, 3], [3, 4], [4, 5]]
+[[1, 2], [2, 3], [3, 4], [4, 5]]
 ```
 
 Sorting everything up:
 
-```
+```elixir
 [1,2,3,4,5]
 |> Enum.chunk_every(2, 1, :discard)
 |> Enum.all?(fn {v1, v2} -> v2 > v1 end)

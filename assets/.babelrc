@@ -5,9 +5,10 @@
       "prismjs",
       {
         "languages": [
+          "bash",
           "elixir",
           "erlang",
-          "css",
+          "go",
           "javascript",
           "markdown",
           "markup",
@@ -17,7 +18,7 @@
         ],
         // themes can be found in this directory:
         // assets/node_modules/prismjs/themes
-        "theme": "okaidia",
+        "theme": "tomorrow",
         "css": true
       }
     ]

@@ -4,8 +4,8 @@
 import "../css/app.scss";
 import "../css/contact-main.css";
 import "../css/contact-util.css";
-import Prism from "prismjs";
 import "bootstrap.native";
+import Prism from "prismjs";
 
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
@@ -16,4 +16,7 @@ import "bootstrap.native";
 //     import {Socket} from "phoenix"
 //     import socket from "./socket"
 //
+
+Prism.highlightAll();
+
 import "phoenix_html";

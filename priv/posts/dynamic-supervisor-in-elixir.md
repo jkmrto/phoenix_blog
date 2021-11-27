@@ -201,7 +201,7 @@ The last message is printed by the logger at ```terminate(...)``` function. The 
 
 Let's crash one of the workers to see how it is restarted by the supervisor
 ```elixir
-iex(11)> Worker.crash("worker_2")
+Worker.crash("worker_2")
 :ok
 
 16:39:24.410 [info]  Exiting worker: worker_2 with reason: {%RuntimeError{message: "Error, Server worker_2 has crashed"}, [{DynamicSupervisorWithRegistry.Worker, :handle_cast, 2, [file: 'lib/dynamic_supervisor_with_registry/worker.ex', line: 28]}, {:gen_server, :try_dispatch, 4, [file: 'gen_server.erl', line: 637]}, {:gen_server, :handle_msg, 6, [file: 'gen_server.erl', line: 711]}, {:proc_lib, :init_p_do_apply, 3, [file: 'proc_lib.erl', line: 249]}]}

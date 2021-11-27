@@ -9,6 +9,7 @@ intro: Some weeks ago I was visiting the elixir forum when I found this question
 ---
 
 
+## Motivation
 
 Some weeks ago I was visiting the elixir forum when I found this question: [Stop supervisor when no children are running anymore](https://elixirforum.com/t/stop-supervisor-when-no-children-are-running-anymore/20641). I tried to figure out a simple approach to get this done so I visited the documentation of the [Supervisor](  https://hexdocs.pm/elixir/Supervisor.html#summary) module.
 
@@ -18,7 +19,7 @@ GenServer give us the possibility to track when the process is going to exit and
 
 For anyone interested, the code is available at this [repo](https://github.com/jkmrto/transient_supervisor).
 
-# Getting hands dirty
+## Getting hands dirty
 
 So decided to build a PoC to see what will be the behaviour. At first what we will need would be three components:
 
@@ -27,7 +28,7 @@ So decided to build a PoC to see what will be the behaviour. At first what we wi
 3. **Worker**. Simple GenServer that will die once his task is done.
 
 
-# Application entrypoint
+## Application entrypoint
 From the entrypoint we will start the transient supervisor. It is important to note that the restart type will be `restart: :transient`, in order to only restart the child if there is some bad behaviour.
 
 ``` Elixir
@@ -51,7 +52,7 @@ defmodule TransientSupervisor.Application do
 end
 ```
 
-# Transient Supervisor
+## Transient Supervisor
 
 At this module we should differentiate two parts:
 
@@ -100,7 +101,7 @@ end
 
 ```
 
-# Worker
+## Worker
 
 This module has the most interesting part of the code. When starting the GenServer, it receives as argument the seconds to sleep before exiting,  that is to simulate a real worker that will end at some point.
 
@@ -144,9 +145,9 @@ end
 ```
 
 
-# Running it
+## Running it
 
-# Final notes
+## Final notes
 
 Although this seems like a valid approach that can fulfill the initial question, we should reconsider if it is good pattern to start a supervisor and later kill it, maybe we are doing some kind of OTP antipattern. Ideally a Supervisor should be something stable at the supervision tree.
 

@@ -181,6 +181,7 @@ h3 {
 }
 
 body {
+  padding: 5px;
   background-image: url("/images/wallpaper.jpg");
   background-position: center;
 }
@@ -290,18 +291,6 @@ body {
   }
 }
 
-$breakpoint-tablet: 760px;
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: $breakpoint-tablet) {
-  .resume-company-img {
-    display: none;
-  }
-
-  #resume-profile-img {
-    display: none;
-  }
-}
-
 pre {
   background-color: #c1c1c1;
 }
@@ -313,4 +302,47 @@ code {
 code.inline {
   color: #103121;
   font-size: 0.9em !important;
+}
+
+#nav-bar-mobile {
+  display: none;
+  font-size: 20px;
+
+  #menu-icon {
+    font-size: 30px;
+    color: #3f3f3f;
+  }
+
+  .nav-bar-title {
+    color: #3f3f3f;
+  }
+
+  .nav-link {
+    color: #3f3f3f;
+    padding: 5px;
+  }
+
+  a {
+    color: #3f3f3f;
+  }
+}
+
+$breakpoint-tablet: 760px;
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: $breakpoint-tablet) {
+  .resume-company-img {
+    display: none;
+  }
+
+  #resume-profile-img {
+    display: none;
+  }
+
+  #nav-bar {
+    display: none;
+  }
+
+  #nav-bar-mobile {
+    display: block;
+  }
 }

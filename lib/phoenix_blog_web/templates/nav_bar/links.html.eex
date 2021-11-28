@@ -1,0 +1,12 @@
+  <div class="nav-link">
+    <%= link "Landing", to: Routes.landing_path(PhoenixBlogWeb.Endpoint, :index) %>
+  </div>
+  <div class="nav-link">
+    <%= link "Posts", to: Routes.post_path(PhoenixBlogWeb.Endpoint, :index) %>
+  </div>
+  <div class="nav-link">
+    <%= link "Resume", to: Routes.resume_path(PhoenixBlogWeb.Endpoint, :index) %>
+  </div>
+  <div class="nav-link">
+    <%= link "Contact", to: Routes.contact_path(PhoenixBlogWeb.Endpoint, :index) %>
+  </div>

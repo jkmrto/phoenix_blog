@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title(assigns) %>  </title>
+    <title><%= title(assigns) %></title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -23,14 +23,8 @@
 
   <body>
     <header id="header">
-      <section class="container">
-        <div id="nav-bar" class="d-flex flex-row justify-content-end w-100 px-5">
-          <div class="nav-link"><%= link "Landing", to: Routes.landing_path(@conn, :index) %></div>
-          <div class="nav-link"><%= link "Posts", to: Routes.post_path(@conn, :index) %></div>
-          <div class="nav-link"><%= link "Resume", to: Routes.resume_path(@conn, :index) %></div>
-          <div class="nav-link"><%= link "Contact", to: Routes.contact_path(@conn, :index) %></div>
-        </div>
-      </section>
+      <%= render PhoenixBlogWeb.NavBarView, "nav_bar.html"  %>
+      <%= render PhoenixBlogWeb.NavBarView, "nav_bar_mobile.html", assigns  %>
     </header>
     <main role="main" id="main-container" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

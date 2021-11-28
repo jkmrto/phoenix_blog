@@ -1,0 +1,21 @@
+<section id="nav-bar-mobile" class="container">
+  <div class="d-flex flex-column align-items-start p-3">
+    <div class="d-flex w-100 align-items-center">
+      <a
+        id="menu-icon"
+        class="fas fa-bars menu-icon"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapseExample"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+      >
+      </a>
+
+        <span class="mx-5" id="nav-bar-title"> <%= @title %> </span>
+    </div>
+    <div class="collapse mt-2" id="collapseExample">
+      <%= render PhoenixBlogWeb.NavBarView, "links.html" %>
+    </div>
+  </div>
+</section>

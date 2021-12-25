@@ -1,6 +1,8 @@
 <div class="experience-all-container">
   <div class="experience-intro-container">
-    <img class="resume-company-img" src="/images/uma.png" />
+    <a href="https://www.uma.es/">
+      <img class="resume-studies-img" src="/images/uma.png" />
+    </a>
 
     <div class="experience-header-container">
       <a

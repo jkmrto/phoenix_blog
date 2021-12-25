@@ -1,12 +1,12 @@
 <div class="experience-all-container">
   <div class="experience-intro-container">
-    <img class="resume-company-img" src="/images/paack.png" />
+    <img class="resume-company-img" src="/images/paack.png" width="140px" height="140px"/>
 
     <div class="experience-header-container">
       <h2>Paack - <em class="role">Backend Developer</em></h2>
 
       <div class="entry-header">
-        <p class="date" style="margin-bottom:5px">March 2020 - Currently</p>
+        <p class="date" style="margin-bottom:5px">March 2020 - Sep 2021</p>
 
         <div>
           <p class="resume-badges-container">
@@ -28,9 +28,12 @@
   <div class="exp-desc">
     <p>
       For almost all my career I had been working mainly with Elixir and his ecosystem. I felt I needed to try some
-      other technologies, that is why I decided to make a move to Golang. Paack is a startup focused on logistics. When
-      I entered the company they were trying to expand their backend using Golang. This new experience allows me to get
-      a deeper knowledge of SOLID principles, hexagonal architecture and how to approach 24/7 systems without OTP.
+      other technologies, that is why I decided to make a move to Golang.
+    </p>
+    <p>
+      Paack is a startup focused on logistics. When I entered the company they were trying to expand their backend using
+      Golang. This new experience allows me to get a deeper knowledge of SOLID principles, hexagonal architecture and
+      how to approach 24/7 systems without OTP.
     </p>
   </div>
 </div>

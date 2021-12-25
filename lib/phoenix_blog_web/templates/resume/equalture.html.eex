@@ -1,0 +1,43 @@
+<div class="experience-all-container">
+  <div class="experience-intro-container">
+    <a href="https://www.equalture.com/">
+      <img class="resume-company-img" src="/images/equalture.jpeg" />
+    </a>
+
+    <div class="experience-header-container">
+      <h2>Equalture- <em class="role"> Full Stack Elixir Developer</em></h2>
+
+      <div class="entry-header">
+        <p class="resume-date">Sep 2021 - Currently</p>
+
+        <p class="resume-badges-container">
+          <%= render "badges/elixir.html" %>
+          <%= render "badges/live-view.html" %>
+          <%= render "badges/mysql.html" %>
+          <%= render "badges/docker.html" %>
+          <%= render "badges/kubernetes.html" %>
+          <%= render "badges/google-cloud.html" %>
+          <%= render "badges/phoenix.html" %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-desc">
+    <p>
+      After almost two years working with Go, I missed working with Elixir, especially trying out some new features like
+      LiveView. That was one of the motivations for joining Equalture, along together the great experience of using
+      their own games during the hiring process.
+    </p>
+    <p>
+      Equalture is a Dutch startup that provides a biased free hiring platform for companies. Based on games
+      assessments, this platform analyzes teams and candidates, providing valuable insights about the bests candidates
+      for any team.
+    </p>
+    <p>
+      As an Elixir developer, I participated in the development of new features both in the frontend and in the backend
+      side of the product. Mainly working with Phoenix LiveView, the project also involves working with other
+      technologies like Kubernetes and Google Cloud.
+    </p>
+  </div>
+</div>

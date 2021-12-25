@@ -24,6 +24,7 @@
   </div>
   <h2 id="resume-section-title">Experience</h2>
 
+  <%= render "equalture.html" %>
   <%= render "paack.html" %>
   <%= render "derivco.html" %>
   <%= render "palmtree.html" %>

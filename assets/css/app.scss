@@ -226,8 +226,17 @@ body {
 
 .resume-company-img {
   flex-basis: auto;
+  padding-right: 10px;
+  height: 150px;
+  width: 160px;
+  margin-top: 45px;
+	border-radius: 10%;
+}
+
+.resume-studies-img {
+  flex-basis: auto;
   margin-right: 30px;
-  height: auto;
+  height: 140px;
   width: 140px;
 }
 

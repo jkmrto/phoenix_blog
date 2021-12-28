@@ -21,7 +21,7 @@ For some reason, latest version for prettier generates some block errors. In thi
 Install prettier with version `v2.2.1`
 
 ```bash
-npm install -g prettier
+npm install -g prettier@2.2.1
 ```
 
 Install plugin for elixir templates

@@ -13,10 +13,23 @@ defmodule PhoenixBlog.Post.TableOfContents do
     |> Enum.flat_map(& &1)
   end
 
+  def get_raw_text({text, _}) when is_binary(text), do: text
+
+  def get_raw_text({_header, _class, [text], %{}}) when is_binary(text), do: text
+
+  def get_raw_text({_header, _class, content, %{}}) do
+    content
+    |> Enum.map(fn
+      {_code, _class, [text], %{}} -> text
+      text -> text
+    end)
+    |> Enum.join("")
+  end
+
   def filter_titles(ast) do
     ast
     |> Enum.filter(fn {type, _, _, _} -> type in ["h2", "h3"] end)
-    |> Enum.map(fn {type, _attrs, [text], _} -> {type, text} end)
+    |> Enum.map(fn node = {type, _, _, _} -> {type, get_raw_text(node)} end)
   end
 
   # No the most efficiente way but the most expressive
@@ -41,9 +54,13 @@ defmodule PhoenixBlog.Post.TableOfContents do
     ast
     |> Enum.reduce([], fn node, nodes_acc ->
       case node do
-        {"h2", [], [text], rest} ->
-          id = build_id(text)
-          node_with_link = {"h2", [{"id", id}], [text], rest}
+        {"h2", _class, content, rest} = node ->
+          id =
+            node
+            |> get_raw_text()
+            |> build_id()
+
+          node_with_link = {"h2", [{"id", id}], content, rest}
           [node_with_link | nodes_acc]
 
         other ->

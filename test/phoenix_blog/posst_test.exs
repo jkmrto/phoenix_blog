@@ -42,4 +42,20 @@ defmodule PhoenixBlog.PostTest do
     {:ok, ast, []} = EarmarkParser.as_ast(code_snippet)
     Post.apply_languague_code_preffix(ast)
   end
+
+  test "get text from title" do
+    hey =
+      {"h2", [],
+       [
+         "Enable ",
+         {"code", [{"class", "inline"}], ["eex"], %{}},
+         " parser for ",
+         {"code", [{"class", "inline"}], ["heex"], %{}},
+         " files."
+       ], %{}}
+
+    IO.inspect(hey)
+
+    assert true
+  end
 end

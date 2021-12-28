@@ -5,7 +5,6 @@ title: Fancy navigation through git branches
 intro: An easy way to navigate through git branches using fzf.
 toc: false
 
-weight: 10
 ---
 
 Navigate through git branches is something any developer do several times when working in a project. This can be quite annoying since it is necessary to remember the name of the branch to move to.

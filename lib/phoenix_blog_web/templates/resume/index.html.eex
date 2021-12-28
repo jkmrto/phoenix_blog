@@ -22,15 +22,19 @@
       </div>
     </div>
   </div>
-  <h2 id="resume-section-title">Experience</h2>
+  <h2  id="resume-section-title">Experience</h2>
 
-  <%= render "equalture.html" %>
-  <%= render "paack.html" %>
-  <%= render "derivco.html" %>
-  <%= render "palmtree.html" %>
+  <div id="experience">
+    <%= render "equalture.html" %>
+    <%= render "paack.html" %>
+    <%= render "derivco.html" %>
+    <%= render "palmtree.html" %>
+  </div>
 
-  <h2 id="resume-section-title">Education</h2>
+  <h2 class="my-5" id="resume-section-title">Education</h2>
 
-  <%= render "grado-teleco.html" %>
-  <%= render "master-teleco.html" %>
+  <div id="education">
+    <%= render "grado-teleco.html" %>
+    <%= render "master-teleco.html" %>
+  </div>
 </div>

@@ -54,13 +54,13 @@ defmodule PhoenixBlog.Post.TableOfContents do
     ast
     |> Enum.reduce([], fn node, nodes_acc ->
       case node do
-        {"h2", _class, content, rest} = node ->
+        {type, _class, content, rest} = node when type in ["h2", "h3"] ->
           id =
             node
             |> get_raw_text()
             |> build_id()
 
-          node_with_link = {"h2", [{"id", id}], content, rest}
+          node_with_link = {type, [{"id", id}], content, rest}
           [node_with_link | nodes_acc]
 
         other ->

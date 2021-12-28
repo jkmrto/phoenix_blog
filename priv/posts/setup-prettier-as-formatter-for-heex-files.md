@@ -1,10 +1,9 @@
 ---
 author: "Juan Carlos Martinez de la Torre"
 date: 2021-12-28
-title: Setup prettier for heex files 
+title: Setup prettier as formatter for heex files 
 intro: How to setup prettier for heex files, the new html templates in elixir
 toc: true
-
 
 ---
 

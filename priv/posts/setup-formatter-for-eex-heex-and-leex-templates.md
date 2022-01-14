@@ -15,7 +15,7 @@ When starting with `HTML` templates in Elixir, I tried to find a way to make fom
 
 Lately, with the new `heex` templates at [LiveView 0.16](https://www.phoenixframework.org/blog/phoenix-1.6-released) this formatted started to fail, which was quite disgusting. It looks like there is not a predefined or ideal formatter for this kind of files
 
-## Prettier for eex/heex templates 
+## Setup prettier for eex/heex templates 
 
 For `eex` and `heex` templates, [Prettier](https://prettier.io/) does a great job. Prettier is a well-known formatter, focused on Javascript files, but that also supporsts HTML ones. It takes care of indentation but also can parse the elements on each HTML block, which is great for fixing format issues internal on each HTML tag. 
 
@@ -39,11 +39,11 @@ Now we can apply this formatter to any file with:
 $ prettier my-template.html.eex
 ```
 
-## html-beautifier for `heex` files.
+## Setup htmlbeautifier for `heex` files.
 
-For `heex` templates prettier is not the best approach. As workaround, [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier) is proposed by several members of the elixir community. As far as I have tested, it does the work, main difference with prettier is that it doesn't parser anything inside an HTML tag, so it doesn't apply any proper format there. At least, it automatize the indentation for HTML elements. 
+For `heex` templates prettier is not the best approach. As workaround, [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier) is proposed by several members of the Elixir community. As far as I have tested, it does the work, main difference with prettier is that it doesn't parse anything inside each HTML tag, so it doesn't apply any proper format there. However, it automatizes the indentation for HTML elements, that is a nice great help. 
 
-For setting up this formatter we need ruby installed, since it is gem. In my case, I use asdf for it: 
+For setting up this formatter we need to have ruby installed, since this formatter is a Ruby gem. In my case, I use [asdf](https://github.com/asdf-vm/asdf) for it: 
 
 Install Ruby with asdf
 
@@ -63,10 +63,10 @@ Applying this formatter to a heex templates
 
 
 ```bash
-$ html-beautify admin.html.heex
+$ htmlbeautifier admin.html.heex
 ```
 
-## BONUS: Formatting with Vim
+## Formatting with Vim
 
 My preferred way of handling formatting for these files is using a manual approach, pressing some key binding for it. For example, by adding these lines to the `.vim` config, we will be able to trigger the formatter:
 
@@ -85,4 +85,3 @@ au FileType eelixir nnoremap <leader>fh :silent call FormatHeex() <CR>
 ```
 
 In my case, I use `<space>` as leader key, so I trigger the formatter pressing `<space>fp` for `eex/leex` files and `<space>fh`  for `heex` files.
-

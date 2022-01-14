@@ -15,7 +15,7 @@ When starting with `HTML` templates in Elixir, I tried to find a way to make fom
 
 Lately, with the new `heex` templates at [LiveView 0.16](https://www.phoenixframework.org/blog/phoenix-1.6-released) this formatted started to fail, which was quite disgusting. It looks like there is not a predefined or ideal formatter for this kind of files
 
-## Setup prettier for eex/heex templates 
+## Setup prettier for eex/leex templates 
 
 For `eex` and `heex` templates, [Prettier](https://prettier.io/) does a great job. Prettier is a well-known formatter, focused on Javascript files, but that also supporsts HTML ones. It takes care of indentation but also can parse the elements on each HTML block, which is great for fixing format issues internal on each HTML tag. 
 

@@ -1,7 +1,7 @@
 /* This file is for your main application css. */
 
 @import "~bootstrap/scss/bootstrap";
-@import "custom";
+@import "custom"; 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
@@ -358,4 +358,20 @@ $breakpoint-tablet: 760px;
   #nav-bar-mobile {
     display: block;
   }
+}
+
+table{
+  font-size: 1.5rem
+}
+
+th, td {
+  border: 1px solid black;
+}
+
+td:first-child, th:first-child {
+   padding-left: 15px;
+}
+
+li{
+   list-style-type: circle !important;
 }

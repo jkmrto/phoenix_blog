@@ -8,7 +8,7 @@ toc: false
 
 ---
 
-> Macros are ideal for repeating changes over a et of similar lines.
+> Macros are ideal for repeating changes over a set of similar lines.
 
 Useful commands gathered when learning about Vim macros.
 

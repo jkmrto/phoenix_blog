@@ -1,7 +1,7 @@
 defmodule PhoenixBlog.Post do
   alias PhoenixBlog.Post
   alias PhoenixBlog.Post.Properties
-  alias PhoenixBlog.Post.TableOfContents
+  alias EarmarkTocGenerator
 
   defstruct slug: "", title: "", date: Timex.now(), intro: "", content: ""
 
@@ -36,7 +36,7 @@ defmodule PhoenixBlog.Post do
   end
 
   defp add_toc(ast, props)
-  defp add_toc(ast, %{"add_toc" => true}), do: TableOfContents.setup_toc(ast)
+  defp add_toc(ast, %{"add_toc" => true}), do: EarmarkTocGenerator.setup_toc(ast)
   defp add_toc(ast, _props), do: ast
 
   defp file_to_slug(file) do

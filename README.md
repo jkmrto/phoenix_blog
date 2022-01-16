@@ -1,6 +1,6 @@
 # Personal website
 
-[www.jkmrto.dev](www.jkmrto.dev)
+[www.jkmrto.dev](https://www.jkmrto.dev/)
 
 Built with:
 

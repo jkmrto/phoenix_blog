@@ -7,8 +7,6 @@ defmodule PhoenixBlog.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Telemetry supervisor
-      PhoenixBlogWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: PhoenixBlog.PubSub},
       # Start the Endpoint (http/https)

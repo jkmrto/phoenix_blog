@@ -1,7 +1,7 @@
 /* This file is for your main application css. */
 
 @import "~bootstrap/scss/bootstrap";
-@import "custom"; 
+@import "custom";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
@@ -230,7 +230,7 @@ body {
   height: 150px;
   width: 160px;
   margin-top: 45px;
-	border-radius: 10%;
+  border-radius: 10%;
 }
 
 .resume-studies-img {
@@ -245,7 +245,7 @@ body {
   padding-bottom: 20px;
 }
 
-.experience-all-container:last-child  {
+.experience-all-container:last-child {
   border-bottom: none;
 }
 
@@ -347,6 +347,10 @@ $breakpoint-tablet: 760px;
     display: none;
   }
 
+  .resume-studies-img {
+    display: none;
+  }
+
   #resume-profile-img {
     display: none;
   }
@@ -360,18 +364,20 @@ $breakpoint-tablet: 760px;
   }
 }
 
-table{
-  font-size: 1.5rem
+table {
+  font-size: 1.5rem;
 }
 
-th, td {
+th,
+td {
   border: 1px solid black;
 }
 
-td:first-child, th:first-child {
-   padding-left: 15px;
+td:first-child,
+th:first-child {
+  padding-left: 15px;
 }
 
-li{
-   list-style-type: circle !important;
+li {
+  list-style-type: circle !important;
 }

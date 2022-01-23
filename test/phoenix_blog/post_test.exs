@@ -54,8 +54,6 @@ defmodule PhoenixBlog.PostTest do
          " files."
        ], %{}}
 
-    IO.inspect(hey)
-
     assert true
   end
 end

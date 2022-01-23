@@ -3,7 +3,7 @@
     <img class="resume-company-img" src="/images/derivco.png" />
 
     <div class="experience-header-container">
-      <h2>Derivco - <em class="role">Software Developer</em></h2>
+      <p class="experience-title">Derivco - <em class="role">Software Developer</em></p>
 
       <div class="entry-header">
         <p class="resume-date">May 2019 - February 2020</p>
@@ -22,15 +22,13 @@
     </div>
   </div>
 
-  <div class="exp-desc">
-    <p>
-      After being working for a tiny startup for almost three years I wanted to try some kind of bigger company and
-      continue working with Elixir. That's why I decided to join Derivco which is a company with more than 4.000 workers
-      around the world is the software provider for Betway, one of the bigger sportbook around the world.
-    </p>
-    <p>
-      At Derivco I was part of the Core team in charge of developing and maintain several service in Ruby, Elixir and
-      Golang.
-    </p>
-  </div>
+  <%= collapse_information_component(
+        "more-information-derivco",
+        [
+          "After being working for a tiny startup for almost three years I wanted to try some kind of bigger company and
+            continue working with Elixir. That's why I decided to join Derivco which is a company with more than 4.000 workers
+            around the world is the software provider for Betway, one of the bigger sportbook around the world.",
+          "At Derivco I was part of the Core team in charge of developing and maintain several service in Ruby, Elixir and Golang."
+        ]
+      ) %>
 </div>

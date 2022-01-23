@@ -16,19 +16,13 @@
     </div>
   </div>
 
-  <div>
-    <p>
-      This master is the final step for the telecommunication engineering path in Spain. It includes some topics such as
-      optical communications, microelectronics and sotware defined networks.
-    </p>
-    <p>
-      As <strong> final master project </strong>, I implemented an artificial neural network system for the premature
-      detection of Alzheimer. The system was implemented in Python, using some libraries such as TensorFlow and NumPy.:
-    </p>
-    <p>
-      The neural network was based on the variational autoencoder. The main idea was being able to reduce the high
-      number of dimensions of an MRI or PET image, to a few dimensions. This will allow the algorithm to capture the
-      intrinsic characteristics to detect the disease.
-    </p>
-  </div>
+  <%= collapse_information_component(
+        "more-information-uma",
+        [
+          "This master is the final step for the telecommunication engineering path in Spain. It includes some topics such as optical communications, microelectronics and sotware defined networks.",
+          "As <strong> final master project </strong>, I implemented an artificial neural network system for the premature
+            detection of Alzheimer. The system was implemented in Python, using some libraries such as TensorFlow and NumPy.",
+          "The neural network was based on the variational autoencoder. The main idea was being able to reduce the high number of dimensions of an MRI or PET image, to a few dimensions. This will allow the algorithm to capture the intrinsic characteristics to detect the disease."
+        ]
+      ) %>
 </div>

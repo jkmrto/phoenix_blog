@@ -173,7 +173,7 @@ h3 {
 .index-intro {
   font: normal 18px/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #888;
-  margin-top: 10px;
+  margin-top: 10p
 }
 
 #index-container {
@@ -202,15 +202,18 @@ body {
 }
 
 .badge {
-  background-color: #0091ff;
   border-radius: 0.75em;
   color: #fff;
   display: inline-block;
   font-size: 10.25pt;
   font-weight: 700;
-  padding: 0.3em 0.65em;
-  text-decoration: none;
-  border: 5px solid;
+  padding: 0.5em 0.65em;
+	margin: 0.3em;
+  box-shadow: 5px 5px #888888;
+
+	&:hover{
+		color: #ccc;
+	}
 }
 
 .experience-header-container {
@@ -229,7 +232,8 @@ body {
   padding-right: 10px;
   height: 150px;
   width: 160px;
-  margin-top: 13px;
+  margin-top: 18px;
+  margin-right: 18px;
   border-radius: 10%;
 }
 

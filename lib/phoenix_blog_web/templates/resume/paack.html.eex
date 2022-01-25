@@ -28,9 +28,9 @@
   <%= collapse_information_component(
         "more-information-paack",
         [
-          "For almost all my career I had been working mainly with Elixir and his ecosystem. I felt I needed to try some other technologies, that is why I decided to make a move to Golang.",
-          "Paack is a startup focused on logistics. When I entered the company they were trying to expand their backend using Golang. This new experience allows me to get a deeper knowledge of SOLID principles, hexagonal architecture and
-            how to approach 24/7 systems without OTP."
+          "For almost all my career I had been working mainly with Elixir and his ecosystem. I felt I needed to try some other technologies, that is why I decided to make a move to Go.",
+"<strong>Paack is a startup focused on logistics</strong>. When I entered the company they were trying to expand their backend using Golang. <strong>This new experience allowed me to get a deeper knowledge of SOLID principles, hexagonal architecture and how to approach 24/7 systems without OTP. </strong>",
+"I designed and built from the scratch with the help of another workmate the new routing platform. This microservice is in charge of comunicating with the external routing providers, offering a transparent interface for the services that need the routing service."
         ]
       ) %>
 </div>

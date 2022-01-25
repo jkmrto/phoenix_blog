@@ -5,7 +5,7 @@
     </a>
 
     <div class="experience-header-container">
-      <p class="experience-title">Equalture - <em class="role"> Full Stack Elixir Developer</em></p>
+      <p class="experience-title">Equalture - <em class="role"> Software Developer</em></p>
 
       <div class="entry-header">
         <p class="resume-date">Sep 2021 - Currently</p>
@@ -24,19 +24,20 @@
   </div>
 
   <%= collapse_information_component(
-      "more-information-equalture",
-      [
-        "After almost two years working with Go, I missed working with Elixir,
-              especially trying out some new features like LiveView. That was one of
-              the motivations for joining Equalture, along together the great
-              experience of using their own games during the hiring process.",
-        "Equalture is a Dutch startup that provides a biased free hiring platform
-              for companies. Based on games assessments, this platform analyzes teams
-              and candidates, providing valuable insights about the bests candidates
-              for any team.",
-        "As an Elixir developer, I participated in the development of new
-              features both in the frontend and in the backend side of the product.
-              Mainly working with Phoenix LiveView, the project also involves working
-              with other technologies like Kubernetes and Google Cloud."
-      ]) %>
+        "more-information-equalture",
+        [
+          "After almost two years working with Go, I missed working with Elixir,
+            especially trying out some new features like LiveView. That was one of
+            the motivations for joining Equalture, along together the great
+            experience of using their own games during the hiring process.",
+          "<strong>Equalture is a Dutch startup that provides a biased free hiring platform
+            </strong>. Based on games assessments, this platform analyzes teams
+            and candidates, providing valuable insights about the bests candidates
+            for any team.",
+          "As an Elixir developer, <strong>I participated in the development of new
+            features both in the frontend and in the backend side of the product.
+            Mainly working with Elixir and Phoenix LiveView, the project also involves working
+                  with other technologies like Kubernetes and Google Cloud. </strong>"
+        ]
+      ) %>
 </div>

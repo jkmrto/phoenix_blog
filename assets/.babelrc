@@ -16,7 +16,8 @@
           "scss",
           "toml",
           "vim",
-          "json"
+          "json",
+          "dockerfile"
         ],
         // themes can be found in this directory:
         // assets/node_modules/prismjs/themes

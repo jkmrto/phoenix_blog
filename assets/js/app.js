@@ -3,7 +3,6 @@
 // its own CSS file.
 import "../css/app.scss";
 import "../css/contact-main.css";
-import "../css/contact-util.css";
 import "bootstrap.native";
 import Prism from "prismjs";
 

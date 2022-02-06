@@ -19,9 +19,8 @@ docker run -it -e PGPASSWORD=postgres --net=host \
 
 Using a docker can be useful for:
 
-1. Avoiding having to install the psql-client locally
-
-2. Ensuring the posgresql-client is in the same version as the database where we pretend to get connected.
+- Avoiding having to install the psql-client locally.
+- Ensuring the posgresql-client is in the same version as the database where we pretend to get connected.
 
 We can indicate a command to be exeucted with `-c` option:
 

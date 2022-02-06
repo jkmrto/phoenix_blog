@@ -18,7 +18,7 @@ Since Elixir 1.6, [Dynamic Supervisor](https://hexdocs.pm/elixir/DynamicSupervis
 ## Setup
 
 Let's create a new project using ```mix``` through the command line with:
-```language-bash
+```shell
 mix new dynamic_supervisor_with_registry
 ```
 
@@ -43,7 +43,7 @@ We need to modify our file ```mix.exs``` to indicate the new application entrypo
 
 We need to use an application entrypoint where starts the supervision tree, the file. This module will be on charge of supervise the `Registry` and the `DynamicSupervisorWithRegistry.WorkerSupervisor`.
 
-``` Elixir
+```elixir
 #lib/dynamic_supervisor_example.ex
 defmodule DynamicSupervisorWithRegistry do
   use Application # Indicate this module is an application entrypoint
@@ -65,13 +65,12 @@ end
 
 As children of this module we have:
 
-  * **Registry** with name :workers_registry
-
-  * **DynamicSupervisorWithRegistry.WorkerSupervisor**.
+- **Registry** with name `:workers_registry`.
+- **DynamicSupervisorWithRegistry.WorkerSupervisor**.
 
 ### Registry
 
-The registry allows us to register the workers by a custom name (in our case *:workers_registry*), that will allow to acess the workers easily, without needing to know its *pid*, just by a custom name. It is launched at the same supervisor level that the **WorkersSupervisor** add will be referenced by workers at starting them.
+The registry allows us to register the workers by a custom name (in our case `:workers_registry`), that will allow to acess the workers easily, without needing to know its *pid*, just by a custom name. This registry is launched at the same supervisor level that the **WorkersSupervisor**.
 
 ### Workers Supervisor
 This module should just supervise the workers and allow to launch new workers.
@@ -103,7 +102,7 @@ At the code above it is important to note:
 
 ### Worker
 
-The worker module is a simple *GenServer*, in which we have just implemented some API functions and callbacks to handle a regular stop and a error crash. The idea is to test lately the different behaviour at the supervisor level when this action happens.
+The worker module is a simple *GenServer*, in which we have just implemented some API functions and callbacks to handle a regular stop and an error crash. Later, we will test the different behaviour at the supervisor level when a crash happens. 
 
 The name of the process will be defined by the function `via_tuple(name)`, whose code is ```{:via, Registry, {@registry, name} }``` that registers the process with custom `name` in the registry previously initialized with name ```:workers_registry```.
 This ```via_tuple``` function will be used at registering and when trying to reach the associated GenServer.

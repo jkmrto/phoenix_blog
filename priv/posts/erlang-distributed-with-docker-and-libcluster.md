@@ -20,11 +20,11 @@ Another tool I love to user is Docker, so I started to dive into how to connect 
 
 In this first attempt we are going to launch two dockers using the latest elixir image, we will have opened two `iex` terminals where we can play with the nodes.
 
-```bash
+```shell
 $ docker run -i -t --net=host elixir iex --sname node1 --cookie cookie
 ```
 And our second node:
-```bash
+```zsh
 $ docker run -i -t --net=host elixir iex --sname node2 --cookie cookie
 ```
 
@@ -198,7 +198,7 @@ name node1 at port 45015
 
 Let's use this simple dockerfile:
 
-``` docker
+```dockerfile
 # ./dockerfile
 FROM elixir:1.9.4-slim
 
@@ -256,14 +256,10 @@ Let's run our docker instances. We are going to need some options in order to ge
 These options are:
 
 - `-it`: It is required to initialize an interactive session.
-
 - `--net net_poc`: It is required to attach the docker to network previously created.
-
--  `--name`: This would be the name of the node used by the [docker DNS](https://docs.docker.com/v17.09/engine/userguide/networking/configure-dns/) to resolve the docker location inside our custom network. It is also the name given to the docker that allows to identify the container when executing `docker ps`.
-
+- `--name`: This would be the name of the node used by the [docker DNS](https://docs.docker.com/v17.09/engine/userguide/networking/configure-dns/) to resolve the docker location inside our custom network. It is also the name given to the docker that allows to identify the container when executing `docker ps`.
 - `--hostname`: This will be the hostname of the docker launched. It is used by Erlang to fully qualified the Erlang node.
-
--  `--entrypoint=iex libcluster_poc --cookie cookie --sname node1 -S mix`: This syntax allows to define the docker image to be executed and a custom entry point, since it is needed to be different for each container in order to customize the name of the Erlang node with the -sname flag.
+- `--entrypoint=iex libcluster_poc --cookie cookie --sname node1 -S mix`: This syntax allows to define the docker image to be executed and a custom entry point, since it is needed to be different for each container in order to customize the name of the Erlang node with the `-sname` flag.
     - `--entrypoint=iex`: Executable to be run when starting the docker.
     - `libcluster_poc`: Docker image to be executed.
     - `--cookie cookie --sname node1 -S mix`: Entrypoint arguments.
@@ -400,7 +396,9 @@ Some steps are needed to be able to autodiscover the nodes based on the alias. F
 2. For all the given IPs: Get hostname based on IP.
 3. Used retrieved hosts as parameter on the start of Libcluster to get them connected.
 
-![Start step for nodes autodiscovery](nodes_autodiscovery.png)
+<div class="d-flex flex-row justify-content-center">
+	<img style="max-width: 70%" src="/images/nodes_autodiscovery.png" alt="Start step for nodes autodiscovery">
+</div>
 
 With this in mind the `Application.start()` of the application should look like:
 
@@ -446,7 +444,7 @@ The important piece of code is the function `get_cluster_hosts()`, which is in c
 
 Another auxiliary function has been added `normalize_hostname` because when retrieving the hostname of some dockers this hostname contains the `--net-alias` as part of it. This can cause confusion on Libcluster so it was needed to remove it.
 
-```lang-elixir
+```elixir
 # Node2
   def normalize_hostname(hostname) do
     hostname
@@ -459,20 +457,18 @@ end
 
 Once we have modified the code, we need to rebuild the docker:
 
-``` Bash
+```bash
 docker build -t libcluster .
 ```
 
-
-
 Let's launch the first node:
-```lang-elixir
+```elixir
 $ NODE=node1; docker run -it --net net_poc --hostname $NODE --net-alias web --name $NODE --entrypoint=iex libcluster_poc --cookie cookie --sname node@$NODE -S mix
 iex(node@node1)1> Node.list)()
 []
 ```
 
-```lang-elixir
+```elixir
 Let's launch the second one:
 $ NODE=node2; docker run -it --net net_poc --hostname $NODE --net-alias web --name $NODE --entrypoint=iex libcluster_poc --cookie cookie --sname node@$NODE -S mix
 Interactive Elixir (1.9.4) - press Ctrl+C to exit (type h() ENTER for help)
@@ -484,7 +480,7 @@ iex(node@node1)1> Node.list)()
 
 And the third one:
 
-``` elixir
+```elixir
 $ NODE=node3; docker run -it --net net_poc --hostname $NODE --net-alias web --name $NODE --entrypoint=iex libcluster_poc --cookie cookie --sname node@$NODE -S mix
 Interactive Elixir (1.9.4) - press Ctrl+C to exit (type h() ENTER for help).
 

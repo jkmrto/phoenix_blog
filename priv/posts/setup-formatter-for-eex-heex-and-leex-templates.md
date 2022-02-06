@@ -17,7 +17,7 @@ Lately, with the new `heex` templates at [LiveView 0.16](https://www.phoenixfram
 
 ## Setup prettier for eex/leex templates 
 
-For `eex` and `heex` templates, [Prettier](https://prettier.io/) does a great job. Prettier is a well-known formatter, focused on Javascript files, but that also supporsts HTML ones. It takes care of indentation but also can parse the elements on each HTML block, which is great for fixing format issues internal on each HTML tag. 
+For `eex` and `leex` templates, [Prettier](https://prettier.io/) does a great job. Prettier is a well-known formatter, focused on Javascript files, but that also supporsts HTML ones. It takes care of indentation but also can parse the elements on each HTML block, which is great for fixing format issues internal on each HTML tag. 
 
 For some reason, the latest version of prettier generates some block errors. In this forum thread https://github.com/adamzapasnik/prettier-plugin-eex/issues/59 this issue is commented on. So, for compatibility, I use the 2.2.1 version.
 

@@ -23,25 +23,6 @@ textarea::-moz-placeholder { color: #999999; }
 textarea:-ms-input-placeholder { color: #999999; }
 
 /*---------------------------------------------*/
-button {
-	outline: none !important;
-	border: none;
-	background: transparent;
-}
-
-button:hover {
-	cursor: pointer;
-}
-
-iframe {
-	border: none !important;
-}
-
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Contact 1 ]*/
 
 .contact1 {
   width: 100%;

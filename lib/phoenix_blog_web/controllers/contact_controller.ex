@@ -12,24 +12,36 @@ defmodule PhoenixBlogWeb.ContactController do
   require Logger
 
   def create(conn = %{params: %{"g-recaptcha-response" => ""}}, _) do
-    Logger.warn("trying to send message without captcha")
-    render(conn, "index.html")
+    conn
+    |> put_flash(:error, "Please: complete the captcha")
+    |> render_index()
   end
 
   def create(conn = %{params: params}, _) do
-    case Recaptcha.verify(params["g-recaptcha-response"]) do
-      {:ok, _response} ->
-        PhoenixBlog.Email.email(
-          params["name"],
-          params["subject"],
-          params["email"],
-          params["message"]
-        )
-
+    with {:ok, _response} <- Recaptcha.verify(params["g-recaptcha-response"]),
+         {:ok, _info} <-
+           PhoenixBlog.Email.email(
+             params["name"],
+             params["subject"],
+             params["email"],
+             params["message"]
+           ) do
+      conn
+      |> put_flash(:info, "Email correctly sent")
+      |> render_index()
+    else
       {:error, errors} ->
-        Logger.warn("trying to send message without captcha: #{errors}")
-    end
+        Logger.error("#{inspect(errors)}")
 
-    render(conn, "index.html")
+        conn
+        |> put_flash(:error, "Something went wrong")
+        |> render_index()
+    end
+  end
+
+  defp render_index(conn) do
+    conn
+    |> assign(:title, "Contact")
+    |> render("index.html")
   end
 end

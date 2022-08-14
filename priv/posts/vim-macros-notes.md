@@ -2,13 +2,15 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2022-01-14
 linktitle: vim-macros-notes 
-title: VIM macros notes 
+title: Vim macros notes 
 intro: Some useful command/tips when working with macros in VIM 
 toc: false
 
 ---
 
-> Macros are ideal for repeating changes over a set of similar lines.
+
+> Macros are ideal for repeating changes over a set of similar lines. [(Practical Vim)](https://pragprog.com/titles/dnvim2/practical-vim-second-edition/)
+
 
 Useful commands gathered when learning about Vim macros.
 

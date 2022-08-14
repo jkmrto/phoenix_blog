@@ -23,25 +23,16 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# config/config.exs
 config :phoenix_blog, PhoenixBlog.Mailer,
-  adapter: Bamboo.SMTPAdapter,
-  server: "smtp.gmail.com",
-  hostname: "gmail.com",
-  port: 465,
-  username: {:system, :string, "MAIL_USER"},
-  password: {:system, :string, "MAIL_PWD"},
-  tls: :if_available,
-  allowed_tls_versions: [:tlsv1, :"tlsv1.1", :"tlsv1.2"],
-  ssl: true,
-  retries: 1,
-  no_mx_lookups: false,
-  auth: :if_available
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: {:system, "SENDGRID_API_KEY"}
 
 config :recaptcha, :json_library, Jason
 
 config :recaptcha,
   public_key: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
-  secret:  "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+  secret: "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
 
 # {:system, "RECPATCHA_PRIVATE_KEY"} ||
 

@@ -42,10 +42,10 @@ defmodule PhoenixBlog.MixProject do
       {:earmark, "~> 1.4.13"},
       {:timex, "~> 3.6.3"},
       {:confex, "~> 3.5.0"},
-      {:bamboo_smtp, "~> 4.0.0"},
       {:recaptcha, "~> 3.0"},
       {:earmark_toc_generator,
-       git: "https://github.com/jkmrto/earmark_toc_generator", branch: "main"}
+       git: "https://github.com/jkmrto/earmark_toc_generator", branch: "main"},
+      {:swoosh, "~> 1.7"}
     ]
   end
 

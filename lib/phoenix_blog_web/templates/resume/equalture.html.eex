@@ -37,7 +37,12 @@
           "As an Elixir developer, <strong>I participated in the development of new
             features both in the frontend and in the backend side of the product.
             Mainly working with Elixir and Phoenix LiveView, the project also involves working
-                  with other technologies like Kubernetes and Google Cloud. </strong>"
+            with other technologies like Kubernetes and Google Cloud. </strong>",
+            "Some of my tasks included:",
+            "- Develop a new filter system for candidates.",
+            "- Help and menthor other team members",
+            "- Maintenance of the kubernetes cluster, eg: Update Nginx ingress, update cert manager...",
+            "- Setup the default-backend service in kubernetes, used for the maintenance mode of the applications"
         ]
       ) %>
 </div>

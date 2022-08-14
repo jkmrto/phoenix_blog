@@ -385,15 +385,12 @@ li {
 }
 
 .more-information-container {
-  border: 1px solid #ddd;
-  background-color: rgba(103, 168, 62, 0.1);
+  box-shadow: 0px 4px 0px #aaa;
+	padding-bottom: 2px;
 }
 
 .more-information-link {
-  box-shadow: 4px 4px 2px #aaa;
   cursor: pointer;
-
-  border: 1px solid #aaa;
 
   display: flex;
   flex-direction: row;

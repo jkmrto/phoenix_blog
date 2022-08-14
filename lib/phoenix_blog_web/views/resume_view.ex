@@ -5,6 +5,26 @@ defmodule PhoenixBlogWeb.ResumeView do
     pattern: "**/*"
 
   import Phoenix.HTML
+  import Phoenix.HTML.Tag
+  alias PhoenixBlogWeb.Router.Helpers, as: Routes
+
+  @skill_to_image %{
+    "Elixir" => "elixir.png",
+    "Phoenix" => "phoenix.png",
+    "Go" => "go.png",
+    "Docker" => "docker.png",
+    "Kubernetes" => "kubernetes.png",
+    "RabbitMQ" => "rabbitmq.jpg"
+  }
+
+  @skill_to_link %{
+    "Elixir" => "https://elixir-lang.org/",
+    "Phoenix" => "https://www.phoenixframework.org/",
+    "Go" => "https://golang.org/",
+    "Docker" => "https://www.docker.com/",
+    "Kubernetes" => "https://kubernetes.io/",
+    "RabbitMQ" => "https://www.rabbitmq.com/"
+  }
 
   def collapse_information_component(id, desc_paragraphs) do
     ~E"""
@@ -24,5 +44,25 @@ defmodule PhoenixBlogWeb.ResumeView do
       </div>
     </div>
     """
+  end
+
+  def skill_image(skill) do
+    ~E"""
+    <a href="<%= link_for_skill( skill) %>" >
+      <div class="d-flex flex-row" style="font-size: 2.0rem">
+        <%= img_tag(route_to_skill_img(skill), style: "width: 30px; height: 30px; display: inline") %>
+        <l class="mx-3"> <%= skill %> </l>
+      </div>
+    </a>
+    """
+  end
+
+  defp route_to_skill_img(skill) do
+    path = "/images/resume/#{Map.get(@skill_to_image, skill)}"
+    Routes.static_path(PhoenixBlogWeb.Endpoint, path)
+  end
+
+  defp link_for_skill(skill) do
+    Map.get(@skill_to_link, skill)
   end
 end

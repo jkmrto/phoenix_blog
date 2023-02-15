@@ -4,9 +4,12 @@ defmodule PhoenixBlogWeb.ResumeView do
     root: "lib/phoenix_blog_web/templates/resume",
     pattern: "**/*"
 
+  import Phoenix.Component
   import Phoenix.HTML
   import Phoenix.HTML.Tag
+
   alias PhoenixBlogWeb.Router.Helpers, as: Routes
+  alias PhoenixBlogWeb.Components.Badges
 
   @skill_to_image %{
     "Elixir" => "elixir.png",
@@ -27,31 +30,35 @@ defmodule PhoenixBlogWeb.ResumeView do
   }
 
   def collapse_information_component(id, desc_paragraphs) do
-    ~E"""
-    <div class="more-information-container">
-    <div
-      class="more-information-link collapsed px-4"
-      data-toggle="collapse"
-      data-target="<%= "#" <> "#{id}" %>"
-      aria-expanded="false"
-    >
-      <p style="font-weight: bold">More Information</p>
-      <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 2.5rem"></i>
-    </div>
+    assigns = %{id: id, desc_paragraphs: desc_paragraphs}
 
-    <div id="<%= "#{id}" %>" class="mx-3 collapse"> 
-        <%= raw(Enum.map(desc_paragraphs, fn p -> "<p> #{p} </p>" end)) %>
+    ~H"""
+    <div class="more-information-container">
+      <div
+        class="more-information-link collapsed px-4"
+        data-toggle="collapse"
+        data-target={"##{@id}"}
+        aria-expanded="false"
+      >
+        <p style="font-weight: bold">More Information</p>
+        <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 2.5rem"></i>
+      </div>
+
+      <div id={@id} class="mx-3 collapse">
+        <%= raw(Enum.map(@desc_paragraphs, fn p -> "<p> #{p} </p>" end)) %>
       </div>
     </div>
     """
   end
 
   def skill_image(skill) do
-    ~E"""
-    <a href="<%= link_for_skill( skill) %>" >
+    assigns = %{skill: skill}
+
+    ~H"""
+    <a href={link_for_skill(@skill)}>
       <div class="d-flex flex-row" style="font-size: 2.0rem">
         <%= img_tag(route_to_skill_img(skill), style: "width: 30px; height: 30px; display: inline") %>
-        <l class="mx-3"> <%= skill %> </l>
+        <l class="mx-3"><%= skill %></l>
       </div>
     </a>
     """

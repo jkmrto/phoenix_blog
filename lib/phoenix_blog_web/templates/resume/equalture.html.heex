@@ -11,38 +11,40 @@
         <p class="resume-date">Sep 2021 - Currently</p>
 
         <p class="resume-badges-container">
-          <%= render "badges/elixir.html" %>
-          <%= render "badges/live-view.html" %>
-          <%= render "badges/mysql.html" %>
-          <%= render "badges/docker.html" %>
-          <%= render "badges/kubernetes.html" %>
-          <%= render "badges/google-cloud.html" %>
-          <%= render "badges/phoenix.html" %>
+          <Badges.elixir />
+          <Badges.phoenix_live_view />
+          <Badges.mysql />
+          <Badges.postgresql />
+          <Badges.docker />
+          <Badges.kubernetes />
+          <Badges.helm />
+          <Badges.google_cloud />
+          <Badges.phoenix />
         </p>
       </div>
     </div>
   </div>
 
   <%= collapse_information_component(
-        "more-information-equalture",
-        [
-          "After almost two years working with Go, I missed working with Elixir,
+    "more-information-equalture",
+    [
+      "After almost two years working with Go, I missed working with Elixir,
             especially trying out some new features like LiveView. That was one of
             the motivations for joining Equalture, along together the great
             experience of using their own games during the hiring process.",
-          "<strong>Equalture is a Dutch startup that provides a biased free hiring platform
+      "<strong>Equalture is a Dutch startup that provides a biased free hiring platform
             </strong>. Based on games assessments, this platform analyzes teams
             and candidates, providing valuable insights about the bests candidates
             for any team.",
-          "As an Elixir developer, <strong>I participated in the development of new
+      "As an Elixir developer, <strong>I participated in the development of new
             features both in the frontend and in the backend side of the product.
             Mainly working with Elixir and Phoenix LiveView, the project also involves working
             with other technologies like Kubernetes and Google Cloud. </strong>",
-            "Some of my tasks included:",
-            "- Develop a new filter system for candidates.",
-            "- Help and menthor other team members",
-            "- Maintenance of the kubernetes cluster, eg: Update Nginx ingress, update cert manager...",
-            "- Setup the default-backend service in kubernetes, used for the maintenance mode of the applications"
-        ]
-      ) %>
+      "Some of my tasks included:",
+      "- Develop a new filter system for candidates.",
+      "- Help and menthor other team members",
+      "- Maintenance of the kubernetes cluster, eg: Update Nginx ingress, update cert manager...",
+      "- Setup the default-backend service in kubernetes, used for the maintenance mode of the applications"
+    ]
+  ) %>
 </div>

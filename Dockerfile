@@ -1,7 +1,7 @@
-FROM elixir:1.10.0-alpine AS build
+FROM elixir:1.14.3-alpine AS builder
 
 # install build dependencies
-RUN apk add --no-cache build-base npm git python
+RUN apk add --no-cache build-base npm git
 
 # prepare build dir
 WORKDIR /app
@@ -18,28 +18,29 @@ COPY mix.exs mix.lock ./
 COPY config config
 RUN mix do deps.get, deps.compile
 
-# build assets
-COPY assets/package.json assets/package-lock.json ./assets/
-RUN npm --prefix ./assets ci --progress=false --no-audit --loglevel=error
 
-COPY priv priv
-COPY assets assets
-RUN npm run --prefix ./assets deploy
-RUN mix phx.digest
+FROM node:12.22.6-alpine3.13 as frontend
+WORKDIR /app
+COPY --from=builder /app/deps/phoenix /app/deps/phoenix
+COPY --from=builder /app/deps/phoenix_html /app/deps/phoenix_html
+COPY --from=builder /app/deps/phoenix_live_view /app/deps/phoenix_live_view
+COPY assets /app/assets
 
-# compile and build release
-COPY lib lib
+WORKDIR /app/assets
+RUN npm ci --progress=false --no-audit --loglevel=error
+RUN npm run deploy 
+
+
+FROM builder as releaser
+COPY . /app/
+COPY --from=frontend /app/priv/static /app/priv/static
 RUN mix do compile, release
 
-# prepare release image
-FROM alpine:3.9 AS app
-RUN apk add --no-cache openssl ncurses-libs
+FROM alpine:3.16.4 AS app
+RUN apk add --no-cache ncurses-libs openssl libstdc++ 
 
-WORKDIR /
-
-COPY --from=build /app/_build/prod/rel/phoenix_blog/ ./phoenix_blog
-COPY --from=build /app/priv /phoenix_blog/priv
+COPY --from=releaser /app/_build/prod/rel/phoenix_blog/ /phoenix_blog
+COPY --from=releaser /app/priv /phoenix_blog/priv
 
 WORKDIR /phoenix_blog
-
 CMD bin/phoenix_blog start

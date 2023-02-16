@@ -183,6 +183,7 @@ h3 {
 
 body {
   padding: 5px;
+  padding-bottom: 0px;
   background-image: url("/images/wallpaper.jpg");
   background-position: center;
 }
@@ -409,34 +410,50 @@ li {
 #landing {
   p {
     font-family: roboto;
-    font-size: 16px;
+    font-size: 17px;
     margin-bottom: 10px;
     margin-top: 10px;
     text-align: justify;
   }
 
+  ul {
+    margin-top: 5px;
+  }
+
   li {
     font-family: roboto;
-    font-size: 16px;
+    font-size: 17px;
     margin: 0;
     text-align: justify;
   }
 }
 
 footer {
-  background-color: rgb(63, 63, 63);
-  border-radius: 30px;
-  border: 5px solid rgb(181, 188, 170);
-  color: rgb(181, 188, 170);
-  max-width: 60rem;
-  margin: auto;
-  margin-top: 3%;
+  color: rgb(63, 63, 63);
+  border-radius: 10px;
+  background-color: rgb(181, 188, 170);
+  margin-top: 30px;
+  margin-bottom: 0;
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
+  font-weight: bold;
 
-	p {
+	#container{
+		max-width: 75rem;
+		margin: auto;
+	}
+
+	a {
     font-family: roboto;
-    font-size: 18px;
+		color: rgb(63, 63, 63);
+    font-size: 17px;
     margin: 0px;
     text-align: justify;
   }
 
+	a:hover {
+		color: rgb(63, 63, 63);
+		text-decoration: underline;
+		cursor: pointer;
+	}
 }

@@ -182,8 +182,8 @@ h3 {
 }
 
 body {
-  padding: 5px;
-  padding-bottom: 0px;
+  padding: 0px;
+  padding-top: 10px;
   background-image: url("/images/wallpaper.jpg");
   background-position: center;
 }
@@ -429,30 +429,31 @@ li {
 }
 
 footer {
-  color: rgb(63, 63, 63);
-  border-radius: 10px;
-  background-color: rgb(181, 188, 170);
+  color: white;
+  background-color: #2b302c;
   margin-top: 30px;
   margin-bottom: 0;
-  padding-bottom: 0.5%;
-  padding-top: 0.5%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 1.5%;
+  padding-top: 1.5%;
   font-weight: bold;
 
 	#container{
-		max-width: 75rem;
+		max-width: 80rem;
 		margin: auto;
 	}
 
 	a {
     font-family: roboto;
-		color: rgb(63, 63, 63);
+		color: #b9b7b7;
     font-size: 17px;
     margin: 0px;
     text-align: justify;
   }
 
 	a:hover {
-		color: rgb(63, 63, 63);
+		color: rgb(150, 150, 150);
 		text-decoration: underline;
 		cursor: pointer;
 	}

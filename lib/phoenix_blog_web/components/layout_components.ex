@@ -3,8 +3,8 @@ defmodule PhoenixBlogWeb.Components.LayoutComponents do
 
   def footer(assigns) do
     ~H"""
-    <footer class="flex-column">
-      <div id="container" class="d-flex justify-content-around">
+    <footer class="flex-column justify-content-around">
+      <div id="container" class="d-flex justify-content-md-around .justify-content-start flex-wrap">
         <div class="d-flex flex-column">
           <a href="/posts" target="_blank">Posts</a>
           <a href="/resume" target="_blank">Resume</a>

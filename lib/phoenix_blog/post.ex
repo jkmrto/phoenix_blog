@@ -29,10 +29,15 @@ defmodule PhoenixBlog.Post do
   defp build_content(markdown, props) do
     {:ok, ast, []} = EarmarkParser.as_ast(markdown)
 
-    ast
-    |> Enum.map(&apply_code_language_preffix(&1))
-    |> add_toc(props)
-    |> Earmark.Transform.transform()
+      ast
+      |> Enum.map(&apply_code_language_preffix(&1))
+      |> add_toc(props)
+      |>  add_post_container_div()
+      |> Earmark.Transform.transform()
+  end
+
+  defp add_post_container_div(ast) do
+    [{"div", [{"class", "post-container"}], ast, %{}}]
   end
 
   defp add_toc(ast, props)

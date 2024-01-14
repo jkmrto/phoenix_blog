@@ -407,6 +407,12 @@ li {
   transform: rotate(180deg);
 }
 
+.post-container{
+	ul {
+    margin-bottom: 0px;
+  }
+}
+
 #landing {
   p {
     font-family: roboto;

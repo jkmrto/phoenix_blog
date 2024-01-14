@@ -34,7 +34,7 @@ defmodule PhoenixBlog.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.6.7"},
-      {:phoenix_live_view, "~> 0.18.14"},
+      {:phoenix_live_view, "~> 0.19.5"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.4", only: :dev},
       {:gettext, "~> 0.11"},

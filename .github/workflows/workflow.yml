@@ -8,4 +8,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Docker build
-      run: docker build -t phoenix_blog 
+      run: docker build -t phoenix_blog .

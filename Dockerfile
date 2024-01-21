@@ -19,7 +19,8 @@ COPY config config
 RUN mix do deps.get, deps.compile
 
 
-FROM node:12.22.6-alpine3.13 as frontend
+FROM node:14.14.0-alpine3.12 as frontend
+
 WORKDIR /app
 COPY --from=builder /app/deps/phoenix /app/deps/phoenix
 COPY --from=builder /app/deps/phoenix_html /app/deps/phoenix_html
@@ -37,7 +38,7 @@ COPY --from=frontend /app/priv/static /app/priv/static
 RUN mix do compile, release
 
 FROM alpine:3.16.4 AS app
-RUN apk add --no-cache ncurses-libs openssl libstdc++ 
+RUN apk add --no-cache ncurses-libs openssl libstdc++ libcrypto3
 
 COPY --from=releaser /app/_build/prod/rel/phoenix_blog/ /phoenix_blog
 COPY --from=releaser /app/priv /phoenix_blog/priv

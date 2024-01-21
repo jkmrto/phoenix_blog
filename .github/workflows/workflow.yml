@@ -1,27 +1,11 @@
-#name: Push Container to Heroku
-#
-#on: [push]
-#
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@v1
-#    - name: Login to Heroku Container Registry
-#      env:
-#        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-#      run: heroku container:login
-#    - name: Docker pull to reuse layers
-#      env:
-#        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-#      run: heroku container:pull -a jkmrto web
-#    - name: Docker build
-#      run: docker build -t registry.heroku.com/jkmrto/web . --cache-from registry.heroku.com/jkmrto/web:latest
-#    - name: Build and push
-#      env:
-#        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-#      run: heroku container:push -a jkmrto web
-#    - name: Release
-#      env:
-#        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-#      run: heroku container:release -a jkmrto web
+name: Check docker builds correctly 
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Docker build
+      run: docker build -t phoenix_blog 

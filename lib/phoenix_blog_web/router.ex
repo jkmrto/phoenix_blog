@@ -1,5 +1,6 @@
 defmodule PhoenixBlogWeb.Router do
   use PhoenixBlogWeb, :router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -7,6 +8,8 @@ defmodule PhoenixBlogWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :put_layout, false
+    plug :put_root_layout, {PhoenixBlogWeb.LayoutView, :root}
   end
 
   pipeline :api do
@@ -20,6 +23,9 @@ defmodule PhoenixBlogWeb.Router do
 
     get "/contact", ContactController, :index
     post "/contact", ContactController, :create
+    
+    live "/reading_list", Live.ReadingListLive
+    live "/reading_list/:book/notes", Live.ReadingNotesLive 
 
     get "/posts/:slug", PostController, :show
     get "/posts", PostController, :index

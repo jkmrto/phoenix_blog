@@ -8,5 +8,8 @@
     <%= link "Resume", to: Routes.resume_path(PhoenixBlogWeb.Endpoint, :index) %>
   </div>
   <div class="nav-link">
+    <%= link "Reading", to: Routes.live_path(PhoenixBlogWeb.Endpoint, PhoenixBlogWeb.Live.ReadingListLive) %>
+  </div>
+  <div class="nav-link">
     <%= link "Contact", to: Routes.contact_path(PhoenixBlogWeb.Endpoint, :index) %>
   </div>

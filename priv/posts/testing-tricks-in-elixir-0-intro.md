@@ -2,7 +2,7 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2024-01-01
 linktitle: testing-tricks-in-elixir-0-intro
-title: Testing tricks in Elixir - The importance of testing
+title: Testing in Elixir - The importance of testing
 intro: Overview about the characteristics of effective tests that will help with the maintenability and the extensibility of a project in the long term.
 toc: false
 ---

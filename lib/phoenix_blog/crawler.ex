@@ -7,9 +7,13 @@ defmodule PhoenixBlog.Crawler do
       PhoenixBlog.Post.parse(post_path)
     end
 
+  IO.inspect(posts |> Enum.sort_by(& &1.date, {:desc, Date}) |> Enum.map(& &1.date))
+
   @posts Enum.sort_by(posts, & &1.date, {:desc, Date})
 
   def list_posts() do
+  IO.inspect(@posts |> Enum.map(& &1.date))
+    IO.inspect(@posts |> Enum.map(& &1.title))
     @posts
   end
 end

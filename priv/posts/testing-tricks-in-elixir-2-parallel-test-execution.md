@@ -3,13 +3,13 @@ author: "Juan Carlos Martinez de la Torre"
 date: 2024-03-01
 linktitle: testing-tricks-in-elixir-2-parallel-test-execution
 title: Testing in Elixir - Concurrent test execution 
-intro: An objective of a great test suite is to reduce the executing time. The less time it requires, the shorter the feedback loop for developers. With this purpose, Elixir provides us some appraoches for test concurrent execution.  
+intro: An objective of a great test suite is to reduce the execution time. The less time it requires, the shorter the feedback loop for developers. With this purpose, Elixir provides us some approaches for test concurrent execution.  
 toc: true
 ---
 
 ## Concurrent test execution
 
-An objective of a great test suite is to reduce the executing time. The less time it requires, the shorter the feedback loop for developers. With this purpose, Elixir provides us some appraoches for test concurrent execution.
+An objective of a great test suite is to reduce the time executie execution. The less time it requires, the shorter the feedback loop for developers. With this purpose, Elixir provides us some approaches for test concurrent execution.
 
 The common approach for building tests in Elixir is using the [ExUnit.Case](https://hexdocs.pm/ex_unit/1.13.4/ExUnit.Case.html) helper. One of the main characterisctis of this helper is that allows to executes concurrently the tests with `async: true`, It fosters parallelization and faster feedback loops. You can activate it by simply adding the attribute to the `use` statement:
 ```elixir

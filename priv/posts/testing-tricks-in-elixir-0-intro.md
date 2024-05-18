@@ -4,10 +4,14 @@ date: 2024-01-01
 linktitle: testing-tricks-in-elixir-0-intro
 title: Testing tricks in Elixir - The importance of testing
 intro: Overview about the characteristics of effective tests that will help with the maintenability and the extensibility of a project in the long term.
-# toc: true
+toc: false
 ---
 
-## The Significance of Tests
+Lately I have been double thinking about some practices and strategies that I follow when creating tests in Elixir. I thougt it would be a good idea to write about it, in a series of quick posts.
+
+In this first post, I’ll introduce some fundamental testing principles before diving into specific techniques and tricks that are particularly useful in Elixir.
+
+## The importance of tests 
 
 Automated testing serves as a robust defense against bugs seeping into the production environment, especially in projects with a long lifespan. As a project grows and accumulates contributors, coupled with ongoing refactors, maintaining stability becomes a challenge.
 
@@ -23,20 +27,16 @@ In order to guarantee the effectivity and the maintenability of a test suite in 
 
 The ultimate goal of these characteristics is to avoid brittle tests. Brittle tests are prone to failure due to unrelated changes, leading to a frustrating developer experience. 
 
-If we take a wider perspective, from a test suite point of view some other characteristics that are also worthy to look for on each individual test since are:
+Fom a test suite perspective we want to have an stable test suite that run as fast as possible, if we explore this idea other characteristics to look for:
 
-- **Quick execution time** The quicker a test suite is, the quicker a developer will get feedback from it. Reducing the time of the feedback loop will increase the productivity in the long term.
-- **Deterministic**. A test is deterministic if running it always generates the same outcome. This may look simple but there are some cases that needs an extra effort like when working with dates, since we need to ensure that the pass of time won't affect the outcome of the test.
-
-Along the next posts I will exposes some ideas and tricks when testing with Elixir that faciliates to follow the characteristics mentioned above. 
+- **Quick execution time** The quicker a test suite is, the quicker a developer will get feedback from it. Reducing the time of the feedback loop will increase the productivity in the long term. Other benefit is that we will reduce the consumption of resources in the CI, that may affects some bills.
+- **Deterministic**. A test is deterministic if running it several times always generates the same outcome. This may look simple but there are some cases that needs an extra effort like when working with dates or when having to handle possible race conditions in asynchronus processes.
 
 
+## What is next?
 
-
-
-
-
-
-
-
-
+Along the next posts I will exposes some ideas and tricks when testing with Elixir that facilitates to follow the characteristics mentioned above. Some of the posts I have in mind to write::
+- Mocks in Elixir.
+- Optimize test running time. 
+- Setup customization.
+- How to do table tests in Elixir.

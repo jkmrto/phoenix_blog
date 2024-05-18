@@ -4,6 +4,7 @@ date: 2024-02-01
 linktitle: testing-tricks-in-elixir-1-mocks
 title: Testing tricks in Elixir - Mocks
 intro: Mocks are an essential part of testing when building systems that need to communicate with external applications. At this post we discuss about recommended approach for using Mocks with Elixir, and what are the patterns that should be avoided.
+toc: false
 
 ---
 
@@ -11,7 +12,7 @@ intro: Mocks are an essential part of testing when building systems that need to
 
 One common pattern in testing is replacing a dependency by a custom piece of code, that may allow to simplify the testing approach. This replacement is commonly known as "Mock", although there are other definitions like "Stubs" or "Fakes" depending on the characteristics of the implementation that is replacing the dependency. 
 
-Normally, when we talk about mocks we think about a 3rd API that inevitably needs to replaced, since we want to guarantee an stable test suites that can not depends on an external system in order to be green. That is a clear example where using mocks is legit, though there are other usages that are not so clear and that are prone to discussion.
+Normally, when we talk about mocks we think about a 3rd API that inevitably needs to replaced, since we want to guarantee an stable test suite that doesn't depend on an external system in order to be green. That is a clear example where using mocks is legit, though there are other usages that are not so clear and that are prone to discussion.
 
 In Elixir it is quite usual having unit tests that includes the interaction with the database as part of the tests. There are some drawback on this approach, since we are making our test inherently more slow, and also more coupled to a database which is not ideal. In some Software designs models like [Hexagonal Arquitecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) the databases are treated as external dependencies, which means that is modeled as a port, and ports are normally replaced by mocks on Unit tests.
 
@@ -27,11 +28,11 @@ The usage of **interaction tests provokes a coupling between the function being 
 
 ### Mox library
 
-There is a well known article about mocks in Elixir, that was shared with the community around 2015. Titled as ["Mocks and explicit contracts"](https://dashbit.co/blog/mocks-and-explicit-contracts). the main purpose of this article was to provide some guidelines for Elixir developers about the usage of Mocks. 
+There is a well known article about mocks in Elixir, that was shared with the community around 2015. Titled as ["Mocks and explicit contracts"](https://dashbit.co/blog/mocks-and-explicit-contracts). the main purpose of this article was to provide some guidelines for Elixir developers about when to use Mocks.
 
-In summary, it highlights the importance of only applying mocks over modules that implements an Behaviour.  
+In summary, it highlights the importance of only applying mocks over modules that implements a [Behaviour](https://hexdocs.pm/elixir/typespecs.html#behaviours). A Behaviour in Elixir allows to define interfaces, so that any module that tries to implement that Behaviour will have to implement that specified functions. 
 
-Some years later, a library was introduced based on the guidelines of this article. This library is **Mox**, that is now the default library for creating mocks in Elixir. This library is based on the idea of defining explicit interfaces through Behaviors. It is quite easy to use this libary reading its [Documentation](https://github.com/dashbitco/mox).
+Some years later, a library was introduced based on the guidelines of this article. This library is [Mox](https://github.com/dashbitco/mox), that is now the default library for creating mocks in Elixir. This library is based on the idea of defining explicit interfaces through Behaviors. It is quite easy to use this libary reading its [Documentation](https://github.com/dashbitco/mox).
 
 
 ### Final comments about mocks

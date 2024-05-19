@@ -9,6 +9,8 @@
 //@import '~@fortawesome/fontawesome-free-brands';
 @import "./phoenix.css";
 
+$breakpoint-tablet: 760px;
+
 /* Alerts and form errors */
 
 * {
@@ -153,7 +155,11 @@ h3 {
   color: #3f3f3f;
   font-weight: bold;
   font-size: 20px;
-  font: bold 19px/1.7 "Helvetica Neue", helvetica, Arial, sans-serif;
+  font:
+    bold 19px/1.7 "Helvetica Neue",
+    helvetica,
+    Arial,
+    sans-serif;
 }
 
 // index
@@ -172,7 +178,11 @@ h3 {
 }
 
 .index-intro {
-  font: normal 18px/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font:
+    normal 18px/1.5em "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
   color: #888;
   margin-top: 10p;
 }
@@ -343,7 +353,6 @@ code.inline {
   }
 }
 
-$breakpoint-tablet: 760px;
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: $breakpoint-tablet) {
   .resume-company-img {
@@ -407,8 +416,8 @@ li {
   transform: rotate(180deg);
 }
 
-.post-container{
-	ul {
+.post-container {
+  ul {
     margin-bottom: 0px;
   }
 }
@@ -432,6 +441,27 @@ li {
     margin: 0;
     text-align: justify;
   }
+
+  .text-wrap {
+    max-width: 70%;
+    flex: 1 1 100%;
+  }
+  .image-wrap {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+  }
+
+	@media screen and (max-width: $breakpoint-tablet) {
+    .text-wrap,
+    .image-wrap {
+      max-width: 100%;
+      width: 100%;
+    }
+    .image-content {
+      justify-content: center;
+    }
+  }
 }
 
 footer {
@@ -445,22 +475,22 @@ footer {
   padding-top: 1.5%;
   font-weight: bold;
 
-	#container{
-		max-width: 80rem;
-		margin: auto;
-	}
+  #container {
+    max-width: 80rem;
+    margin: auto;
+  }
 
-	a {
+  a {
     font-family: roboto;
-		color: #b9b7b7;
+    color: #b9b7b7;
     font-size: 17px;
     margin: 0px;
     text-align: justify;
   }
 
-	a:hover {
-		color: rgb(150, 150, 150);
-		text-decoration: underline;
-		cursor: pointer;
-	}
+  a:hover {
+    color: rgb(150, 150, 150);
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

@@ -9,7 +9,7 @@ defmodule PhoenixBlogWeb.Components.LayoutComponents do
           <a href="/posts" target="_blank">Posts</a>
           <a href="/resume" target="_blank">Resume</a>
           <a href="/contact" target="_blank">Contact</a>
-          <a href="https://www.jkmrto.dev" target="_blank">www.jkmrto.dev @ 2023</a>
+          <a href="https://www.jkmrto.dev" target="_blank">www.jkmrto.dev @ 2024</a>
         </div>
         <div class="d-flex flex-column">
           <a href="https://github.com/jkmrto/phoenix_blog" target="_blank">Code at Github</a>

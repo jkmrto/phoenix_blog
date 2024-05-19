@@ -1,28 +1,60 @@
 <div id="landing" class="index-page d-flex flex-column">
-  <div class="d-flex flex-column m-auto" style="max-width: 500px;">
+  <div class="d-flex flex-column m-auto" style="max-width: 650px;">
     <h1>Welcome to my website !!</h1>
 
+    <div class="d-flex flex-wrap">
+      <div class="text-wrap">
+        <p>
+          Here Juan Carlos, a Software developer specialized in the Backend Area. 👋
+        </p>
+        <p>
+          My area of expertise is the backend side, while Elixir and Go are the languages I have practiced the most. I also like working on the Devops side, enjoying any challenge that requires learning new stuff.
+        </p>
+      </div>
+      <div class="image-wrap ms-5">
+        <div class="d-flex my-4">
+          <img src="images/wtf.jpeg" width="160" height="160" style="border-radius: 25%" />
+        </div>
+      </div>
+    </div>
+
     <p>
-      Here Juan Carlos, a Software developer with more than 6 years of experience. My area of expertise is the backend side, while Elixir and Go are the languages I have practiced the most.
+      You can check a little more about my background in my <%= link("Resume",
+        to: Routes.resume_path(PhoenixBlogWeb.Endpoint, :index)
+      ) %>.
     </p>
 
     <p class="mb-1">
-      Always trying to learn new stuff, these are some of the areas I am specially interested in:
+      These are some of the areas I am specially interested in:
     </p>
     <ul>
       <li>Distributed systems</li>
-      <li>Cloud native development</li>
       <li>Microservices</li>
+      <li>Event driven systems</li>
       <li>Databases</li>
     </ul>
 
     <p>
-      On this website, you will find different topics that at some point took my attention. I hope you can find them
-      useful.
+      On this website, you will find some <%= link("posts",
+        to: Routes.post_path(PhoenixBlogWeb.Endpoint, :index)
+      ) %> about some topics that took my attention at some point.
     </p>
 
-    <div class="d-flex justify-content-center my-5">
-      <img src="images/wtf.jpeg" width="400" height="400" style="border-radius: 50" />
+    <p>
+      Feel free to <%= link("contact me here",
+        to: Routes.contact_path(PhoenixBlogWeb.Endpoint, :index)
+      ) %> or at any social network:
+    </p>
+    <div id="resume-summary-contact">
+      <a href="https://www.github.com/jkmrto">
+        <i class="fab fa-github resume-icon"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/jkmrto">
+        <i class="fab fa-linkedin resume-icon"></i>
+      </a>
+      <a href="https://twitter.com/jkmrto">
+        <i class="fab fa-twitter resume-icon"></i>
+      </a>
     </div>
   </div>
 </div>

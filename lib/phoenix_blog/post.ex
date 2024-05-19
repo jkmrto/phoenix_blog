@@ -3,7 +3,7 @@ defmodule PhoenixBlog.Post do
   alias PhoenixBlog.Post.Properties
   alias EarmarkTocGenerator
 
-  defstruct slug: "", title: "", date: Timex.now(), intro: "", content: ""
+  defstruct slug: "", title: "", date: Timex.now(), intro: "", content: "", props: %{}
 
   def read_post(path) do
     [raw_properties, markdown] =
@@ -22,18 +22,19 @@ defmodule PhoenixBlog.Post do
       title: Map.get(props, "title"),
       date: Timex.parse!(to_string(Map.get(props, "date")), "{ISOdate}"),
       intro: Map.get(props, "intro"),
-      content: build_content(markdown, props)
+      content: build_content(markdown, props),
+      props: props
     }
   end
 
   defp build_content(markdown, props) do
     {:ok, ast, []} = EarmarkParser.as_ast(markdown)
 
-      ast
-      |> Enum.map(&apply_code_language_preffix(&1))
-      |> add_toc(props)
-      |>  add_post_container_div()
-      |> Earmark.Transform.transform()
+    ast
+    |> Enum.map(&apply_code_language_preffix(&1))
+    |> add_toc(props)
+    |> add_post_container_div()
+    |> Earmark.Transform.transform()
   end
 
   defp add_post_container_div(ast) do

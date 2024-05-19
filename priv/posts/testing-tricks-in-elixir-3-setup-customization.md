@@ -5,6 +5,7 @@ linktitle: testing-tricks-in-elixir-3-setup-customization
 title: Testing in Elixir - Setup customization
 intro: Briefly discussion about different options for test setup in Elixir and how to customize them using context @tags.
 toc: true
+test-series: true
 ---
 
 

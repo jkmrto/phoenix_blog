@@ -5,7 +5,7 @@ linktitle: testing-tricks-in-elixir-1-mocks
 title: Testing in Elixir - Mocks
 intro: Mocks are an essential part of testing when building systems that need to communicate with external applications. At this post we discuss about recommended approach for using Mocks with Elixir, and what are the patterns that should be avoided.
 toc: false
-
+test-series: true
 ---
 
 ## Mocks in Elixir

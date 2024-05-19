@@ -2,4 +2,15 @@
   <h1><%= @post.title %></h1>
   <p><%= Timex.format!(@post.date, "{Mshort} {D} {YYYY}") %></p>
   <%= raw(@post.content) %>
+  <%= if Map.get(@post.props, "test-series", false) do %>
+    <hr>
+    <h3>Series of posts about testing:</h3>
+    <ul>
+        <li><%= link "Intro - The importance of testing", to: "/posts/testing-tricks-in-elixir-0-intro" %></li>
+        <li><%= link "Mocks in Elixir", to: "/posts/testing-tricks-in-elixir-1-mocks" %></li>
+        <li><%= link "Concurrent test execution", to: "/posts/testing-tricks-in-elixir-2-parallel-test-execution" %></li>
+        <li><%= link "Setup customization", to: "/posts/testing-tricks-in-elixir-3-setup-customization" %></li>
+        <li>Table tests in Elixir (not yet available)</li>
+    </ul>
+  <% end %>
 </article>

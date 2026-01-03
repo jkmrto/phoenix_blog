@@ -1,5 +1,0 @@
-<section id="nav-bar" class="container">
-  <div class="d-flex flex-row justify-content-end w-100 px-5">
-    <%= render PhoenixBlogWeb.NavBarView, "links.html" %>
-  </div>
-</section>

@@ -1,16 +1,16 @@
 defmodule PhoenixBlogWeb.Components.Badges do
   use Phoenix.Component
 
-  def ansible(assigns),
+  def ansible(_assigns),
     do: badge(%{text: "Ansible", link: "https://www.ansible.com/", color: "#000"})
 
-  def angular(assigns),
+  def angular(_assigns),
     do: badge(%{text: "Angular", link: "https://angular.io/", color: "#D40027"})
 
-  def aws(assigns),
+  def aws(_assigns),
     do: badge(%{text: "AWS", link: "https://aws.amazon.com/", color: "#FF8F00"})
 
-  def azure(assigns),
+  def azure(_assigns),
     do: badge(%{text: "Azure", link: "https://azure.microsoft.com", color: "#006EC6"})
 
   def docker(assigns),

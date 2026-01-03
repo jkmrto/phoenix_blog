@@ -39,7 +39,7 @@ defmodule PhoenixBlog.PostTest do
     File.read!("test/fixtures/code_post.md")
     |> IO.inspect()
 
-    {:ok, ast, []} = EarmarkParser.as_ast(code_snippet)
+    {:ok, ast, []} = Earmark.as_ast(code_snippet)
     Post.apply_languague_code_preffix(ast)
   end
 

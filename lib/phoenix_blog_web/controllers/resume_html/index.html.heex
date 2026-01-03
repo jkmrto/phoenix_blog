@@ -36,16 +36,16 @@
     <div class="d-flex flex-row justify-content-between mt-4">
       <div>
         <div class="d-flex flex-column justify-content-around">
-          <%= skill_image("Elixir") %>
-          <%= skill_image("Phoenix") %>
-          <%= skill_image("Go") %>
+          <PhoenixBlogWeb.Components.ResumeComponents.skill_image skill="Elixir" />
+          <PhoenixBlogWeb.Components.ResumeComponents.skill_image skill="Phoenix" />
+          <PhoenixBlogWeb.Components.ResumeComponents.skill_image skill="Go" />
         </div>
       </div>
       <div>
         <div class="d-flex flex-column justify-content-around">
-          <%= skill_image("Docker") %>
-          <%= skill_image("Kubernetes") %>
-          <%= skill_image("RabbitMQ") %>
+          <PhoenixBlogWeb.Components.ResumeComponents.skill_image skill="Docker" />
+          <PhoenixBlogWeb.Components.ResumeComponents.skill_image skill="Kubernetes" />
+          <PhoenixBlogWeb.Components.ResumeComponents.skill_image skill="RabbitMQ" />
         </div>
       </div>
       <div></div>
@@ -53,15 +53,15 @@
   </div>
   <h2 id="resume-section-title">Experience</h2>
   <div id="experience">
-    <%= render("remote.html") %>
-    <%= render("equalture.html") %>
-    <%= render("paack.html") %>
-    <%= render("derivco.html") %>
-    <%= render("palmtree.html") %>
+    <PhoenixBlogWeb.Components.ResumeComponents.remote />
+    <PhoenixBlogWeb.Components.ResumeComponents.equalture />
+    <PhoenixBlogWeb.Components.ResumeComponents.paack />
+    <PhoenixBlogWeb.Components.ResumeComponents.derivco />
+    <PhoenixBlogWeb.Components.ResumeComponents.palmtree />
   </div>
   <h2 class="my-5" id="resume-section-title">Education</h2>
   <div id="education">
-    <%= render("grado-teleco.html") %>
-    <%= render("master-teleco.html") %>
+    <PhoenixBlogWeb.Components.ResumeComponents.grado_teleco />
+    <PhoenixBlogWeb.Components.ResumeComponents.master_teleco />
   </div>
 </div>

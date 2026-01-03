@@ -27,7 +27,7 @@
         </div>
 
         <div style="display: flex; justify-content: center; margin-bottom: 1em">
-          <%= raw Recaptcha.Template.display() %>
+          <%= Phoenix.HTML.raw(Recaptcha.Template.display()) %>
         </div>
 
         <div class="container-contact1-form-btn">
@@ -37,3 +37,4 @@
     </div>
   </div>
 </div>
+

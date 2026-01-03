@@ -19,7 +19,10 @@ defmodule PhoenixBlogWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: PhoenixBlogWeb
+      use Phoenix.Controller,
+        namespace: PhoenixBlogWeb,
+        formats: [:html, :json],
+        layouts: [html: {PhoenixBlogWeb.Components.Layout, :app}]
 
       import Plug.Conn
       import PhoenixBlogWeb.Gettext
@@ -29,7 +32,7 @@ defmodule PhoenixBlogWeb do
 
   def view do
     quote do
-      use Phoenix.View,
+      use Phoenix.Template,
         root: "lib/phoenix_blog_web/templates",
         namespace: PhoenixBlogWeb
 
@@ -60,10 +63,9 @@ defmodule PhoenixBlogWeb do
   defp view_helpers do
     quote do
       # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
-
-      # Import basic rendering functionality (render, render_layout, etc)
-      import Phoenix.View
+      import Phoenix.HTML
+      import Phoenix.HTML.Form
+      use PhoenixHTMLHelpers
 
       import PhoenixBlogWeb.ErrorHelpers
       import PhoenixBlogWeb.Gettext

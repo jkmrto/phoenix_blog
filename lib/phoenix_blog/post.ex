@@ -28,7 +28,8 @@ defmodule PhoenixBlog.Post do
   end
 
   defp build_content(markdown, props) do
-    {:ok, ast, []} = EarmarkParser.as_ast(markdown)
+    {:ok, ast, error} = Earmark.as_ast(markdown)
+    IO.puts("error message: #{inspect(error)}")
 
     ast
     |> Enum.map(&apply_code_language_preffix(&1))

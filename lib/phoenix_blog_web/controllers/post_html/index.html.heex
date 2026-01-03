@@ -1,18 +1,19 @@
 <div id="index-container" class="mt-5 pt-5 d-flex flex-column">
   <ul>
-    <%= for {year, posts} <- @posts  do %>
+    <%= for {year, posts} <- @posts do %>
       <div class="posts-year-sectioner">
         <%= year %>
       </div>
       <%= for post <- posts do %>
         <li id="index-post-list">
           <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
-            <%= link post.title, to: Routes.post_path(@conn, :show, post.slug), class: "post-link" %>
-            <span> <%= Timex.format!(post.date, "{YYYY}-{Mshort}") %> </span>
+            <.link href={Routes.post_path(PhoenixBlogWeb.Endpoint, :show, post.slug)} class="post-link"><%= post.title %></.link>
+            <span><%= Timex.format!(post.date, "{YYYY}-{Mshort}") %></span>
           </div>
-          <span class="index-intro"> <%= post.intro %> </span>
+          <span class="index-intro"><%= post.intro %></span>
         </li>
       <% end %>
     <% end %>
   </ul>
 </div>
+

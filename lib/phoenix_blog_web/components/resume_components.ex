@@ -67,12 +67,12 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
     ~H"""
     <div>
       <div class="experience-intro-container">
-        <a href="https://remote.com//">
+          <a href="https://remote.com/">
           <img class="resume-company-img" src="/images/remote.png" />
         </a>
 
         <div class="experience-header-container">
-          <p class="experience-title">Remote- <em class="role"> Backend Engineer</em></p>
+          <p class="experience-title">Remote- <em class="role"> Senior Backend Engineer</em></p>
 
           <div class="entry-header">
             <p class="resume-date">Jul 2023 - Currently</p>
@@ -91,10 +91,17 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
       <.collapse_information_component
         id="more-information-remote"
         desc_paragraphs={[
-          "I joined Remote as Backend Engineer in the fintech area of the company, in charge of processing the expenses from payrolls and other company costs, applying the appropiate FX rates and building up the invoices.",
-          "Some of the main projects I work on:",
-          "- <b>Standarisation of the FX Rates</b>: Migrate from a previous on the flight approach to select FX Rates to an standarised approach where the same FX Rates are applied in prefunding and in reconciliation billing cycles. It includes other capabilities like traceability for FX Rates and FX spreads.",
-          "- <b>Migration for a new external billing provider</b>: As part of the migration to a new billing provider, we standarised the approach for creating invoiceable components from different costs. I contributed migrating a big part of the costs to the new approach, untangling how the legacy works in some cases to correctly create the new costs components."
+          "I joined Remote as Backend Engineer in the fintech area of the company, being part of the billing team. I contributed on different projects such as:",
+          "<ul>",
+          "<li><b>Migration for a new external billing provider</b>: As part of the migration to an external billing provider, I contributed with:",
+          "<ul>",
+          "<li>Led the migration of a big part of the costs to the new approach, untangling how the legacy works to create precisely the new costs components.</li>",
+          "<li>Led the creation of automation workflows that allowed us to transition from a manual supervised workflow into an automation one.</li>",
+          "<li>Contributed to the resolution of blocking incidents during the billing days.</li>",
+          "</ul>",
+          "</li>",
+          "<li><b>Standardisation of the FX Rates</b>: Built up a standardised approach where the same FX Rates are applied during a whole billing cycle. It includes other capabilities like traceability for FX Rates and FX spreads.</li>",
+          "</ul>",
         ]}
       />
     </div>
@@ -110,7 +117,7 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
         </a>
 
         <div class="experience-header-container">
-          <p class="experience-title">Equalture - <em class="role"> Software Developer</em></p>
+          <p class="experience-title">Equalture - <em class="role"> Senior Software Engineer</em></p>
 
           <div class="entry-header">
             <p class="resume-date">Sep 2021 - Currently</p>
@@ -133,15 +140,17 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
       <.collapse_information_component
         id="more-information-equalture"
         desc_paragraphs={[
-          "After almost two years working with Go, I missed working with Elixir, especially trying out some new features like LiveView. That was one of the motivations for joining Equalture, along together the great experience of using their own games based assessments during the hiring process.",
+          "After almost two years working with Go, I missed working with Elixir, especially trying out some new features like LiveView. That was one of the motivations for joining Equalture, along with the great experience of using their own games based assessments during the hiring process.",
           "<strong>Equalture is a startup that provides a biased free hiring platform</strong>. Based on games assessments, this platform analyzes teams and candidates, providing valuable insights about the best candidates for any team.",
           "As an Elixir developer, <strong>I participated in the development of new features both in the frontend and in the backend side of the product. Mainly working with Elixir and Phoenix LiveView, the project also involves working with other technologies like Kubernetes and Google Cloud. </strong>",
           "Some of my tasks included:",
-          "- Develop a new API for external clients, proposing and maintaing Open API docs.",
-          "- Develop a 2FA approach for the wep app.",
-          "- Develop a real time filter system for candidates. This ends up in a multi-dimensional dynamic query",
-          "- Lead the devops area in the company. Proposing improvements and applying them on the Kubernetes cluster like the usage of default-backend for maintenance or supporting the upgrade of some components like cert-manager or Nginx ingress",
-          "- Support and mentor other team members. Leading up a team of three devs"
+          "<ul>",
+          "<li>Develop a new API for external clients, proposing and maintaining Open API docs.</li>",
+          "<li>Develop a 2FA approach for the web app.</li>",
+          "<li>Develop a real time filter system for candidates. This ends up in a multi-dimensional dynamic query.</li>",
+          "<li>Lead the devops area in the company. Proposing improvements and applying them on the Kubernetes cluster like the usage of default-backend for maintenance or supporting the upgrade of some components like cert-manager or Nginx ingress.</li>",
+          "<li>Support and mentor other team members. Leading a team of three devs.</li>",
+          "</ul>",
         ]}
       />
     </div>
@@ -180,9 +189,9 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
       <.collapse_information_component
         id="more-information-paack"
         desc_paragraphs={[
-          "For almost all my career I had been working mainly with Elixir and his ecosystem. I felt I needed to try some other technologies, that is why I decided to make a move to Go.",
+          "For almost all my career I had been working mainly with Elixir and its ecosystem. I felt I needed to try some other technologies, that is why I decided to make a move to Go.",
           "<strong>Paack is a startup focused on logistics</strong>. When I entered the company they were trying to expand their backend using Go. <strong>This experience allowed me to get a deeper knowledge of SOLID principles, hexagonal architecture and how to approach 24/7 systems without OTP. </strong>",
-          "I designed and built from the scratch with the help of another workmate the new routing platform. This microservice is in charge of comunicating with the external routing providers, offering a clear interface for internal microservices, hidding the complexity of each routing provider for the rest of the platform."
+          "I designed and built from the scratch with the help of another workmate the new routing platform. This microservice is in charge of communicating with the external routing providers, offering a clear interface for internal microservices, hiding the complexity of each routing provider for the rest of the platform."
         ]}
       />
     </div>
@@ -218,9 +227,9 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
       <.collapse_information_component
         id="more-information-derivco"
         desc_paragraphs={[
-          "After being working for a tiny startup for almost three years I wanted to try some kind of bigger company and continue working with Elixir. That's why I decided to join Derivco which is a company with more than 4.000 workers around the world is the software provider for Betway, one of the bigger sportbook around the world.",
-          "<strong>At Derivco I was part of the Core team in charge of developing and maintain several service in Ruby, Elixir and Go.</strong>",
-          "One of the main project I worked on was in the migration of a microrservice from Ruby to Elixir. This service was in charge of forwarding changes in the core database, using triggers for listening changes and RabbitMQ as messages broker."
+          "After being working for a tiny startup for almost three years I wanted to try some kind of bigger company and continue working with Elixir. That's why I decided to join Derivco which is a company with more than 4,000 workers around the world and is the software provider for Betway, one of the bigger sportbook around the world.",
+          "<strong>At Derivco I was part of the Core team in charge of developing and maintaining several services in Ruby, Elixir and Go.</strong>",
+          "One of the main projects I worked on was the migration of a microservice from Ruby to Elixir. This service was in charge of forwarding changes in the core database, using triggers for listening changes and RabbitMQ as messages broker."
         ]}
       />
     </div>
@@ -257,7 +266,7 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
       <.collapse_information_component
         id="more-information-palmtree"
         desc_paragraphs={[
-          "This was my first working experience and a relevant personal step that had allowed me to discover an enyojable professional path. Palmtree Statistics was a tiny startup focused on the development of tools for analysis realtime sports data.",
+          "This was my first working experience and a relevant personal step that had allowed me to discover an enjoyable professional path. Palmtree Statistics was a tiny startup focused on the development of tools for analysis realtime sports data.",
           "I started at Palmtree as an Intern getting contracted at the end the training period. As intern, I learned about the principles of clean code and professional software development. I worked on the development of a testing environment with Python and Docker."
         ]}
       />
@@ -282,7 +291,7 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
         id="more-information-ugr"
         desc_paragraphs={[
           "The telecommunications engineering degree is one the most prestigious engineering degrees in Spain. With a solid base in physics and mathematics, this degree covers electronics to networking design. Through my stage as a student, I learned a solid knowledge about how electronics systems work, from the basics to how to transmit information through air or wire interfaces.",
-          "As <strong>final degree project</strong>, I contributed to an investigation platform called TIE (Traffic indentifications engine) . The objective of this platform is to compare different algorithms for network traffic classification. In my case, I built an algorithm that classifies the traffic based on the size of the packages. A clustering algorithm called K-means was applied built in C."
+          "As <strong>final degree project</strong>, I contributed to an investigation platform called TIE (Traffic identifications engine). The objective of this platform is to compare different algorithms for network traffic classification. In my case, I built an algorithm that classifies the traffic based on the size of the packages. A clustering algorithm called K-means was applied built in C."
         ]}
       />
     </div>
@@ -313,7 +322,7 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
       <.collapse_information_component
         id="more-information-uma"
         desc_paragraphs={[
-          "This master is the final step for the telecommunication engineering path in Spain. It includes some topics such as optical communications, microelectronics and sotware defined networks.",
+          "This master is the final step for the telecommunication engineering path in Spain. It includes some topics such as optical communications, microelectronics and software defined networks.",
           "As <strong> final master project </strong>, I implemented an artificial neural network system for the premature detection of Alzheimer. The system was implemented in Python, using some libraries such as TensorFlow and NumPy.",
           "The neural network was based on the variational autoencoder. The main idea was being able to reduce the high number of dimensions of an MRI or PET image, to a few dimensions. This will allow the algorithm to capture the intrinsic characteristics to detect the disease."
         ]}

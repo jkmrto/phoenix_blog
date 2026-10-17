@@ -7,6 +7,7 @@ import Config
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :phoenix_blog, PhoenixBlogWeb.Endpoint,
+  secret_key_base: "UF2mY/FssOeWGtS9zpWUHbA4Tdt9M/7QtFf3V+pBKl+fG2uF//k2qupvw0LFkgnq",
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,

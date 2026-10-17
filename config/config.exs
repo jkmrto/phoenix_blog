@@ -10,7 +10,6 @@ import Config
 # Configures the endpoint
 config :phoenix_blog, PhoenixBlogWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "UF2mY/FssOeWGtS9zpWUHbA4Tdt9M/7QtFf3V+pBKl+fG2uF//k2qupvw0LFkgnq",
   render_errors: [
     formats: [html: PhoenixBlogWeb.ErrorHTML, json: PhoenixBlogWeb.ErrorJSON],
     layout: false

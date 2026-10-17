@@ -19,7 +19,6 @@ config :logger, level: :info
 config :phoenix_blog, PhoenixBlogWeb.Endpoint,
   http: [
     transport_options: [socket_opts: [:inet6]]
-  ],
-  secret_key_base: "UF2mY/FssOeWGtS9zpWUHbA4Tdt9M/7QtFf3V+pBKl+fG2uF//k2qupvw0LFkgnq"
+  ]
 
 config :phoenix_blog, PhoenixBlogWeb.Endpoint, server: true

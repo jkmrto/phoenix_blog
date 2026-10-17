@@ -7,17 +7,17 @@
 
       <%= form_for @conn, Routes.contact_path(@conn, :create), [class: "contact1-form validate-form"], fn f -> %>
         <div class="wrap-input1" data-validate="Name is required">
-          <%= text_input f, :name, class: "input1", placeholder: "Name" %>
+          {text_input(f, :name, class: "input1", placeholder: "Name")}
           <span class="shadow-input1"></span>
         </div>
 
         <div class="wrap-input1">
-          <%= text_input f, :email, class: "input1", placeholder: "Email" %>
+          {text_input(f, :email, class: "input1", placeholder: "Email")}
           <span class="shadow-input1"></span>
         </div>
 
         <div class="wrap-input1">
-          <%= text_input f, :subject, class: "input1", placeholder: "Subject" %>
+          {text_input(f, :subject, class: "input1", placeholder: "Subject")}
           <span class="shadow-input1"></span>
         </div>
 
@@ -27,14 +27,13 @@
         </div>
 
         <div style="display: flex; justify-content: center; margin-bottom: 1em">
-          <%= Phoenix.HTML.raw(Recaptcha.Template.display()) %>
+          {Phoenix.HTML.raw(Recaptcha.Template.display())}
         </div>
 
         <div class="container-contact1-form-btn">
-          <%= submit "Send", [class: "contact1-form-btn"] %>
+          {submit("Send", class: "contact1-form-btn")}
         </div>
       <% end %>
     </div>
   </div>
 </div>
-

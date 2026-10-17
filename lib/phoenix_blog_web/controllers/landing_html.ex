@@ -27,7 +27,9 @@ defmodule PhoenixBlogWeb.LandingHTML do
         </div>
 
         <p>
-          You can check a little more about my background in my <.link href={Routes.resume_path(PhoenixBlogWeb.Endpoint, :index)}>Resume</.link>.
+          You can check a little more about my background in my <.link href={
+            Routes.resume_path(PhoenixBlogWeb.Endpoint, :index)
+          }>Resume</.link>.
         </p>
 
         <p class="mb-1">
@@ -41,11 +43,15 @@ defmodule PhoenixBlogWeb.LandingHTML do
         </ul>
 
         <p>
-          On this website, you will find some <.link href={Routes.post_path(PhoenixBlogWeb.Endpoint, :index)}>posts</.link> about some topics that took my attention at some point.
+          On this website, you will find some
+          <.link href={Routes.post_path(PhoenixBlogWeb.Endpoint, :index)}>posts</.link>
+          about some topics that took my attention at some point.
         </p>
 
         <p>
-          Feel free to <.link href={Routes.contact_path(PhoenixBlogWeb.Endpoint, :index)}>contact me here</.link> or at any social network:
+          Feel free to
+          <.link href={Routes.contact_path(PhoenixBlogWeb.Endpoint, :index)}>contact me here</.link>
+          or at any social network:
         </p>
         <div id="resume-summary-contact">
           <a href="https://www.github.com/jkmrto">

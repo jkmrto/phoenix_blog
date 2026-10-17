@@ -16,6 +16,7 @@ defmodule PhoenixBlogWeb.PostController do
   def not_found(conn) do
     conn
     |> put_status(:not_found)
-    |> render(PhoenixBlogWeb.ErrorView, "404.html")
+    |> put_view(PhoenixBlogWeb.ErrorHTML)
+    |> render(:"404", title: "Not Found")
   end
 end

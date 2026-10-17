@@ -1,14 +1,13 @@
 defmodule PhoenixBlogWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
-  as controllers, views, channels and so on.
+  as controllers, channels and so on.
 
   This can be used in your application as:
 
       use PhoenixBlogWeb, :controller
-      use PhoenixBlogWeb, :view
 
-  The definitions below will be executed for every view,
+  The definitions below will be executed for every
   controller, etc, so keep them short and clean, focused
   on imports, uses and aliases.
 
@@ -25,22 +24,8 @@ defmodule PhoenixBlogWeb do
         layouts: [html: {PhoenixBlogWeb.Components.Layout, :app}]
 
       import Plug.Conn
-      import PhoenixBlogWeb.Gettext
+      use Gettext, backend: PhoenixBlogWeb.Gettext
       alias PhoenixBlogWeb.Router.Helpers, as: Routes
-    end
-  end
-
-  def view do
-    quote do
-      use Phoenix.Template,
-        root: "lib/phoenix_blog_web/templates",
-        namespace: PhoenixBlogWeb
-
-      # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
-
-      # Include shared imports and aliases for views
-      unquote(view_helpers())
     end
   end
 
@@ -56,20 +41,7 @@ defmodule PhoenixBlogWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import PhoenixBlogWeb.Gettext
-    end
-  end
-
-  defp view_helpers do
-    quote do
-      # Use all HTML functionality (forms, tags, etc)
-      import Phoenix.HTML
-      import Phoenix.HTML.Form
-      use PhoenixHTMLHelpers
-
-      import PhoenixBlogWeb.ErrorHelpers
-      import PhoenixBlogWeb.Gettext
-      alias PhoenixBlogWeb.Router.Helpers, as: Routes
+      use Gettext, backend: PhoenixBlogWeb.Gettext
     end
   end
 

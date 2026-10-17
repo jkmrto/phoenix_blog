@@ -35,7 +35,7 @@ RUN npm run deploy
 FROM builder as releaser
 COPY . /app/
 COPY --from=frontend /app/priv/static /app/priv/static
-RUN mix do compile + release
+RUN mix do compile + phx.digest + release
 
 FROM alpine:3.22.6 AS app
 RUN apk add --no-cache ncurses-libs openssl libstdc++ libcrypto3

@@ -37,7 +37,7 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
       </div>
 
       <div id={@id} class="mx-3 collapse">
-        <%= Phoenix.HTML.raw(Enum.map(@desc_paragraphs, fn p -> "<p> #{p} </p>" end)) %>
+        {Phoenix.HTML.raw(Enum.map(@desc_paragraphs, fn p -> "<p> #{p} </p>" end))}
       </div>
     </div>
     """
@@ -47,8 +47,8 @@ defmodule PhoenixBlogWeb.Components.ResumeComponents do
     ~H"""
     <a href={link_for_skill(@skill)}>
       <div class="d-flex flex-row" style="font-size: 2.0rem">
-        <%= img_tag(route_to_skill_img(@skill), style: "width: 30px; height: 30px; display: inline") %>
-        <l class="mx-3"><%= @skill %></l>
+        {img_tag(route_to_skill_img(@skill), style: "width: 30px; height: 30px; display: inline")}
+        <l class="mx-3">{@skill}</l>
       </div>
     </a>
     """

@@ -3,57 +3,23 @@ defmodule PhoenixBlog.PostTest do
 
   alias PhoenixBlog.Post
 
-  test "build_ul_node_with_list" do
-    node = [{"h3", "hola wtf 2"}, {"h3", "hola wtf 1"}]
+  @tag :tmp_dir
+  test "parse/1 builds a post with language-prefixed code blocks", %{tmp_dir: tmp_dir} do
+    path = Path.join(tmp_dir, "my-post.md")
 
-    assert Post.build_ul_node_with_list(node) ==
-             {"ul", [],
-              [
-                {"li", [],
-                 {"a", [{"class", "toc"}, {"href", "#hola-wtf-2"}], ["hola-wtf-2"], %{}}, %{}},
-                {"li", [],
-                 {"a", [{"class", "toc"}, {"href", "#hola-wtf-1"}], ["hola-wtf-1"], %{}}, %{}}
-              ], %{}}
-  end
+    File.write!(path, """
+    title: My post
+    date: 2024-01-02
+    intro: Intro
+    ---
+    #{File.read!("test/fixtures/code_post.md")}
+    """)
 
-  test "build_li_with_sublist" do
-    input = {"h2", "hola wtf", [{"h3", "hola wtf 1"}]}
+    post = Post.parse(path)
 
-    assert Post.build_li_with_sublist(input) == [
-             {"li", [], {"a", [{"class", "toc"}, {"href", "#hola-wtf"}], ["hola-wtf"], %{}}, %{}},
-             {"ul", [],
-              [
-                {"li", [],
-                 {"a", [{"class", "toc"}, {"href", "#hola-wtf-1"}], ["hola-wtf-1"], %{}}, %{}}
-              ], %{}}
-           ]
-  end
-
-  test "apply_languague_code_preffix" do
-    code_snippet = "
-    ```elixir
-    example code
-    ```
-    "
-
-    File.read!("test/fixtures/code_post.md")
-    |> IO.inspect()
-
-    {:ok, ast, []} = Earmark.as_ast(code_snippet)
-    Post.apply_languague_code_preffix(ast)
-  end
-
-  test "get text from title" do
-    hey =
-      {"h2", [],
-       [
-         "Enable ",
-         {"code", [{"class", "inline"}], ["eex"], %{}},
-         " parser for ",
-         {"code", [{"class", "inline"}], ["heex"], %{}},
-         " files."
-       ], %{}}
-
-    assert true
+    assert post.slug == "my-post"
+    assert post.title == "My post"
+    assert post.date == ~N[2024-01-02 00:00:00]
+    assert post.content =~ ~s(<pre class="language-elixir"><code class="language-elixir">)
   end
 end

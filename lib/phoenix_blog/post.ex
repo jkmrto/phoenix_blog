@@ -28,7 +28,7 @@ defmodule PhoenixBlog.Post do
   end
 
   defp build_content(markdown, props) do
-    {:ok, ast, error} = Earmark.as_ast(markdown)
+    {:ok, ast, error} = Earmark.Parser.as_ast(markdown)
     IO.puts("error message: #{inspect(error)}")
 
     ast

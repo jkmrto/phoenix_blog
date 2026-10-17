@@ -42,7 +42,6 @@ defmodule PhoenixBlog.MixProject do
       {:jason, "~> 1.4"},
       {:plug_cowboy, "~> 2.9"},
       {:earmark, "~> 1.4.49"},
-      {:confex, "~> 3.5"},
       {:timex, "~> 3.7"},
       {:recaptcha, "~> 3.0"},
       {:earmark_toc_generator,

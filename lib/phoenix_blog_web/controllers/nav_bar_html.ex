@@ -27,10 +27,9 @@ defmodule PhoenixBlogWeb.NavBarHTML do
             data-target="#collapseExample"
             aria-expanded="false"
             aria-controls="collapseExample"
-          >
-          </a>
+          ></a>
 
-          <span class="mx-5" id="nav-bar-title"><%= @title %></span>
+          <span class="mx-5" id="nav-bar-title">{@title}</span>
         </div>
         <div class="collapse mt-2" id="collapseExample">
           <.links />

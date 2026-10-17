@@ -5,7 +5,7 @@ defmodule PhoenixBlog.MixProject do
     [
       app: :phoenix_blog,
       version: "0.1.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.18",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -33,21 +33,21 @@ defmodule PhoenixBlog.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.8.3"},
-      {:phoenix_live_view, "~> 1.1.0"},
+      {:phoenix, "~> 1.8.15"},
+      {:phoenix_live_view, "~> 1.2.0"},
       {:phoenix_html, "~> 4.0"},
       {:phoenix_html_helpers, "~> 1.0"},
-      {:phoenix_live_reload, "~> 1.5", only: :dev},
+      {:phoenix_live_reload, "~> 1.7", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.4"},
-      {:plug_cowboy, "~> 2.6"},
-      {:earmark, "~> 1.4"},
+      {:plug_cowboy, "~> 2.9"},
+      {:earmark, "~> 1.4.49"},
       {:confex, "~> 3.5"},
       {:timex, "~> 3.7"},
       {:recaptcha, "~> 3.0"},
       {:earmark_toc_generator,
        git: "https://github.com/jkmrto/earmark_toc_generator", branch: "main"},
-      {:swoosh, "~> 1.7"}
+      {:swoosh, "~> 1.29"}
     ]
   end
 

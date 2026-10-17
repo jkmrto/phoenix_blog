@@ -1,4 +1,4 @@
-FROM hexpm/elixir:1.14.3-erlang-25.1.1-alpine-3.16.2  AS builder
+FROM hexpm/elixir:1.18.5-erlang-27.3.4.19-alpine-3.22.6  AS builder
 
 # install build dependencies
 RUN apk add --no-cache build-base npm git
@@ -16,7 +16,7 @@ ENV MIX_ENV=prod
 # install mix dependencies
 COPY mix.exs mix.lock ./
 COPY config config
-RUN mix do deps.get, deps.compile
+RUN mix do deps.get + deps.compile
 
 
 FROM node:14.14.0-alpine as frontend
@@ -35,9 +35,9 @@ RUN npm run deploy
 FROM builder as releaser
 COPY . /app/
 COPY --from=frontend /app/priv/static /app/priv/static
-RUN mix do compile, release
+RUN mix do compile + release
 
-FROM alpine:3.16.2 AS app
+FROM alpine:3.22.6 AS app
 RUN apk add --no-cache ncurses-libs openssl libstdc++ libcrypto3
 
 COPY --from=releaser /app/_build/prod/rel/phoenix_blog/ /phoenix_blog

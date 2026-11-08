@@ -1,44 +1,39 @@
-<div>
-  <div class="experience-intro-container">
-    <a href="https://www.equalture.com/">
-      <img class="resume-company-img" src="/images/equalture.jpeg" alt="Equalture logo" />
-    </a>
-
-    <div class="experience-header-container">
-      <p class="experience-title">Equalture - <em class="role">Senior Software Engineer</em></p>
-
-      <div class="entry-header">
-        <p class="resume-date">Sep 2021 - Jun 2023</p>
-
-        <p class="resume-badges-container">
-          <Badges.elixir />
-          <Badges.phoenix_live_view />
-          <Badges.mysql />
-          <Badges.postgresql />
-          <Badges.docker />
-          <Badges.kubernetes />
-          <Badges.helm />
-          <Badges.google_cloud />
-          <Badges.phoenix />
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <.collapse_information_component
-    id="more-information-equalture"
-    desc_paragraphs={[
-      "After almost two years working with Go, I missed Elixir, especially the chance to try out new features like LiveView. That was one of my motivations for joining Equalture, along with the great experience I had with their game-based assessments during the hiring process.",
-      "<strong>Equalture is a startup that provides a bias-free hiring platform</strong>. Based on game assessments, the platform analyzes teams and candidates, providing valuable insights into the best candidates for any team.",
-      "As an Elixir developer, <strong>I developed new features on both the frontend and the backend of the product. While I mainly worked with Elixir and Phoenix LiveView, the project also involved other technologies like Kubernetes and Google Cloud.</strong>",
-      "Some of my tasks included:",
-      "<ul>",
-      "<li>Developed a new API for external clients, proposing and maintaining its OpenAPI docs.</li>",
-      "<li>Developed two-factor authentication (2FA) for the web app.</li>",
-      "<li>Developed a real-time filter system for candidates, built on a multi-dimensional dynamic query.</li>",
-      "<li>Led the DevOps area of the company, proposing and applying improvements to the Kubernetes cluster, such as using a default backend for maintenance pages and upgrading components like cert-manager and the NGINX ingress controller.</li>",
-      "<li>Supported and mentored other team members, leading a team of three developers.</li>",
-      "</ul>"
-    ]}
-  />
-</div>
+<.timeline_entry
+  logo="/images/equalture.jpeg"
+  logo_alt="Equalture logo"
+  link="https://www.equalture.com/"
+  title="Equalture"
+  role="Senior Software Engineer"
+  start_date={~D[2021-09-01]}
+  end_date={~D[2023-06-01]}
+  highlights={[
+    "Led the DevOps area of the company and a team of three developers",
+    "Built a new API for external clients and a real-time candidate filter system with Elixir and Phoenix LiveView"
+  ]}
+  details_id="more-information-equalture"
+  details={[
+    "After almost two years working with Go, I missed Elixir, especially the chance to try out new features like LiveView. That was one of my motivations for joining Equalture, along with the great experience I had with their game-based assessments during the hiring process.",
+    "<strong>Equalture is a startup that provides a bias-free hiring platform</strong>. Based on game assessments, the platform analyzes teams and candidates, providing valuable insights into the best candidates for any team.",
+    "As an Elixir developer, <strong>I developed new features on both the frontend and the backend of the product. While I mainly worked with Elixir and Phoenix LiveView, the project also involved other technologies like Kubernetes and Google Cloud.</strong>",
+    "Some of my tasks included:",
+    "<ul>",
+    "<li>Developed a new API for external clients, proposing and maintaining its OpenAPI docs.</li>",
+    "<li>Developed two-factor authentication (2FA) for the web app.</li>",
+    "<li>Developed a real-time filter system for candidates, built on a multi-dimensional dynamic query.</li>",
+    "<li>Led the DevOps area of the company, proposing and applying improvements to the Kubernetes cluster, such as using a default backend for maintenance pages and upgrading components like cert-manager and the NGINX ingress controller.</li>",
+    "<li>Supported and mentored other team members, leading a team of three developers.</li>",
+    "</ul>"
+  ]}
+>
+  <:badges>
+    <Badges.elixir />
+    <Badges.phoenix_live_view />
+    <Badges.mysql />
+    <Badges.postgresql />
+    <Badges.docker />
+    <Badges.kubernetes />
+    <Badges.helm />
+    <Badges.google_cloud />
+    <Badges.phoenix />
+  </:badges>
+</.timeline_entry>

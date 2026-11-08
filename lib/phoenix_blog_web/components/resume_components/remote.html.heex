@@ -1,44 +1,39 @@
-<div>
-  <div class="experience-intro-container">
-    <a href="https://remote.com/">
-      <img class="resume-company-img" src="/images/remote-logo.jpg" alt="Remote logo" />
-    </a>
-
-    <div class="experience-header-container">
-      <p class="experience-title">Remote - <em class="role">Senior Backend Engineer</em></p>
-
-      <div class="entry-header">
-        <p class="resume-date">Jul 2023 - Present</p>
-
-        <p class="resume-badges-container">
-          <Badges.elixir />
-          <Badges.postgresql />
-          <Badges.docker />
-          <Badges.kubernetes />
-          <Badges.phoenix />
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <.collapse_information_component
-    id="more-information-remote"
-    desc_paragraphs={[
-      "I joined Remote as a Backend Engineer in the fintech area of the company, as part of the billing team. I contributed to several projects, such as:",
-      "<ul>",
-      "<li><b>Migration to a new external billing provider</b>: As part of this migration, I:",
-      "<ul>",
-      "<li>Led the migration of a large part of the costs to the new approach, untangling how the legacy system worked in order to precisely recreate the new cost components.</li>",
-      "<li>Led the creation of automation workflows that allowed us to transition from a manually supervised workflow to an automated one.</li>",
-      "</ul>",
-      "</li>",
-      "<li><b>Standardisation of FX rates</b>: Built a standardised approach where the same FX rates are applied throughout a whole billing cycle. It also adds traceability for FX rates and FX spreads.</li>",
-      "</ul>",
-      "Beyond these projects, my responsibilities include:",
-      "<ul>",
-      "<li><b>Technical guidance</b>: Supervising my teammates' work and providing high-level insights before a solution is implemented.</li>",
-      "<li><b>Billing-day incidents</b>: Leading the resolution of incidents during billing days, which have hard deadlines and require a fast, effective response.</li>",
-      "</ul>"
-    ]}
-  />
-</div>
+<.timeline_entry
+  logo="/images/remote-logo.jpg"
+  logo_alt="Remote logo"
+  link="https://remote.com/"
+  title="Remote"
+  role="Senior Backend Engineer"
+  start_date={~D[2023-07-01]}
+  highlights={[
+    "One of the main contributors to the billing area",
+    "Led the migration of a large part of the costs to a new external billing provider",
+    "Lead the resolution of incidents during billing days and guide my teammates' technical work"
+  ]}
+  details_id="more-information-remote"
+  details={[
+    "I joined Remote as a Backend Engineer in the fintech area of the company, as part of the billing team, and I have become one of the main contributors to the billing area. I contributed to several projects, such as:",
+    "<ul>",
+    "<li><b>Migration to a new external billing provider</b>: As part of this migration, I:",
+    "<ul>",
+    "<li>Led the migration of a large part of the costs to the new approach, untangling how the legacy system worked in order to precisely recreate the new cost components.</li>",
+    "<li>Led the creation of automation workflows that allowed us to transition from a manually supervised workflow to an automated one.</li>",
+    "</ul>",
+    "</li>",
+    "<li><b>Standardisation of FX rates</b>: Built a standardised approach where the same FX rates are applied throughout a whole billing cycle. It also adds traceability for FX rates and FX spreads.</li>",
+    "</ul>",
+    "Beyond these projects, my responsibilities include:",
+    "<ul>",
+    "<li><b>Technical guidance</b>: Supervising my teammates' work and providing high-level insights before a solution is implemented.</li>",
+    "<li><b>Billing-day incidents</b>: Leading the resolution of incidents during billing days, which have hard deadlines and require a fast, effective response.</li>",
+    "</ul>"
+  ]}
+>
+  <:badges>
+    <Badges.elixir />
+    <Badges.postgresql />
+    <Badges.docker />
+    <Badges.kubernetes />
+    <Badges.phoenix />
+  </:badges>
+</.timeline_entry>

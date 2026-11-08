@@ -2,6 +2,10 @@
 // The MiniCssExtractPlugin is used to separate it out into
 // its own CSS file.
 import "../css/app.scss";
+import "@fontsource/roboto/latin-400.css";
+import "@fontsource/roboto/latin-400-italic.css";
+import "@fontsource/roboto/latin-500.css";
+import "@fontsource/roboto/latin-700.css";
 import "../css/contact-main.css";
 import "bootstrap.native";
 import Prism from "prismjs";

@@ -1,19 +1,18 @@
-<div class="experience-all-container">
-  <div class="experience-intro-container">
-    <img class="resume-studies-img" src="/images/ugr.jpg" alt="University of Granada logo" />
+<.timeline_entry
+  logo="/images/ugr.jpg"
+  logo_alt="University of Granada logo"
+  title="Degree in Telecommunication Engineering"
+  subtitle="University of Granada · Granada, Spain"
+  start_date={~D[2011-09-01]}
+  end_date={~D[2015-09-01]}
+  show_duration={false}
+  highlights={[
+    "Final project: a network traffic classification algorithm in C, using K-means clustering"
+  ]}
+  details_id="more-information-ugr"
+  details={[
+    "The telecommunication engineering degree is one of the most prestigious engineering degrees in Spain. With a solid foundation in physics and mathematics, the degree covers everything from electronics to network design. As a student, I gained solid knowledge of how electronic systems work, from the basics to transmitting information over wireless and wired interfaces.",
+    "For my <strong>final degree project</strong>, I contributed to a research platform called TIE (Traffic Identification Engine). The goal of this platform is to compare different algorithms for network traffic classification. In my case, I built an algorithm in C that classifies traffic based on packet size, using the K-means clustering algorithm."
+  ]}
 
-    <div class="experience-header-container">
-      <p class="education-title">Degree in Telecommunication Engineering</p>
-      <p class="education-location">Granada - Spain</p>
-      <p class="resume-date">September 2011 - September 2015</p>
-    </div>
-  </div>
-
-  <.collapse_information_component
-    id="more-information-ugr"
-    desc_paragraphs={[
-      "The telecommunication engineering degree is one of the most prestigious engineering degrees in Spain. With a solid foundation in physics and mathematics, the degree covers everything from electronics to network design. As a student, I gained solid knowledge of how electronic systems work, from the basics to transmitting information over wireless and wired interfaces.",
-      "For my <strong>final degree project</strong>, I contributed to a research platform called TIE (Traffic Identification Engine). The goal of this platform is to compare different algorithms for network traffic classification. In my case, I built an algorithm in C that classifies traffic based on packet size, using the K-means clustering algorithm."
-    ]}
-  />
-</div>
+/>

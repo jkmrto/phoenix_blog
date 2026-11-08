@@ -1,28 +1,20 @@
-<div class="experience-all-container">
-  <div class="experience-intro-container">
-    <a href="https://www.uma.es/">
-      <img class="resume-studies-img" src="/images/uma.png" alt="University of Malaga logo" />
-    </a>
+<.timeline_entry
+  logo="/images/uma.png"
+  logo_alt="University of Malaga logo"
+  link="https://www.uma.es/master-universitario-en-ingenieria-de-telecomunicacion?set_language=en"
+  title="Master in Telecommunication Engineering"
+  subtitle="University of Malaga · Malaga, Spain"
+  start_date={~D[2015-09-01]}
+  end_date={~D[2017-09-01]}
+  show_duration={false}
+  highlights={[
+    "Final project: a neural network for the early detection of Alzheimer's disease, in Python with TensorFlow"
+  ]}
+  details_id="more-information-uma"
+  details={[
+    "This master's degree is the final step in the telecommunication engineering path in Spain. It covers topics such as optical communications, microelectronics and software-defined networks.",
+    "For my <strong>final master's project</strong>, I implemented an artificial neural network system for the early detection of Alzheimer's disease. The system was implemented in Python, using libraries such as TensorFlow and NumPy.",
+    "The neural network was based on a variational autoencoder. The main idea was to reduce the high dimensionality of an MRI or PET image to a few dimensions, allowing the algorithm to capture the intrinsic characteristics needed to detect the disease."
+  ]}
 
-    <div class="experience-header-container">
-      <a
-        class="education-title"
-        href="https://www.uma.es/master-universitario-en-ingenieria-de-telecomunicacion?set_language=en"
-      >
-        Master in Telecommunication Engineering
-      </a>
-
-      <p class="education-location">Malaga - Spain</p>
-      <p class="resume-date">September 2015 - September 2017</p>
-    </div>
-  </div>
-
-  <.collapse_information_component
-    id="more-information-uma"
-    desc_paragraphs={[
-      "This master's degree is the final step in the telecommunication engineering path in Spain. It covers topics such as optical communications, microelectronics and software-defined networks.",
-      "For my <strong>final master's project</strong>, I implemented an artificial neural network system for the early detection of Alzheimer's disease. The system was implemented in Python, using libraries such as TensorFlow and NumPy.",
-      "The neural network was based on a variational autoencoder. The main idea was to reduce the high dimensionality of an MRI or PET image to a few dimensions, allowing the algorithm to capture the intrinsic characteristics needed to detect the disease."
-    ]}
-  />
-</div>
+/>

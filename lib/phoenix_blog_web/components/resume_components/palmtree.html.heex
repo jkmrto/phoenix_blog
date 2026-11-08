@@ -1,33 +1,29 @@
-<div class="experience-all-container">
-  <div class="experience-intro-container">
-    <img class="resume-company-img" src="/images/palmtree.png" alt="Palmtree Statistics logo" />
-
-    <div class="experience-header-container">
-      <p class="experience-title">
-        Palmtree Statistics - <em class="role">Software Developer</em>
-      </p>
-      <div class="entry-header">
-        <p class="resume-date">September 2016 - April 2019</p>
-        <div class=" resume-badges-container">
-          <Badges.elixir />
-          <Badges.python />
-          <Badges.rabbitmq />
-          <Badges.postgresql />
-          <Badges.mongodb />
-          <Badges.docker />
-          <Badges.kubernetes />
-          <Badges.javascript />
-          <Badges.elm />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <.collapse_information_component
-    id="more-information-palmtree"
-    desc_paragraphs={[
-      "This was my first job and an important personal step that allowed me to discover a professional path I enjoy. Palmtree Statistics was a tiny startup focused on developing tools for analyzing real-time sports data.",
-      "I started at Palmtree as an intern and was hired at the end of the internship. As an intern, I learned about the principles of clean code and professional software development, and worked on building a testing environment with Python and Docker."
-    ]}
-  />
-</div>
+<.timeline_entry
+  logo="/images/palmtree.png"
+  logo_alt="Palmtree Statistics logo"
+  title="Palmtree Statistics"
+  role="Software Developer"
+  start_date={~D[2016-09-01]}
+  end_date={~D[2019-04-01]}
+  highlights={[
+    "First job: started as an intern and was hired at the end of the internship",
+    "Built a testing environment with Python and Docker for real-time sports data tools"
+  ]}
+  details_id="more-information-palmtree"
+  details={[
+    "This was my first job and an important personal step that allowed me to discover a professional path I enjoy. Palmtree Statistics was a tiny startup focused on developing tools for analyzing real-time sports data.",
+    "I started at Palmtree as an intern and was hired at the end of the internship. As an intern, I learned about the principles of clean code and professional software development, and worked on building a testing environment with Python and Docker."
+  ]}
+>
+  <:badges>
+    <Badges.elixir />
+    <Badges.python />
+    <Badges.rabbitmq />
+    <Badges.postgresql />
+    <Badges.mongodb />
+    <Badges.docker />
+    <Badges.kubernetes />
+    <Badges.javascript />
+    <Badges.elm />
+  </:badges>
+</.timeline_entry>

@@ -1,32 +1,28 @@
-<div class="experience-all-container">
-  <div class="experience-intro-container">
-    <img class="resume-company-img" src="/images/derivco.png" alt="Derivco logo" />
-
-    <div class="experience-header-container">
-      <p class="experience-title">Derivco - <em class="role">Software Developer</em></p>
-
-      <div class="entry-header">
-        <p class="resume-date">May 2019 - February 2020</p>
-
-        <p class="resume-badges-container">
-          <Badges.elixir />
-          <Badges.ruby />
-          <Badges.go />
-          <Badges.rabbitmq />
-          <Badges.postgresql />
-          <Badges.ansible />
-          <Badges.azure />
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <.collapse_information_component
-    id="more-information-derivco"
-    desc_paragraphs={[
-      "After working for a tiny startup for almost three years, I wanted to try a bigger company while continuing to work with Elixir. That's why I decided to join Derivco, a company with more than 4,000 employees worldwide and the software provider for Betway, one of the biggest sportsbooks in the world.",
-      "<strong>At Derivco, I was part of the Core team, in charge of developing and maintaining several services in Ruby, Elixir and Go.</strong>",
-      "One of the main projects I worked on was the migration of a microservice from Ruby to Elixir. This service forwarded changes from the core database, using triggers to listen for changes and RabbitMQ as the message broker."
-    ]}
-  />
-</div>
+<.timeline_entry
+  logo="/images/derivco.png"
+  logo_alt="Derivco logo"
+  title="Derivco"
+  role="Software Developer"
+  start_date={~D[2019-05-01]}
+  end_date={~D[2020-02-01]}
+  highlights={[
+    "Migrated a microservice from Ruby to Elixir, forwarding core database changes through RabbitMQ",
+    "Part of the Core team, maintaining services in Ruby, Elixir and Go"
+  ]}
+  details_id="more-information-derivco"
+  details={[
+    "After working for a tiny startup for almost three years, I wanted to try a bigger company while continuing to work with Elixir. That's why I decided to join Derivco, a company with more than 4,000 employees worldwide and the software provider for Betway, one of the biggest sportsbooks in the world.",
+    "<strong>At Derivco, I was part of the Core team, in charge of developing and maintaining several services in Ruby, Elixir and Go.</strong>",
+    "One of the main projects I worked on was the migration of a microservice from Ruby to Elixir. This service forwarded changes from the core database, using triggers to listen for changes and RabbitMQ as the message broker."
+  ]}
+>
+  <:badges>
+    <Badges.elixir />
+    <Badges.ruby />
+    <Badges.go />
+    <Badges.rabbitmq />
+    <Badges.postgresql />
+    <Badges.ansible />
+    <Badges.azure />
+  </:badges>
+</.timeline_entry>

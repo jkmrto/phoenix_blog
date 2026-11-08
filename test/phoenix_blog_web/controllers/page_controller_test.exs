@@ -3,6 +3,8 @@ defmodule PhoenixBlogWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
-    assert html_response(conn, 200) =~ "Welcome to my website"
+    html = html_response(conn, 200)
+    assert html =~ "Hi, I'm Juan Carlos"
+    assert html =~ "Latest posts"
   end
 end

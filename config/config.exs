@@ -10,6 +10,7 @@ import Config
 # Configures the endpoint
 config :phoenix_blog, PhoenixBlogWeb.Endpoint,
   url: [host: "localhost"],
+  adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: PhoenixBlogWeb.ErrorHTML, json: PhoenixBlogWeb.ErrorJSON],
     layout: false

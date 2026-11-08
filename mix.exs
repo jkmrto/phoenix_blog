@@ -40,7 +40,7 @@ defmodule PhoenixBlog.MixProject do
       {:phoenix_live_reload, "~> 1.7", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.4"},
-      {:plug_cowboy, "~> 2.9"},
+      {:bandit, "~> 1.14"},
       {:earmark, "~> 1.4.49"},
       {:timex, "~> 3.7"},
       {:recaptcha, "~> 3.0"},

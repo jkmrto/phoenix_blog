@@ -17,8 +17,6 @@ config :phoenix_blog, PhoenixBlogWeb.Endpoint,
 config :logger, level: :info
 
 config :phoenix_blog, PhoenixBlogWeb.Endpoint,
-  http: [
-    transport_options: [socket_opts: [:inet6]]
-  ]
+  http: [ip: {0, 0, 0, 0, 0, 0, 0, 0}]
 
 config :phoenix_blog, PhoenixBlogWeb.Endpoint, server: true

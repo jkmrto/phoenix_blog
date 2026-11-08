@@ -16,5 +16,5 @@ Built with:
 
 - [Elixir](https://elixir-lang.org/) as language.
 - [Phoenix](https://www.phoenixframework.org/) as framework.
-- [Earmark](https://github.com/pragdave/earmark) as library for parsing markdowns.
+- [MDEx](https://github.com/leandrocp/mdex) as library for parsing markdowns.
 

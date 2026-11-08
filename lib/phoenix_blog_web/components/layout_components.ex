@@ -15,8 +15,8 @@ defmodule PhoenixBlogWeb.Components.LayoutComponents do
           <a href="https://github.com/jkmrto/phoenix_blog" target="_blank">Code at Github</a>
           <a href="https://elixir-lang.org/" target="_blank">Written with Elixir</a>
           <a href="https://www.phoenixframework.org/" target="_blank">Built with Phoenix</a>
-          <a href="https://github.com/pragdave/earmark" target="_blank">
-            Markdown posts rendered with earmark
+          <a href="https://github.com/leandrocp/mdex" target="_blank">
+            Markdown posts rendered with MDEx
           </a>
         </div>
       </div>

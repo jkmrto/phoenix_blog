@@ -1,7 +1,12 @@
 defmodule PhoenixBlog.Post do
   alias PhoenixBlog.Post
   alias PhoenixBlog.Post.Properties
-  alias EarmarkTocGenerator
+  alias PhoenixBlog.Post.Toc
+
+  @mdex_options [
+    extension: [table: true, strikethrough: true, autolink: true],
+    render: [unsafe: true]
+  ]
 
   defstruct slug: "", title: "", date: Timex.now(), intro: "", content: "", props: %{}
 
@@ -28,23 +33,19 @@ defmodule PhoenixBlog.Post do
   end
 
   defp build_content(markdown, props) do
-    {:ok, ast, error} = Earmark.Parser.as_ast(markdown)
-    IO.puts("error message: #{inspect(error)}")
+    html =
+      markdown
+      |> MDEx.parse_document!(@mdex_options)
+      |> MDEx.traverse_and_update(&apply_code_language_prefix/1)
+      |> add_toc(props)
+      |> MDEx.to_html!(@mdex_options)
 
-    ast
-    |> Enum.map(&apply_code_language_preffix(&1))
-    |> add_toc(props)
-    |> add_post_container_div()
-    |> Earmark.Transform.transform()
+    ~s(<div class="post-container">#{html}</div>)
   end
 
-  defp add_post_container_div(ast) do
-    [{"div", [{"class", "post-container"}], ast, %{}}]
-  end
-
-  defp add_toc(ast, props)
-  defp add_toc(ast, %{"add_toc" => true}), do: EarmarkTocGenerator.setup_toc(ast)
-  defp add_toc(ast, _props), do: ast
+  defp add_toc(doc, props)
+  defp add_toc(doc, %{"add_toc" => true}), do: Toc.setup(doc, @mdex_options)
+  defp add_toc(doc, _props), do: doc
 
   defp file_to_slug(file) do
     file
@@ -53,12 +54,24 @@ defmodule PhoenixBlog.Post do
     |> String.replace(~r/\.md$/, "")
   end
 
-  defp apply_code_language_preffix(
-         {"pre", [], [{"code", [{"class", language}], [text], %{}}], %{}}
-       ) do
-    class_tuple = {"class", "language-#{language}"}
-    {"pre", [class_tuple], [{"code", [class_tuple], [text], %{}}], %{}}
+  defp apply_code_language_prefix(%MDEx.CodeBlock{info: info, literal: literal} = block) do
+    case String.split(info) do
+      [language | _] ->
+        class = "language-#{language}"
+
+        %MDEx.HtmlBlock{
+          literal:
+            ~s(<pre class="#{class}"><code class="#{class}">#{Plug.HTML.html_escape(literal)}</code></pre>\n)
+        }
+
+      [] ->
+        block
+    end
   end
 
-  defp apply_code_language_preffix(other_node), do: other_node
+  defp apply_code_language_prefix(%MDEx.Code{literal: literal}) do
+    %MDEx.HtmlInline{literal: ~s(<code class="inline">#{Plug.HTML.html_escape(literal)}</code>)}
+  end
+
+  defp apply_code_language_prefix(node), do: node
 end

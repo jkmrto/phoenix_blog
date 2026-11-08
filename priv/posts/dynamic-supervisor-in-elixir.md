@@ -174,7 +174,7 @@ iex(4)> WorkersSupervisor.start_child("worker_3")
 {:ok, #PID<0.142.0>}
 
 iex(5)> :observer.start()
-```elixir
+```
 At last command (```:observer.start()```) it has been launched the erlang observer that allows us to see the supervisor tree of the application.
 
 ![Example image](/images/dynamic_supervisor_with_registry/first.png)

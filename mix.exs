@@ -41,11 +41,9 @@ defmodule PhoenixBlog.MixProject do
       {:gettext, "~> 1.0"},
       {:jason, "~> 1.4"},
       {:bandit, "~> 1.14"},
-      {:earmark, "~> 1.4.49"},
+      {:mdex, "~> 0.14.6"},
       {:timex, "~> 4.0"},
       {:recaptcha, "~> 3.0"},
-      {:earmark_toc_generator,
-       git: "https://github.com/jkmrto/earmark_toc_generator", branch: "main"},
       {:swoosh, "~> 1.29"}
     ]
   end

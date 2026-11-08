@@ -138,8 +138,9 @@ end
 ```
 
 It is important to note this:
-	- The strategic used by Libcluster is `Cluster.Strategy.Epmd` which relies on Epmd to get connected the different hosts.
-	- They have been specified three nodes to get connected.
+
+- The strategic used by Libcluster is `Cluster.Strategy.Epmd` which relies on Epmd to get connected the different hosts.
+- They have been specified three nodes to get connected.
 
 ### Executing three instances locally
 

@@ -7,22 +7,22 @@ toc: false
 
 ---
 
-Navigate through git branches is something any developer do several times when working in a project. This can be quite annoying since it is necessary to remember the name of the branch to move to.
+Navigating through git branches is something every developer does many times when working on a project. This can be quite annoying, since you need to remember the name of the branch you want to move to.
 
 ## Long story short
 
-A simple but effective approach to make this process easier is using this: `git checkout $(git branch -a | fzf)`.
+A simple but effective way to make this process easier is: `git checkout $(git branch -a | fzf)`.
 
 ![Alt Text](../images/fancy-branches-navigator.gif)
 
-## Step by Step
+## Step by step
 
 1 - List the available branches with `git branch -a`. Only the local branches will be listed.
 ```console
 $ git branch -a
 ```
 
-2 - Select a branch from the list with `fzf`
+2 - Select a branch from the list with `fzf`:
 ```console
 $ git branch -a | fzf
 ```
@@ -32,7 +32,7 @@ $ git branch -a | fzf
 $ git checkout (git branch -a | fzf)
 ```
 
-4 - [Bonus] Integrate it at `zsh`. Appending this into `~/.zsh`
+4 - [Bonus] Integrate it into `zsh` by appending this to `~/.zsh`:
 ```console
 alias gck="git checkout (git branch -a | fzf)"
 ```

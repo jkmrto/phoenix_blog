@@ -2,14 +2,14 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2019-11-26
 linktitle: connect-to-remote-postgresql-without-local-psql
-title:  [TIL] How to connect to a remote postgresql without local psql
-intro: A simple way to connect to a postgresql database without having to use local psql client.
+title:  [TIL] How to connect to a remote PostgreSQL without a local psql
+intro: A simple way to connect to a PostgreSQL database without having to use a local psql client.
 toc: false
 
 ---
 
 
-This will open the **psql** terminal where execute our commands:
+This will open the **psql** terminal, where we can execute our commands:
 
 ```bash
 docker run -it -e PGPASSWORD=postgres --net=host \
@@ -17,12 +17,12 @@ docker run -it -e PGPASSWORD=postgres --net=host \
     -h localhost -p 5432 -U postgres
 ```
 
-Using a docker can be useful for:
+Using Docker can be useful for:
 
-- Avoiding having to install the psql-client locally.
-- Ensuring the posgresql-client is in the same version as the database where we pretend to get connected.
+- Avoiding having to install the psql client locally.
+- Ensuring the PostgreSQL client is the same version as the database we want to connect to.
 
-We can indicate a command to be exeucted with `-c` option:
+We can pass a command to be executed with the `-c` option:
 
 
 ```bash

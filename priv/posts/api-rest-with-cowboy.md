@@ -7,27 +7,27 @@ menu:
     parent: tutorials
 next: /tutorials/github-pages-blog
 prev: /tutorials/automated-deployments
-title: Api Rest With Cowboy
-intro: At Elixir world the well know framework Phoenix is the main tool to develop the client side interface in any project. This framework allows us to develop complex real-time web systems simply with a lot of integrated features such as websockets. But in the case of just pretending to build a simple api rest a good option is to use the **Cowboy** library, which makes quite more lightweight the final application than using Phoenix.
+title: REST API with Cowboy
+intro: In the Elixir world, the well-known framework Phoenix is the main tool for developing the client-facing side of any project. This framework allows us to build complex real-time web systems easily, with a lot of integrated features such as websockets. But if we just want to build a simple REST API, a good option is to use the **Cowboy** library, which makes the final application much more lightweight than using Phoenix.
 
 
 ---
 
-At [Elixir](https://elixir-lang.org/) world the well know framework **Phoenix** is the main tool to develop the client side interface in any project. This framework allows us to develop complex real-time web systems simply with a lot of integrated features such as websockets. But in the case of just pretending to build a simple api rest a good option is to use the **Cowboy** library, which makes quite more lightweight the final application than using Phoenix.
+In the [Elixir](https://elixir-lang.org/) world, the well-known framework **Phoenix** is the main tool for developing the client-facing side of any project. This framework allows us to build complex real-time web systems easily, with a lot of integrated features such as websockets. But if we just want to build a simple REST API, a good option is to use the **Cowboy** library, which makes the final application much more lightweight than using Phoenix.
 
-In this post I will expose how to build a simple Rest Api Service with **plug_cowboy**. This library makes even easier to use the **Cowboy** library, which is native from Erlang.
+In this post, I will show how to build a simple REST API service with **plug_cowboy**. This library makes it even easier to use **Cowboy**, which is a native Erlang library.
 
-The code of this post is availabe at this [github repository](https://github.com/jkmrto/api-rest-cowboy).
+The code for this post is available in this [GitHub repository](https://github.com/jkmrto/api-rest-cowboy).
 
 
 ## Setup project
 
-Create New project with Elixir
+Create a new Elixir project:
 ```bash
 mix new cowboy_example
 ```
 
-Add cowboy dependency at ```mix.exs```
+Add the cowboy dependency to ```mix.exs```:
 
 ``` elixir
   defp deps do
@@ -44,11 +44,11 @@ mix deps.get && mix deps.compile
 
 ## Application entrypoint
 
-Let's use the ```lib/cowboy_rest.ex``` file as application entrypoint for the supervision tree. We need to indicate this on our ```mix.exs``` file:
+Let's use the ```lib/cowboy_rest.ex``` file as the application entrypoint for the supervision tree. We need to indicate this in our ```mix.exs``` file:
 
 
 
-And set ```lib/cowboy_rest.exs``` as an application module so his content will be:
+And set ```lib/cowboy_rest.exs``` as an application module, so its content will be:
 ``` Elixir
 defmodule CowboyRest do
   use Application
@@ -65,13 +65,13 @@ end
 ```
 
 
-We will create the folder ```lib/cowboy_rest``` where submodules will be included. In our case the only submodule will be the web one at ```lib/cowboy_rest/web```.
+We will create the folder ```lib/cowboy_rest```, where submodules will be placed. In our case, the only submodule will be the web one, at ```lib/cowboy_rest/web```.
 
 ## Cowboy files structure
 
-At this point we can start working on Cowboy on the Web submodule. We will need:
+At this point, we can start working with Cowboy in the Web submodule. We will need:
 
-*   ```lib/cowboy_rest/web/supervisor```: The module defined in this file will be the Supervisor of the Web submodule. At start it will launch the ```http_listener``` that behaves as entrypoints for all the requests.
+*   ```lib/cowboy_rest/web/supervisor```: The module defined in this file will be the Supervisor of the Web submodule. At startup, it will launch the ```http_listener```, which acts as the entrypoint for all requests.
 
 ```elixir
 defmodule CowboyRest.Web.Supervisor do
@@ -92,7 +92,7 @@ defmodule CowboyRest.Web.Supervisor do
  end
 ```
 
-*  ```lib/cowboy_rest/http_listener```: This file will keep the routing to the api Rest Handler functions. This will be also in charge of launching Cowboy Listener at start.
+*  ```lib/cowboy_rest/http_listener```: This file keeps the routing to the REST API handler functions. It is also in charge of launching the Cowboy listener at startup.
 
 
 ```elixir
@@ -120,7 +120,7 @@ defmodule CowboyRest.Web.HttpListener do
 end
 ```
 
-* ```lib/cowboy_rest/rest_handler```: It is a Rest Handler in charge of handling and answering the incoming requests.
+* ```lib/cowboy_rest/rest_handler```: A REST handler in charge of handling and answering incoming requests.
 
 
 ```elixir
@@ -144,7 +144,7 @@ defmodule CowboyRest.Web.Handler do
  end
 ```
 
-But in order to launch this submodule we need to launch our new Web supervisor from the application root, so the file ```ib/cowboy_rest.exs``` should look like this:
+But to launch this submodule, we need to start our new Web supervisor from the application root, so the file ```ib/cowboy_rest.exs``` should look like this:
 
 ```Elixir
 defmodule CowboyRest do
@@ -163,10 +163,10 @@ end
 
 ## Running it
 
-Now if we run the application with ```iex -S mix```, we can try a http request trough the command line with **curl**:
+Now, if we run the application with ```iex -S mix```, we can try an HTTP request from the command line with **curl**:
 ```bash
 > curl localhost:4000/cowboy_rest/welcome
 Welcome to Cowboy Rest Services
 ```
 
-We can see how it is really easy to have a lightweigth API Rest application on elixir using Cowboy.
+As we can see, it is really easy to build a lightweight REST API application in Elixir using Cowboy.

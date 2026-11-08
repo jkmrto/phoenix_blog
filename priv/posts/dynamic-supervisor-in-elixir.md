@@ -3,17 +3,17 @@ author: "Juan Carlos Martinez de la Torre"
 date: 2019-02-03
 linktitle: dynamic-supervisor
 title: Dynamic Supervisor With Registry
-intro: One of the main feature of [Elixir](https://elixir-lang.org/ ) is the ability to guarantee that if a supervised process fails or get crashed for any reason, other process with the same functinality will be started as soon as the supervisor process realizes the problem. This is related to the fault-tolerance capability.
+intro: One of the main features of [Elixir](https://elixir-lang.org/ ) is the ability to guarantee that if a supervised process fails or crashes for any reason, another process with the same functionality will be started as soon as the supervisor notices the problem. This is related to its fault-tolerance capabilities.
 
 ---
 
 ## Motivation
 
-One of the main feature of [Elixir](https://elixir-lang.org/ ) is the ability to guarantee that if a supervised process fails or get crashed for any reason, other process with the same functinality will be started as soon as the supervisor process realizes the problem. This is related to the fault-tolerance capability.
+One of the main features of [Elixir](https://elixir-lang.org/ ) is the ability to guarantee that if a supervised process fails or crashes for any reason, another process with the same functionality will be started as soon as the supervisor notices the problem. This is related to its fault-tolerance capabilities.
 
-Let's say that we have an application in which at start we dont know how many processes we will have, because they will be generated dinamically during the running of the application. For example if we have a game application which allows several games at the same time and we want to get associated to each game one process, then we will need to dinamically launch a process per each game.
+Let's say we have an application where, at startup, we don't know how many processes we will have, because they will be generated dynamically while the application runs. For example, if we have a game application that allows several games at the same time and we want to associate one process with each game, we will need to dynamically launch a process for each game.
 
-Since Elixir 1.6, [Dynamic Supervisor](https://hexdocs.pm/elixir/DynamicSupervisor.html)  is the module that makes simpler this task. In this post it will be exposed how to build a basic dynamic supervisor, using Elixir [Registry](https://hexdocs.pm/elixir/master/Registry.html) to keep reachable all the launched processes.
+Since Elixir 1.6, [Dynamic Supervisor](https://hexdocs.pm/elixir/DynamicSupervisor.html)  is the module that makes this task simpler. This post shows how to build a basic dynamic supervisor, using Elixir's [Registry](https://hexdocs.pm/elixir/master/Registry.html) to keep all the launched processes reachable.
 
 ## Setup
 
@@ -22,7 +22,7 @@ Let's create a new project using ```mix``` through the command line with:
 mix new dynamic_supervisor_with_registry
 ```
 
-We need to modify our file ```mix.exs``` to indicate the new application entrypoint:
+We need to modify our ```mix.exs``` file to indicate the new application entrypoint:
 
 ```elixir
 ............
@@ -41,7 +41,7 @@ We need to modify our file ```mix.exs``` to indicate the new application entrypo
 
 ### Application entrypoint
 
-We need to use an application entrypoint where starts the supervision tree, the file. This module will be on charge of supervise the `Registry` and the `DynamicSupervisorWithRegistry.WorkerSupervisor`.
+We need an application entrypoint where the supervision tree starts. This module will be in charge of supervising the `Registry` and the `DynamicSupervisorWithRegistry.WorkerSupervisor`.
 
 ```elixir
 #lib/dynamic_supervisor_example.ex
@@ -70,10 +70,10 @@ As children of this module we have:
 
 ### Registry
 
-The registry allows us to register the workers by a custom name (in our case `:workers_registry`), that will allow to acess the workers easily, without needing to know its *pid*, just by a custom name. This registry is launched at the same supervisor level that the **WorkersSupervisor**.
+The registry (in our case `:workers_registry`) allows us to register the workers under a custom name, which lets us access them easily without needing to know their *pid*. This registry is launched at the same supervision level as the **WorkersSupervisor**.
 
 ### Workers Supervisor
-This module should just supervise the workers and allow to launch new workers.
+This module should just supervise the workers and allow launching new ones.
 
 ``` Elixir
 # lib/dynamic_supervisor_example/worker_supervisor.ex
@@ -95,17 +95,17 @@ defmodule DynamicSupervisorWithRegistry.WorkersSupervisor do
 
 end
 ```
-At the code above it is important to note:
-* When starting a new child it is settled ```restart: :transient ```, what indicates that workers will be restarted only if they terminate due to an error not if it was a ```:normal``` termination. This configuration could be modified per each child.
-* When ```init``` the process the restarting strategy selected is ```strategy: :one_for_one``` so only the crashed process will be restarted without affecting othersprocesses.
+In the code above, it is important to note:
+* When starting a new child, ```restart: :transient ``` is set, which means workers will be restarted only if they terminate due to an error, not on a ```:normal``` termination. This configuration could be changed for each child.
+* In ```init```, the selected restart strategy is ```strategy: :one_for_one```, so only the crashed process will be restarted, without affecting other processes.
 
 
 ### Worker
 
-The worker module is a simple *GenServer*, in which we have just implemented some API functions and callbacks to handle a regular stop and an error crash. Later, we will test the different behaviour at the supervisor level when a crash happens. 
+The worker module is a simple *GenServer*, in which we have implemented some API functions and callbacks to handle a regular stop and a crash. Later, we will test the different behaviour at the supervisor level when a crash happens. 
 
-The name of the process will be defined by the function `via_tuple(name)`, whose code is ```{:via, Registry, {@registry, name} }``` that registers the process with custom `name` in the registry previously initialized with name ```:workers_registry```.
-This ```via_tuple``` function will be used at registering and when trying to reach the associated GenServer.
+The name of the process will be defined by the function `via_tuple(name)`, whose code is ```{:via, Registry, {@registry, name} }``` which registers the process with a custom `name` in the registry previously initialized with the name ```:workers_registry```.
+This ```via_tuple``` function will be used when registering the process and when trying to reach the associated GenServer.
 
 The `terminate(reason, name)` callback will be called when the process is exiting.
 
@@ -155,7 +155,7 @@ end
 ## Running it
 
 ### Creating three workers
-Let's use the interactive shell of elixir (```iex -S mix```) to run the code. To create three new workers:
+Let's use Elixir's interactive shell (```iex -S mix```) to run the code. To create three new workers:
 
 ```elixir
 iex(1)> alias DynamicSupervisorWithRegistry.WorkersSupervisor
@@ -175,15 +175,15 @@ iex(4)> WorkersSupervisor.start_child("worker_3")
 
 iex(5)> :observer.start()
 ```
-At last command (```:observer.start()```) it has been launched the erlang observer that allows us to see the supervisor tree of the application.
+The last command (```:observer.start()```) launches the Erlang observer, which allows us to see the supervision tree of the application.
 
 ![Example image](/images/dynamic_supervisor_with_registry/first.png)
 
-We can see how the three pids (*#PID<0.138.0>, #PID<0.140.0>, #PID<0.142.0>*) of the workers created are now pendig from our workers supervisor.
+We can see how the three pids (*#PID<0.138.0>, #PID<0.140.0>, #PID<0.142.0>*) of the created workers now hang from our workers supervisor.
 
 ### Stop one worker
 
-Let's stop one of the workers to see how it is not restarted by the supervisor.
+Let's stop one of the workers to see that it is not restarted by the supervisor.
 
 ```elixir
 iex(7)> alias DynamicSupervisorWithRegistry.Worker
@@ -194,11 +194,11 @@ iex(8)> Worker.stop("worker_1")
 16:31:45.596 [info]  Exiting worker: worker_1 with reason: :normal
 ```
 
-The last message is printed by the logger at ```terminate(...)``` function. The process is not restarted since it has not been crashed.
+The last message is printed by the logger in the ```terminate(...)``` function. The process is not restarted, since it did not crash.
 
 ### Crash one worker
 
-Let's crash one of the workers to see how it is restarted by the supervisor
+Let's crash one of the workers to see how it is restarted by the supervisor:
 ```elixir
 Worker.crash("worker_2")
 :ok
@@ -219,14 +219,14 @@ State: "worker_2"
 16:39:24.411 [info]  Starting "worker_2"
 ```
 
-Again we can identified the ```terminate``` message but in this case the reason of error is not ```:normal``` so it displays all the traces related to the error.
+Again, we can identify the ```terminate``` message, but in this case the reason is not ```:normal```, so it displays all the traces related to the error.
 
-It also appears the error message that logs the error when the process crash.
+The error message logged when the process crashes also appears.
 
-At last the ```Starting "worker_2"``` can be seen since the GenServer was restarted by the supervisor.
+Finally, ```Starting "worker_2"``` can be seen, since the GenServer was restarted by the supervisor.
 
-At ```observer``` we can see how the *worker_1* now doesnt appear while the *worker_2* has a different **pid** since it has been restarted.
+In ```observer```, we can see that *worker_1* no longer appears, while *worker_2* has a different **pid**, since it has been restarted.
 
 ![Example image](/images/dynamic_supervisor_with_registry/second.png)
 
-We can see that the only worker process still alive is **#PID<0.142.0>** since it was the **pid** of the *worker_3* the one that has not been restared neither stopped.
+We can see that the only original worker process still alive is **#PID<0.142.0>**, since it was the **pid** of *worker_3*, which was neither restarted nor stopped.

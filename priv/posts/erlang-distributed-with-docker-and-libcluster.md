@@ -2,23 +2,23 @@
 author: "Juan Carlos Martinez de la Torre"
 date: 2019-09-11
 linktitle: erlang-distributed-with-docker-and-libcluster
-title: Erlang distributed with docker and libcluster.
+title: Distributed Erlang with Docker and libcluster
 weight: 10
-intro: Last days I have been diving a little into the wonderful world of Erlang distributed. Elixir, has some built-in constructs for distributed systems which makes easier to distribute systems in comparison with other programming paradigms.
+intro: These last few days, I have been diving a little into the wonderful world of distributed Erlang. Elixir has some built-in constructs for distributed systems, which make it easier to build distributed systems compared with other programming paradigms.
 
 ---
 
 ## Motivation
 
-Last days I have been diving a little into the wonderful world of Erlang distributed. Elixir, has some built-in constructs for distributed systems which makes easier to distribute systems in comparison with other programming paradigms.
+These last few days, I have been diving a little into the wonderful world of distributed Erlang. Elixir has some built-in constructs for distributed systems, which make it easier to build distributed systems compared with other programming paradigms.
 
-Since Erlang is based on the actor model (where each actor is a process) it is transparent to Erlang if the actor is local or if it is in a remote host, as long as the nodes are connected.
+Since Erlang is based on the actor model (where each actor is a process), it is transparent to Erlang whether an actor is local or on a remote host, as long as the nodes are connected.
 
-Another tool I love to user is Docker, so I started to dive into how to connect two Elixir instances dockerized, it has some tricks that we will discover along this posts.
+Another tool I love to use is Docker, so I started to dive into how to connect two dockerized Elixir instances. It has some tricks that we will discover throughout this post.
 
 ## Connecting dockers with --net=host
 
-In this first attempt we are going to launch two dockers using the latest elixir image, we will have opened two `iex` terminals where we can play with the nodes.
+In this first attempt, we are going to launch two Docker containers using the latest Elixir image, with two `iex` terminals open where we can play with the nodes.
 
 ```shell
 $ docker run -i -t --net=host elixir iex --sname node1 --cookie cookie
@@ -28,7 +28,7 @@ And our second node:
 $ docker run -i -t --net=host elixir iex --sname node2 --cookie cookie
 ```
 
- At using [--net=host](https://docs.docker.com/network/host/) option we are making using of the same network interface between the two dockers, so at some point this scenario is quite similar to the one we have if we launch the two elixir instances locally.
+ By using the [--net=host](https://docs.docker.com/network/host/) option, the two containers share the same network interface, so this scenario is quite similar to launching the two Elixir instances locally.
 
 Let's check if our two nodes are connected:
 
@@ -37,7 +37,7 @@ Let's check if our two nodes are connected:
 > Node.list()
 []
 ```
-This means that the nodes are not connected yet. It is needed to require to get the connection:
+This means that the nodes are not connected yet. We need to request the connection:
 
 ```Elixir
 Node2
@@ -45,14 +45,14 @@ Node2
 true
 ```
 
-Now our nodes are connected, we can check it:
+Now our nodes are connected. We can check it:
 
 ```Elixir
 iex(node2@jkmrto-XPS-15-9570)4> Node.list()
 [:"node1@jkmrto-XPS-15-9570"]
 ```
 
-Another way to check the connectivity with other node is using [:net_admin:ping()](http://Erlang.org/doc/man/net_adm.html#ping-1):
+Another way to check the connectivity with another node is using [:net_admin:ping()](http://Erlang.org/doc/man/net_adm.html#ping-1):
 
 ```elixir
 # Node1
@@ -65,13 +65,13 @@ Pong
 
 ## Connecting nodes with Libcluster
 
-One useful library when trying to get connected our nodes is [libcluster](https://github.com/bitwalker/libcluster). As his own documentation exposes:
+One useful library for connecting our nodes is [libcluster](https://github.com/bitwalker/libcluster). As its own documentation states:
 
 > `This library provides a mechanism for automatically forming clusters of Erlang nodes`.
 
 ### Libcluster POC
 
-Let's build a simple proof of concept with libcluster to run some test over it.
+Let's build a simple proof of concept with libcluster to run some tests on it.
 
 - Create the project:
 
@@ -80,7 +80,7 @@ Let's build a simple proof of concept with libcluster to run some test over it.
 mix new libcluster_poc
 ```
 
-Let's add the dependency on the mix file, remember to check the latest version at [hex](https://hex.pm/packages/libcluster)
+Let's add the dependency to the mix file. Remember to check the latest version on [hex](https://hex.pm/packages/libcluster)
 
 ```Elixir
 #./mix.exs
@@ -107,7 +107,7 @@ end
 ...
 ```
 
-Let's add the module that is called at entry point:
+Let's add the module that is called at the entrypoint:
 
 ```Elixir
 # ./lib/libcluster_poc.ex
@@ -139,12 +139,12 @@ end
 
 It is important to note this:
 
-- The strategic used by Libcluster is `Cluster.Strategy.Epmd` which relies on Epmd to get connected the different hosts.
-- They have been specified three nodes to get connected.
+- The strategy used by Libcluster is `Cluster.Strategy.Epmd`, which relies on Epmd to connect the different hosts.
+- Three nodes have been specified to be connected.
 
 ### Executing three instances locally
 
-Let's launch the three instances in local and to check how the nodes are automatically connected.
+Let's launch the three instances locally and check how the nodes are automatically connected.
 
 
 ```Elixir
@@ -170,17 +170,17 @@ jkmrto:libcluster_poc/ $ iex --sname node3 --cookie cookie -S mix
 [:"node1@jkmrto-XPS-15-9570", :"node2@jkmrto-XPS-15-9570"]
 ```
 
-Amazing! We can see how after running the third node the logs of this node indicates us that they have been correctly connected. So in the end, all we have to care about to get connected the nodes is to indicates the list of nodes when starting the application.
+Amazing! We can see that, after running the third node, its logs indicate that the nodes have been correctly connected. So in the end, all we have to do to connect the nodes is specify the list of nodes when starting the application.
 
 
 ### Checking the Epmd
 
-One interesting system of the Erlang ecosystem is the Erlang Port Mapper Daemon, also know as [Epmd](http://Erlang.org/doc/man/epmd.html). This service is in charge to map each Erlang node to the port where it is listening for connections.
+One interesting part of the Erlang ecosystem is the Erlang Port Mapper Daemon, also known as [Epmd](http://Erlang.org/doc/man/epmd.html). This service is in charge of mapping each Erlang node to the port where it is listening for connections.
 
-An Epmd server is started as soon as one Erlang node starts. If another Erlang node is launched in the same node then the relation `{port, node_name}` will be added to the already running epmd.
+An Epmd server is started as soon as one Erlang node starts. If another Erlang node is launched on the same host, then the `{port, node_name}` pair will be added to the already running epmd.
 
 
-We can check the Erlang nodes running in our machine using the epmd service. The epmd executable is located in the same folder that `erl` binary.
+We can check the Erlang nodes running on our machine using the epmd service. The epmd executable is located in the same folder as the `erl` binary.
 ```shell
 > which erl
 /home/jkmrto/.asdf/shims/erl
@@ -242,7 +242,7 @@ iex(1)>
 
 ### Using docker network
 
-Once we have our docker defined, we need to start think about how to have some of them connected. Let's now use an internal docker net, avoiding using the `--net=host` trick.
+Once we have our Docker image defined, we need to start thinking about how to connect several containers. Let's now use an internal Docker network, avoiding the `--net=host` trick.
 
 Let's create the network, calling it `net_poc`:
 
@@ -252,16 +252,16 @@ docker network create net_poc
 
 ### Custom docker run
 
-Let's run our docker instances. We are going to need some options in order to get the expected behavior.
+Let's run our Docker instances. We are going to need some options in order to get the expected behavior.
 
 These options are:
 
-- `-it`: It is required to initialize an interactive session.
-- `--net net_poc`: It is required to attach the docker to network previously created.
-- `--name`: This would be the name of the node used by the [docker DNS](https://docs.docker.com/v17.09/engine/userguide/networking/configure-dns/) to resolve the docker location inside our custom network. It is also the name given to the docker that allows to identify the container when executing `docker ps`.
-- `--hostname`: This will be the hostname of the docker launched. It is used by Erlang to fully qualified the Erlang node.
-- `--entrypoint=iex libcluster_poc --cookie cookie --sname node1 -S mix`: This syntax allows to define the docker image to be executed and a custom entry point, since it is needed to be different for each container in order to customize the name of the Erlang node with the `-sname` flag.
-    - `--entrypoint=iex`: Executable to be run when starting the docker.
+- `-it`: It is required to start an interactive session.
+- `--net net_poc`: It is required to attach the container to the network created previously.
+- `--name`: This is the name used by the [docker DNS](https://docs.docker.com/v17.09/engine/userguide/networking/configure-dns/) to resolve the container's location inside our custom network. It is also the name that identifies the container when executing `docker ps`.
+- `--hostname`: This will be the hostname of the launched container. It is used by Erlang to fully qualify the Erlang node name.
+- `--entrypoint=iex libcluster_poc --cookie cookie --sname node1 -S mix`: This syntax defines the Docker image to be executed and a custom entrypoint, which needs to be different for each container in order to customize the name of the Erlang node with the `-sname` flag.
+    - `--entrypoint=iex`: Executable to be run when starting the container.
     - `libcluster_poc`: Docker image to be executed.
     - `--cookie cookie --sname node1 -S mix`: Entrypoint arguments.
 
@@ -276,7 +276,7 @@ These options are:
 ```
 
 
-Once both of them are launched we can check that there is connectivity between both of them:
+Once both are launched, we can check that there is connectivity between them:
 
 ``` Elixir
 # Node1
@@ -290,13 +290,13 @@ pong
 pong
 ```
 
-Great! We have are two docker fully connected.
+Great! We have two fully connected containers.
 
-It is important to note that the nodes are not connected when starting them and they get connected when doing `Node.ping/1`. The next step is getting them connected at startup.
+It is important to note that the nodes are not connected when they start; they get connected when calling `Node.ping/1`. The next step is connecting them at startup.
 
 ### Automatic connection with Libcluster
 
-We just need to redefine the nodes at Libcluster topologies to get nodes automatically connected at start.
+We just need to redefine the nodes in the Libcluster topologies to get them automatically connected at startup.
 
 ```Elixir
 #./lib/libcluster_poc.ex
@@ -314,7 +314,7 @@ topologies = [
     ]
 ```
 
-Let's rebuild the docker
+Let's rebuild the Docker image:
 
 
 ```
@@ -335,21 +335,21 @@ Let's run our dockers:
 [libcluster:example] connected to :node1@node1
 ```
 
-Wonderful! Now our two nodes are connected at start up thanks to Libcluster.
+Wonderful! Now our two nodes are connected at startup thanks to Libcluster.
 
 ## Connecting Dockers using DNS autodiscovery
 
-Until now we have been forced to explicitly indicate which are the nodes that are going to be connected in the configuration of libcluster.
+Until now, we have had to explicitly specify which nodes are going to be connected in the libcluster configuration.
 
-Let's think about a possible scenario where we don't know the number of docker that are going to be available in our imaginary cluster. In that case, we will have to think about a way to autodiscover the nodes of our cluster.
+Let's think about a possible scenario where we don't know the number of containers that are going to be available in our imaginary cluster. In that case, we will have to think about a way to autodiscover the nodes of our cluster.
 
-When working with docker and custom networks one useful command is this scenario is the `--net-alias` that sets a custom alias and can be assigned for as many dockers as we want.
+When working with Docker and custom networks, a useful option in this scenario is `--net-alias`, which sets a custom alias that can be assigned to as many containers as we want.
 
-This shared alias can be used to autodiscover all the available dockers that have been labeled with the alias.
+This shared alias can be used to autodiscover all the available containers that have been labeled with the alias.
 
 ### Checking DNS autodiscovery.
 
-Let's launch two nodes with the same `--net-alias`, that would be `web`. We should be able to get the addresses for these nodes asking to the docker DNS.
+Let's launch two nodes with the same `--net-alias`, `web`. We should be able to get the addresses of these nodes by asking the Docker DNS.
 
 ```Bash
 # Node 1
@@ -374,7 +374,7 @@ root@24bc556b10b3:$ ip addr show eth0
 
 The IP for the second node is `172.26.0.2`.
 
-Now we should be able to retrieve the directions for this two hosts launching a new docker connected to the same network and asking to the DNS for the `web` alias.
+Now we should be able to retrieve the addresses of these two hosts by launching a new container connected to the same network and asking the DNS for the `web` alias.
 
 ```Elixir
 # Node 3
@@ -387,21 +387,21 @@ jkmrto:~ $ docker run -it --net net_poc elixir
 {:ok, {:hostent, 'web', [], :inet, 4, [ip1, ip2] }} = :inet.gethostbyname(:web)
 ```
 
-As we expected for the 'web' hostname the DNS provides us with two different IPs 172.26.0.3 and 172.26.0.2, related to the two nodes we have previously launched.
+As expected, for the 'web' hostname the DNS provides two different IPs, 172.26.0.3 and 172.26.0.2, corresponding to the two nodes we launched previously.
 
 ### Autodiscovery nodes at startup
 
-Some steps are needed to be able to autodiscover the nodes based on the alias. Firstly we need to adapt the code of the application in order to:
+Some steps are needed to autodiscover the nodes based on the alias. First, we need to adapt the application code to:
 
 1. Retrieve IPs of the nodes based on the `--net-alias`.
-2. For all the given IPs: Get hostname based on IP.
-3. Used retrieved hosts as parameter on the start of Libcluster to get them connected.
+2. Get the hostname for each of the given IPs.
+3. Use the retrieved hosts as parameters when starting Libcluster, to get them connected.
 
 <div class="d-flex flex-row justify-content-center">
 	<img style="max-width: 70%" src="/images/nodes_autodiscovery.png" alt="Start step for nodes autodiscovery">
 </div>
 
-With this in mind the `Application.start()` of the application should look like:
+With this in mind, the application's `Application.start()` should look like this:
 
 ``` Elixir
 defmodule LibclusterPoc do
@@ -425,7 +425,7 @@ defmodule LibclusterPoc do
   end
 ```
 
-The important piece of code is the function `get_cluster_hosts()`, which is in charge on ask for all the available nodes with that alias to the DNS.
+The important piece of code is the function `get_cluster_hosts()`, which is in charge of asking the DNS for all the available nodes with that alias.
 
 ``` Elixir
   def get_cluster_hosts() do
@@ -443,7 +443,7 @@ The important piece of code is the function `get_cluster_hosts()`, which is in c
   end
 ```
 
-Another auxiliary function has been added `normalize_hostname` because when retrieving the hostname of some dockers this hostname contains the `--net-alias` as part of it. This can cause confusion on Libcluster so it was needed to remove it.
+Another auxiliary function, `normalize_hostname`, has been added because, when retrieving the hostname of some containers, the hostname contains the `--net-alias` as part of it. This can confuse Libcluster, so it needed to be removed.
 
 ```elixir
 # Node2
@@ -456,7 +456,7 @@ Another auxiliary function has been added `normalize_hostname` because when retr
 end
 ```
 
-Once we have modified the code, we need to rebuild the docker:
+Once we have modified the code, we need to rebuild the Docker image:
 
 ```bash
 docker build -t libcluster .
@@ -494,4 +494,4 @@ iex(node@node3)1> Node.list)()
 We can see how each new host is automatically connected to the others.
 
 # Final thoughts
-At this post an interesting approach to get autodiscovery nodes has been exposed but in each scenario we should analyze which could be the best option. For example, If we were working with Kubernetes probably we can find another way to approach the problem making use of some built-in features. Libcluster offers a strategy related to [Kubernetes](https://github.com/bitwalker/libcluster/blob/master/lib/strategy/kubernetes.ex).
+This post has shown an interesting approach to autodiscovering nodes, but in each scenario we should analyze which option is best. For example, if we were working with Kubernetes, we could probably find another way to approach the problem using some built-in features. Libcluster offers a strategy related to [Kubernetes](https://github.com/bitwalker/libcluster/blob/master/lib/strategy/kubernetes.ex).

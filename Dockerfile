@@ -19,7 +19,7 @@ COPY config config
 RUN mix do deps.get + deps.compile
 
 
-FROM node:14.14.0-alpine as frontend
+FROM node:24.11.1-alpine AS frontend
 
 WORKDIR /app
 COPY --from=builder /app/deps/phoenix /app/deps/phoenix

@@ -38,6 +38,21 @@ defmodule PhoenixBlogWeb.Components.Layout do
 
           gtag("config", "G-0T4NY8QTPE");
         </script>
+        <script type="speculationrules">
+          {
+            "prerender": [
+              {
+                "where": {
+                  "and": [
+                    { "href_matches": "/*" },
+                    { "not": { "href_matches": "/contact" } }
+                  ]
+                },
+                "eagerness": "moderate"
+              }
+            ]
+          }
+        </script>
       </head>
 
       <body>

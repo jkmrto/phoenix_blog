@@ -17,7 +17,7 @@ A simple but effective way to make this process easier is: `git checkout $(git b
 
 ## Step by step
 
-1 - List the available branches with `git branch -a`. Only the local branches will be listed.
+1 - List the available branches with `git branch -a`. Both local and remote branches will be listed.
 ```console
 $ git branch -a
 ```
@@ -29,10 +29,10 @@ $ git branch -a | fzf
 
 3 - Use the selected branch for the git checkout:
 ```console
-$ git checkout (git branch -a | fzf)
+$ git checkout $(git branch -a | fzf)
 ```
 
 4 - [Bonus] Integrate it into `zsh` by appending this to `~/.zsh`:
 ```console
-alias gck="git checkout (git branch -a | fzf)"
+alias gck='git checkout $(git branch -a | fzf)'
 ```

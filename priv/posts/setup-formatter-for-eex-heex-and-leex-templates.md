@@ -56,7 +56,7 @@ $ asdf global ruby 3.0.0-dev
 Install the gem:
 
 ```bash
-$ gem install html beautifier
+$ gem install htmlbeautifier
 ```
 
 Apply this formatter to a heex template:

@@ -78,7 +78,7 @@ Putting everything together:
 ```elixir
 [1,2,3,4,5]
 |> Enum.chunk_every(2, 1, :discard)
-|> Enum.all?(fn {v1, v2} -> v2 > v1 end)
+|> Enum.all?(fn [v1, v2] -> v2 > v1 end)
 ```
 
 It is amazing how some problems that are tedious in imperative languages can be solved in the functional paradigm. In terms of performance, though, the Go approach is probably more efficient.

@@ -13,7 +13,7 @@ defmodule PhoenixBlogWeb.ContactController do
 
   def create(conn = %{params: %{"g-recaptcha-response" => ""}}, _) do
     conn
-    |> put_flash(:error, "Please: complete the captcha")
+    |> put_flash(:error, "Please complete the captcha.")
     |> render_index()
   end
 
@@ -27,8 +27,8 @@ defmodule PhoenixBlogWeb.ContactController do
              params["message"]
            ) do
       conn
-      |> put_flash(:info, "Email correctly sent")
-      |> render_index()
+      |> put_flash(:info, "Email sent. Thanks for reaching out!")
+      |> redirect(to: Routes.contact_path(conn, :index))
     else
       {:error, errors} ->
         Logger.error("#{inspect(errors)}")

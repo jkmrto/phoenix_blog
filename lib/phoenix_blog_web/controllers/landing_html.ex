@@ -21,7 +21,13 @@ defmodule PhoenixBlogWeb.LandingHTML do
           </div>
           <div class="image-wrap ms-5">
             <div class="d-flex my-4">
-              <img src="images/wtf.jpeg" width="160" height="160" style="border-radius: 25%" />
+              <img
+                src="images/wtf.jpeg"
+                alt="Juan Carlos at a mountain lake"
+                width="160"
+                height="160"
+                style="border-radius: 25%"
+              />
             </div>
           </div>
         </div>
@@ -54,14 +60,14 @@ defmodule PhoenixBlogWeb.LandingHTML do
           or on any social network:
         </p>
         <div id="resume-summary-contact">
-          <a href="https://www.github.com/jkmrto">
-            <i class="fab fa-github resume-icon"></i>
+          <a href="https://www.github.com/jkmrto" aria-label="GitHub">
+            <i class="fab fa-github resume-icon" aria-hidden="true"></i>
           </a>
-          <a href="https://www.linkedin.com/in/jkmrto">
-            <i class="fab fa-linkedin resume-icon"></i>
+          <a href="https://www.linkedin.com/in/jkmrto" aria-label="LinkedIn">
+            <i class="fab fa-linkedin resume-icon" aria-hidden="true"></i>
           </a>
-          <a href="https://twitter.com/jkmrto">
-            <i class="fab fa-twitter resume-icon"></i>
+          <a href="https://twitter.com/jkmrto" aria-label="Twitter">
+            <i class="fab fa-twitter resume-icon" aria-hidden="true"></i>
           </a>
         </div>
       </div>

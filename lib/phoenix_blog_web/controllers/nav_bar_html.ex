@@ -22,6 +22,7 @@ defmodule PhoenixBlogWeb.NavBarHTML do
           <a
             id="menu-icon"
             class="fas fa-bars menu-icon"
+            aria-label="Toggle navigation menu"
             type="button"
             data-toggle="collapse"
             data-target="#collapseExample"

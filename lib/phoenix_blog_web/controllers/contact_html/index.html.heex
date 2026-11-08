@@ -2,27 +2,27 @@
   <div class="contact1">
     <div class="container-contact1">
       <div class="contact1-pic js-tilt pb-5" data-tilt>
-        <img src="../images/mail.png" alt="IMG" />
+        <img src="/images/mail.png" alt="" />
       </div>
 
       <%= form_for @conn, Routes.contact_path(@conn, :create), [class: "contact1-form validate-form"], fn f -> %>
         <div class="wrap-input1" data-validate="Name is required">
-          {text_input(f, :name, class: "input1", placeholder: "Name")}
+          {text_input(f, :name, class: "input1", placeholder: "Name", required: true)}
           <span class="shadow-input1"></span>
         </div>
 
         <div class="wrap-input1">
-          {text_input(f, :email, class: "input1", placeholder: "Email")}
+          {email_input(f, :email, class: "input1", placeholder: "Email", required: true)}
           <span class="shadow-input1"></span>
         </div>
 
         <div class="wrap-input1">
-          {text_input(f, :subject, class: "input1", placeholder: "Subject")}
+          {text_input(f, :subject, class: "input1", placeholder: "Subject", required: true)}
           <span class="shadow-input1"></span>
         </div>
 
         <div class="wrap-input1">
-          <textarea class="input1" name="message" placeholder="Message"></textarea>
+          {textarea(f, :message, class: "input1", placeholder: "Message", required: true)}
           <span class="shadow-input1"></span>
         </div>
 

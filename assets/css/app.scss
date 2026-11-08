@@ -494,3 +494,45 @@ footer {
     cursor: pointer;
   }
 }
+
+// Justified text leaves large gaps between words on narrow screens.
+@media screen and (max-width: $breakpoint-tablet) {
+  p,
+  li,
+  #landing p,
+  #landing li {
+    text-align: left;
+  }
+}
+
+.code-block {
+  position: relative;
+
+  .copy-code-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 2px 10px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    height: auto;
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .copy-code-button:hover,
+  .copy-code-button:focus {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+  }
+}

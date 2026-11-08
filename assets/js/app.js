@@ -18,4 +18,26 @@ import Prism from "prismjs";
 
 Prism.highlightAll();
 
+document.querySelectorAll(".post-container pre > code").forEach((code) => {
+  const pre = code.parentElement;
+  const wrapper = document.createElement("div");
+  wrapper.className = "code-block";
+  pre.parentNode.insertBefore(wrapper, pre);
+  wrapper.appendChild(pre);
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "copy-code-button";
+  button.textContent = "Copy";
+  button.setAttribute("aria-label", "Copy code to clipboard");
+  button.addEventListener("click", () => {
+    navigator.clipboard.writeText(code.innerText).then(
+      () => (button.textContent = "Copied!"),
+      () => (button.textContent = "Failed")
+    );
+    setTimeout(() => (button.textContent = "Copy"), 2000);
+  });
+  wrapper.appendChild(button);
+});
+
 import "phoenix_html";
